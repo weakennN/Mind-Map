@@ -1,9 +1,11 @@
 package NodeCreator;
 
 import Common.Events;
+import Core.MindMap;
+import Nodes.Node;
 import Nodes.TopicNode;
 import UI.UI;
-import javafx.scene.control.TextField;
+import javafx.scene.input.MouseButton;
 
 public class TopicNodeCreator extends NodeCreator {
 
@@ -12,16 +14,22 @@ public class TopicNodeCreator extends NodeCreator {
     }
 
     @Override
-    public void createNode(double posX, double posY) {
+    public Node createNode(Node parent, MindMap mindMap) {
 
-        // TODO: add the topic node to the mind map list
+        TopicNode topicNode = new TopicNode(parent);
 
-        TopicNode topicNode = new TopicNode(null, posX, posY);
-        TextField textField = new TextField(topicNode.getTitle());
-        textField.setLayoutX(topicNode.getSize().x);
-        textField.setLayoutY(topicNode.getSize().y);
-        textField.setMinSize(topicNode.getSize().x, topicNode.getSize().y);
-        Events.move(textField);
-        super.getUi().getRoot().getChildren().add(textField);
+        Events.move(topicNode);
+        Events.clicked(topicNode);
+
+        super.getUi().getRoot().getChildren().add(topicNode);
+
+        topicNode.setOnMouseClicked(e -> {
+
+            if (e.getButton() == MouseButton.SECONDARY) {
+                mindMap.getMenu("NodeMenu").show(topicNode, e.getSceneX(), e.getSceneY());
+            }
+        });
+
+        return topicNode;
     }
 }

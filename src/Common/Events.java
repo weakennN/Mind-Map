@@ -1,26 +1,50 @@
 package Common;
 
+import Nodes.Connection;
+import Nodes.Node;
 import javafx.event.EventHandler;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.robot.Robot;
 
+import java.util.List;
+
 public class Events {
 
-    public static void move(TextField textField) {
+    public static void move(Node node) {
 
-        EventHandler<MouseEvent> event = new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
+        EventHandler<MouseEvent> event = mouseEvent -> {
 
-                Robot robot = new Robot();
+            Robot mouse = new Robot();
+            node.setLayoutX(mouseEvent.getSceneX());
+            node.setLayoutY(mouseEvent.getSceneY());
 
-                textField.setLayoutX(robot.getMouseX() - 20);
-                textField.setLayoutY(robot.getMouseY() - 20);
+            List<Connection> connections = node.getConnections();
+
+            for (int i = 0;i < connections.size();i++){
+
+                Connection connection = connections.get(i);
+
+                if (connection.parent() == node){
+                    connection.setStartX(node.getLayoutX());
+                    connection.setStartY(node.getLayoutY());
+                }else {
+
+                    connection.setEndX(node.getLayoutX());
+                    connection.setEndY(node.getLayoutY());
+                }
             }
+
+            node.setPos(mouse.getMouseX(), mouse.getMouseY());
         };
 
+        node.setOnMouseDragged(event);
+    }
 
-        textField.setOnMouseDragged(event);
+    public static void clicked(Node node) {
+
+        node.setOnMouseClicked(e -> {
+
+            NodeClicked.node = node;
+        });
     }
 }

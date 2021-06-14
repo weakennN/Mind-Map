@@ -1,31 +1,33 @@
 package Nodes;
 
+import javafx.scene.layout.Region;
 import mikera.vectorz.Vector2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Node {
+public abstract class Node extends Region {
 
     private Node parent;
-    private List<Node> children;
+
+    private List<Connection> connections;
     private Vector2 size;
     private Vector2 pos;
 
     public Node(Node parent, double width, double height, double posX, double posY) {
 
+        super();
         this.parent = parent;
-        this.children = new ArrayList<>();
+        this.connections = new ArrayList<>();
         this.size = new Vector2(width, height);
         this.pos = new Vector2(posX, posY);
+        super.setLayoutX(posX);
+        super.setLayoutY(posY);
+        super.setMinSize(this.size.x, this.size.y);
     }
 
-    public void addChild(Node child) {
-        this.children.add(child);
-    }
-
-    public List<Node> getChildren() {
-        return this.children;
+    public void addConnection(Connection connection) {
+        this.connections.add(connection);
     }
 
     public Vector2 getSize() {
@@ -43,4 +45,9 @@ public abstract class Node {
     public void setPos(double posX, double posY) {
         this.pos = new Vector2(posX, posY);
     }
+
+    public List<Connection> getConnections() {
+        return this.connections;
+    }
+
 }
