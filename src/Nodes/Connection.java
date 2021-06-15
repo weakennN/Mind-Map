@@ -11,11 +11,7 @@ public class Connection extends Line {
 
         this.parent = parent;
         this.connected = connected;
-
-        super.setStartX(this.parent.getLayoutX());
-        super.setEndX(this.connected.getLayoutX());
-        super.setStartY(this.parent.getLayoutY());
-        super.setEndY(this.connected.getLayoutY());
+        super.setViewOrder(2);
     }
 
     public Node parent() {

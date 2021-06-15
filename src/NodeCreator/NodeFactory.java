@@ -18,7 +18,7 @@ public class NodeFactory {
 
         ui = ui_;
         nodeCreators.put("Topic Node", new TopicNodeCreator(ui));
-        nodeCreators.put("Branch Node", new BranchNodeCreator(ui));
+        nodeCreators.put("Add branch", new BranchNodeCreator(ui));
     }
 
     public static Node createNode(String nodeCreator, Node parent, MindMap mindMap) {

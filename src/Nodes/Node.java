@@ -1,6 +1,11 @@
 package Nodes;
 
+import javafx.geometry.Insets;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
 import mikera.vectorz.Vector2;
 
 import java.util.ArrayList;
@@ -24,6 +29,13 @@ public abstract class Node extends Region {
         super.setLayoutX(posX);
         super.setLayoutY(posY);
         super.setMinSize(this.size.x, this.size.y);
+    /*    BackgroundFill myBF = new BackgroundFill(Color.BLUEVIOLET, new CornerRadii(1),
+                new Insets(0.0,0.0,0.0,0.0));
+        super.setBackground(new Background(myBF));
+
+
+     */
+
     }
 
     public void addConnection(Connection connection) {
@@ -48,6 +60,10 @@ public abstract class Node extends Region {
 
     public List<Connection> getConnections() {
         return this.connections;
+    }
+
+    public void removeConnection(Connection connection) {
+        this.connections.remove(connection);
     }
 
 }

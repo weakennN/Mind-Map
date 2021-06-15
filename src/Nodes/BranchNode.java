@@ -16,6 +16,7 @@ public class BranchNode extends Node {
         this.textArea.setPrefHeight(GlobalVariables.BRANCH_NODE_WIDTH);
         this.textArea.setPrefWidth(GlobalVariables.BRANCH_NODE_WIDTH);
         getChildren().addAll(this.textArea);
+        super.setViewOrder(1);
     }
 
     public BranchNode(Node parent) {

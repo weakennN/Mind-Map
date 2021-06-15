@@ -25,12 +25,12 @@ public class Events {
                 Connection connection = connections.get(i);
 
                 if (connection.parent() == node){
-                    connection.setStartX(node.getLayoutX());
-                    connection.setStartY(node.getLayoutY());
+                    connection.setStartX(node.getLayoutX() + node.getSize().x / 2);
+                    connection.setStartY(node.getLayoutY() + node.getSize().y / 2);
                 }else {
 
-                    connection.setEndX(node.getLayoutX());
-                    connection.setEndY(node.getLayoutY());
+                    connection.setEndX(node.getLayoutX() + node.getSize().x / 2);
+                    connection.setEndY(node.getLayoutY() + node.getSize().y / 2);
                 }
             }
 
@@ -40,11 +40,4 @@ public class Events {
         node.setOnMouseDragged(event);
     }
 
-    public static void clicked(Node node) {
-
-        node.setOnMouseClicked(e -> {
-
-            NodeClicked.node = node;
-        });
-    }
 }

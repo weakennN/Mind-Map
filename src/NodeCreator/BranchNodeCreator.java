@@ -1,6 +1,7 @@
 package NodeCreator;
 
 import Common.Events;
+import Common.NodeClicked;
 import Core.MindMap;
 import Nodes.BranchNode;
 import Nodes.Connection;
@@ -20,19 +21,23 @@ public class BranchNodeCreator extends NodeCreator {
         BranchNode branchNode = new BranchNode(parent);
 
         Events.move(branchNode);
-        Events.clicked(branchNode);
 
-        Connection connection = super.getConnector().connectNodes(parent, branchNode);
+        Connection connection = null;
+
+        if (parent != null) {
+            connection = super.getConnector().connectNodes(parent, branchNode);
+            mindMap.getChildren().add(connection);
+        }
 
         branchNode.setOnMouseClicked(e -> {
 
             if (e.getButton() == MouseButton.SECONDARY) {
+                NodeClicked.node = branchNode;
                 mindMap.getMenu("NodeMenu").show(branchNode, e.getSceneX(), e.getSceneY());
             }
         });
 
-        super.getUi().getRoot().getChildren().addAll(branchNode, connection);
-
+        NodeClicked.node = null;
         return branchNode;
     }
 }

@@ -1,13 +1,13 @@
 package RightClickMenu;
 
 import Core.MindMap;
-import RightClickMenu.MenuItems.AddNode;
+import RightClickMenu.MenuItems.AddTopic;
 
-public class MindMapMenu extends BaseMenu{
+public class MindMapMenu extends BaseMenu {
 
     public MindMapMenu(MindMap mindMap) {
         super(mindMap);
 
-        super.addItem(new AddNode(super.getMindMap()));
+        super.addItem(new AddTopic(super.getMindMap()));
     }
 }

@@ -1,5 +1,6 @@
 package Core;
 
+import Common.NodeClicked;
 import Nodes.Node;
 import RightClickMenu.BaseMenu;
 import RightClickMenu.MindMapMenu;
@@ -41,7 +42,7 @@ public class MindMap extends Pane {
 
         super.setOnMouseClicked(e -> {
 
-            if (e.getButton() == MouseButton.SECONDARY) {
+            if (e.getButton() == MouseButton.SECONDARY && NodeClicked.node == null) {
                 this.menus.get("MindMapMenu").show(this, e.getSceneX(), e.getSceneY());
             }
         });
@@ -49,5 +50,10 @@ public class MindMap extends Pane {
 
     public BaseMenu getMenu(String menu) {
         return this.menus.get(menu);
+    }
+
+    public void removeNode(Node node){
+        this.nodes.remove(node);
+        super.getChildren().remove(node);
     }
 }

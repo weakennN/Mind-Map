@@ -1,6 +1,7 @@
 package NodeCreator;
 
 import Common.Events;
+import Common.NodeClicked;
 import Core.MindMap;
 import Nodes.Node;
 import Nodes.TopicNode;
@@ -19,17 +20,17 @@ public class TopicNodeCreator extends NodeCreator {
         TopicNode topicNode = new TopicNode(parent);
 
         Events.move(topicNode);
-        Events.clicked(topicNode);
-
-        super.getUi().getRoot().getChildren().add(topicNode);
 
         topicNode.setOnMouseClicked(e -> {
 
             if (e.getButton() == MouseButton.SECONDARY) {
+                NodeClicked.node = topicNode;
                 mindMap.getMenu("NodeMenu").show(topicNode, e.getSceneX(), e.getSceneY());
             }
         });
 
+
+        NodeClicked.node = null;
         return topicNode;
     }
 }

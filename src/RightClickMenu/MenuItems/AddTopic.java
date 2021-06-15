@@ -3,12 +3,12 @@ package RightClickMenu.MenuItems;
 import Core.MindMap;
 import NodeCreator.NodeFactory;
 
-public class AddNode extends BaseMenuItem {
+public class AddTopic extends BaseMenuItem {
 
-    public AddNode(MindMap mindMap) {
+    public AddTopic(MindMap mindMap) {
 
         super(mindMap);
-        super.setText("Add node");
+        super.setText("Add topic");
         this.setAction();
     }
 
