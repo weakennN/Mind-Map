@@ -25,17 +25,17 @@ public class Camera extends PerspectiveCamera {
 
     public void translate(double mouseX, double mouseY) {
 
-        int velX = 0;
-        int velY = 0;
+        double velX = 0;
+        double velY = 0;
 
         if (mouseX < this.pos.x) {
-            velX = 1;
+            velX = 2;
         } else if (mouseX > this.pos.x) {
-            velX = -1;
+            velX = -2;
         } else if (mouseY < this.pos.y) {
-            velY = 1;
+            velY = 2;
         } else if (mouseY > this.pos.y) {
-            velY = -1;
+            velY = -2;
         }
 
         this.pos.x = mouseX;

@@ -1,12 +1,11 @@
 package NodeCreator;
 
-import Common.Events;
+import Common.GlobalVariables;
 import Common.NodeClicked;
 import Core.MindMap;
 import Nodes.Node;
 import Nodes.TopicNode;
 import UI.UI;
-import javafx.scene.input.MouseButton;
 
 public class TopicNodeCreator extends NodeCreator {
 
@@ -19,16 +18,7 @@ public class TopicNodeCreator extends NodeCreator {
 
         TopicNode topicNode = new TopicNode(parent);
 
-        Events.move(topicNode);
-
-        topicNode.setOnMouseClicked(e -> {
-
-            if (e.getButton() == MouseButton.SECONDARY) {
-                NodeClicked.node = topicNode;
-                mindMap.getMenu("NodeMenu").show(topicNode, e.getSceneX(), e.getSceneY());
-            }
-        });
-
+        super.initDefaultActions(topicNode, mindMap, GlobalVariables.NODE_MENU);
 
         NodeClicked.node = null;
         return topicNode;

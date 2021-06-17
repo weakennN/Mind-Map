@@ -1,12 +1,12 @@
 package Core;
 
 import Camera.Camera;
+import Common.GlobalVariables;
 import Common.NodeClicked;
 import Nodes.Node;
 import RightClickMenu.BaseMenu;
 import RightClickMenu.MindMapMenu;
 import RightClickMenu.NodeMenu;
-import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.SubScene;
 import javafx.scene.input.MouseButton;
@@ -45,13 +45,15 @@ public class MindMap extends Pane {
 
         this.menus = new HashMap<>();
 
-        this.menus.put("MindMapMenu", new MindMapMenu(this));
-        this.menus.put("NodeMenu", new NodeMenu(this));
+        this.menus.put(GlobalVariables.MIND_MAP_MENU, new MindMapMenu(this));
+        this.menus.put(GlobalVariables.NODE_MENU, new NodeMenu(this));
 
         super.setOnMouseClicked(e -> {
 
             if (e.getButton() == MouseButton.SECONDARY && NodeClicked.node == null) {
-                this.menus.get("MindMapMenu").show(this, e.getSceneX(), e.getSceneY());
+                this.menus.get(GlobalVariables.MIND_MAP_MENU).show(this, e.getSceneX(), e.getSceneY());
+            }else if (e.getButton() == MouseButton.PRIMARY){
+                NodeClicked.node = null;
             }
         });
     }

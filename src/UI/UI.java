@@ -11,7 +11,7 @@ public class UI {
 
     private Scene scene;
     private Stage stage;
-    private Pane root;
+    private MindMap root;
 
     public UI() {
 
@@ -20,12 +20,11 @@ public class UI {
 
     private void init() {
 
-        this.root = new Pane();
-        MindMap mindMap = new MindMap();
-        this.scene = new Scene(mindMap, 1920, 1080);
-        Camera camera = new Camera(mindMap);
+        this.root = new MindMap();
+        this.scene = new Scene(this.root, 1920, 1080);
+        Camera camera = new Camera(this.root);
         camera.setNearClip(0.1);
-        camera.setFarClip(2000.0);
+        camera.setFarClip(100);
         scene.setCamera(camera);
         this.scene.setOnMouseDragged(e -> {
 
@@ -45,7 +44,7 @@ public class UI {
         return stage;
     }
 
-    public Pane getRoot() {
+    public MindMap getRoot() {
         return root;
     }
 
@@ -53,5 +52,4 @@ public class UI {
         this.root = mindMap;
     }
 
-    // TODO refactor this class so it can have a method that init a scene and adds the main mind map as the root after it got init or parse it trough constructor put the ui in the mind map and try to put as sub scene root the main root
 }

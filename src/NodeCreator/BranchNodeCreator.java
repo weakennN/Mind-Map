@@ -1,13 +1,13 @@
 package NodeCreator;
 
 import Common.Events;
+import Common.GlobalVariables;
 import Common.NodeClicked;
 import Core.MindMap;
 import Nodes.BranchNode;
 import Nodes.Connection;
 import Nodes.Node;
 import UI.UI;
-import javafx.scene.input.MouseButton;
 
 public class BranchNodeCreator extends NodeCreator {
 
@@ -20,8 +20,6 @@ public class BranchNodeCreator extends NodeCreator {
 
         BranchNode branchNode = new BranchNode(parent);
 
-        Events.move(branchNode);
-
         Connection connection = null;
 
         if (parent != null) {
@@ -29,13 +27,7 @@ public class BranchNodeCreator extends NodeCreator {
             mindMap.getChildren().add(connection);
         }
 
-        branchNode.setOnMouseClicked(e -> {
-
-            if (e.getButton() == MouseButton.SECONDARY) {
-                NodeClicked.node = branchNode;
-                mindMap.getMenu("NodeMenu").show(branchNode, e.getSceneX(), e.getSceneY());
-            }
-        });
+        super.initDefaultActions(branchNode, mindMap, GlobalVariables.NODE_MENU);
 
         NodeClicked.node = null;
         return branchNode;

@@ -21,8 +21,10 @@ public class Events {
             GlobalMethods.moveConnections(connections, node);
 
             node.setPos(mouseEvent.getSceneX(), mouseEvent.getSceneY());
+            NodeClicked.node = node;
         };
-        NodeClicked.node = node;
+
+
         node.setOnMouseDragged(event);
     }
 

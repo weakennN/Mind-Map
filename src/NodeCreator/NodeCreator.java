@@ -1,8 +1,11 @@
 package NodeCreator;
 
+import Common.Events;
+import Common.NodeClicked;
 import Core.MindMap;
 import Nodes.Node;
 import UI.UI;
+import javafx.scene.input.MouseButton;
 
 public abstract class NodeCreator {
 
@@ -23,5 +26,18 @@ public abstract class NodeCreator {
 
     protected NodeConnector getConnector() {
         return this.connector;
+    }
+
+    public void initDefaultActions(Node node,MindMap mindMap,String menuType){
+
+        Events.move(node);
+
+        node.setOnMouseClicked(e -> {
+
+            if (e.getButton() == MouseButton.SECONDARY) {
+                NodeClicked.node = node;
+                mindMap.getMenu(menuType).show(node, e.getSceneX(), e.getSceneY());
+            }
+        });
     }
 }

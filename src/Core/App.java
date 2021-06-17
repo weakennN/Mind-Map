@@ -16,6 +16,7 @@ public class App {
         this.ui = ui;
         NodeFactory.init(this.ui);
         this.mindMaps = new ArrayList<>();
+        this.mindMaps.add(this.ui.getRoot());
     }
 
     public void createMindMap() {

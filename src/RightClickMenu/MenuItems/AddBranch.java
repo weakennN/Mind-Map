@@ -1,5 +1,6 @@
 package RightClickMenu.MenuItems;
 
+import Common.GlobalVariables;
 import Common.NodeClicked;
 import Core.MindMap;
 import NodeCreator.NodeFactory;
@@ -17,7 +18,7 @@ public class AddBranch extends BaseMenuItem {
 
         super.setOnAction(e -> {
 
-            super.getMindMap().addNode(NodeFactory.createNode("Add branch", NodeClicked.node, super.getMindMap()));
+            super.getMindMap().addNode(NodeFactory.createNode(GlobalVariables.BRANCH_CREATOR, NodeClicked.node, super.getMindMap()));
         });
 
     }

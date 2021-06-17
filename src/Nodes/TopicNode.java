@@ -6,11 +6,6 @@ import javafx.geometry.Orientation;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.StrokeLineCap;
-import javafx.scene.shape.StrokeLineJoin;
-import javafx.scene.shape.StrokeType;
-
-import java.util.List;
 
 public class TopicNode extends Node {
 
