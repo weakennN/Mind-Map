@@ -1,5 +1,7 @@
 package UI;
 
+import Camera.Camera;
+import Common.NodeClicked;
 import Core.MindMap;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -19,7 +21,18 @@ public class UI {
     private void init() {
 
         this.root = new Pane();
-        this.scene = new Scene(root, 1920, 1080);
+        MindMap mindMap = new MindMap();
+        this.scene = new Scene(mindMap, 1920, 1080);
+        Camera camera = new Camera(mindMap);
+        camera.setNearClip(0.1);
+        camera.setFarClip(2000.0);
+        scene.setCamera(camera);
+        this.scene.setOnMouseDragged(e -> {
+
+            if (NodeClicked.node == null) {
+                camera.translate(e.getSceneX(), e.getSceneY());
+            }
+        });
         this.stage = new Stage();
         this.stage.setScene(this.scene);
     }
@@ -36,5 +49,9 @@ public class UI {
         return root;
     }
 
-    // TODO refactor this class so it can have a method that init a scene and adds the main mind map as the root after it got init or parse it trough constructor
+    public void setRoot(MindMap mindMap) {
+        this.root = mindMap;
+    }
+
+    // TODO refactor this class so it can have a method that init a scene and adds the main mind map as the root after it got init or parse it trough constructor put the ui in the mind map and try to put as sub scene root the main root
 }

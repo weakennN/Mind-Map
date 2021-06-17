@@ -18,24 +18,11 @@ public class Events {
 
             List<Connection> connections = node.getConnections();
 
-            for (int i = 0; i < connections.size(); i++) {
-
-                Connection connection = connections.get(i);
-
-                if (connection.parent() == node) {
-
-                    connection.setStartX(node.getLayoutX() + node.getSize().x / 2);
-                    connection.setStartY(node.getLayoutY() + node.getSize().y / 2);
-                } else {
-
-                    connection.setEndX(node.getLayoutX() + node.getSize().x / 2);
-                    connection.setEndY(node.getLayoutY() + node.getSize().y / 2);
-                }
-            }
+            GlobalMethods.moveConnections(connections, node);
 
             node.setPos(mouseEvent.getSceneX(), mouseEvent.getSceneY());
         };
-
+        NodeClicked.node = node;
         node.setOnMouseDragged(event);
     }
 

@@ -6,7 +6,7 @@ import Nodes.Node;
 import RightClickMenu.BaseMenu;
 import RightClickMenu.MindMapMenu;
 import RightClickMenu.NodeMenu;
-import com.sun.glass.ui.Screen;
+import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.SubScene;
 import javafx.scene.input.MouseButton;
@@ -28,8 +28,11 @@ public class MindMap extends Pane {
 
         this.nodes = new ArrayList<>();
         this.initMenus();
-        super.setMinSize(Screen.getMainScreen().getWidth(), Screen.getMainScreen().getHeight());
         super.setCursor(Cursor.CROSSHAIR);
+        super.setMinSize(1920, 1080);
+        BackgroundFill myBF = new BackgroundFill(Color.valueOf("ffffff"), null,
+                null);
+        super.setBackground(new Background(myBF));
     }
 
     public void addNode(Node node) {
@@ -75,6 +78,9 @@ public class MindMap extends Pane {
 
             this.camera.translate(e.getSceneX(), e.getSceneY());
         });
+    }
 
+    public List<Node> getNodes() {
+        return this.nodes;
     }
 }
