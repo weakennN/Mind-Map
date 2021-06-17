@@ -12,7 +12,6 @@ public class RemoveNode extends BaseMenuItem {
 
         super(mindMap);
         super.setText("Delete");
-        this.setAction();
     }
 
     @Override
@@ -30,7 +29,7 @@ public class RemoveNode extends BaseMenuItem {
                 super.getMindMap().getChildren().remove(connection);
                 connections.remove(connection);
             }
-            
+
             super.getMindMap().removeNode(NodeClicked.node);
             NodeClicked.node = null;
         });

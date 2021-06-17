@@ -1,8 +1,13 @@
 package Nodes;
 
 import Common.GlobalVariables;
+import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 
 public class BranchNode extends Node {
 
@@ -11,12 +16,19 @@ public class BranchNode extends Node {
     public BranchNode(Node parent, double posX, double posY) {
         super(parent, GlobalVariables.BRANCH_NODE_WIDTH, GlobalVariables.BRANCH_NODE_HEIGHT, posX, posY);
 
-        this.textArea = new TextArea("Branch");
+        this.textArea = new TextArea();
+        this.textArea.setPromptText("Branch");
         this.textArea.setWrapText(true);
-        this.textArea.setPrefHeight(GlobalVariables.BRANCH_NODE_WIDTH);
-        this.textArea.setPrefWidth(GlobalVariables.BRANCH_NODE_WIDTH);
+        this.textArea.setPrefHeight(50);
+        this.textArea.setPrefWidth(80);
+        this.textArea.setLayoutX(posX + 25);
+        this.textArea.setLayoutY(posY + 25);
+        this.textArea.setStyle("-fx-background-color: transparent");
         getChildren().addAll(this.textArea);
         super.setViewOrder(1);
+        BackgroundFill myBF = new BackgroundFill(Color.valueOf("f7fafa"), new CornerRadii(20),
+                new Insets(5));
+        super.setBackground(new Background(myBF));
     }
 
     public BranchNode(Node parent) {
@@ -26,12 +38,12 @@ public class BranchNode extends Node {
 
     @Override
     protected double computePrefHeight(double width) {
-        return this.textArea.getPrefHeight() + 10;
+        return super.getSize().y;
     }
 
     @Override
     protected double computePrefWidth(double height) {
-        return this.textArea.getPrefWidth() + 10;
+        return super.getSize().x;
     }
 
     @Override

@@ -18,7 +18,7 @@ public abstract class Node extends Region {
     private List<Connection> connections;
     private Vector2 size;
     private Vector2 pos;
-
+// TODO: create Skin class which implements how the node will look like
     public Node(Node parent, double width, double height, double posX, double posY) {
 
         super();

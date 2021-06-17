@@ -10,7 +10,6 @@ public class AddBranch extends BaseMenuItem {
 
         super(mindMap);
         super.setText("Add Branch");
-        this.setAction();
     }
 
     @Override

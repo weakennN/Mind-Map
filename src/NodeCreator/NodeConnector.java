@@ -16,8 +16,6 @@ public class NodeConnector {
         this.random = ThreadLocalRandom.current();
     }
 
-    // TODO: try to create the child position then connect them with the parent
-
     public Connection connectNodes(Node parent, Node child) {
 
         Connection connection = new Connection(parent, child);
@@ -40,8 +38,8 @@ public class NodeConnector {
         connection.setStartY(startingPositions.y);
         connection.setEndY(parent.getLayoutY() + randomY);
 
-        child.setLayoutX(connection.getEndX());
-        child.setLayoutY(connection.getEndY());
+        child.setLayoutX(connection.getEndX() - (child.getSize().x / 2));
+        child.setLayoutY(connection.getEndY() - (child.getSize().y / 2));
 
         return connection;
     }

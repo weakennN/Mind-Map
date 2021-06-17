@@ -9,8 +9,6 @@ import java.util.Map;
 
 public class NodeFactory {
 
-    // TODO: remove the pos var form createNode method and add the class in NodeCreator for creating connection
-
     private static UI ui;
     private static Map<String, NodeCreator> nodeCreators = new HashMap<>();
 

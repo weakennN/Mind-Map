@@ -10,6 +10,7 @@ public abstract class BaseMenuItem extends MenuItem {
     public BaseMenuItem(MindMap mindMap) {
 
         this.mindMap = mindMap;
+        this.setAction();
     }
 
     public abstract void setAction();

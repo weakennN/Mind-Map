@@ -9,7 +9,6 @@ public class AddTopic extends BaseMenuItem {
 
         super(mindMap);
         super.setText("Add topic");
-        this.setAction();
     }
 
     @Override
@@ -19,7 +18,6 @@ public class AddTopic extends BaseMenuItem {
 
             super.getMindMap().addNode(NodeFactory.createNode("Topic Node", null, super.getMindMap()));
         });
-
     }
 
 }
