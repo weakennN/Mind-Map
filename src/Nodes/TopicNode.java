@@ -1,11 +1,8 @@
 package Nodes;
 
 import Common.GlobalVariables;
-import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 
 public class TopicNode extends Node {
 
@@ -26,9 +23,6 @@ public class TopicNode extends Node {
         this.textArea.setLayoutY(posY + 25);
         getChildren().addAll(this.textArea);
         super.setViewOrder(0);
-        BackgroundFill myBF = new BackgroundFill(Color.valueOf("f7fafa"), new CornerRadii(20),
-                new Insets(5));
-        super.setBackground(new Background(myBF));
 
     }
 
