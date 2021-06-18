@@ -1,13 +1,8 @@
 package Nodes;
 
 import Common.GlobalVariables;
-import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
 
 public class BranchNode extends Node {
 
@@ -26,9 +21,6 @@ public class BranchNode extends Node {
         this.textArea.setStyle("-fx-background-color: transparent");
         getChildren().addAll(this.textArea);
         super.setViewOrder(1);
-        BackgroundFill myBF = new BackgroundFill(Color.valueOf("f7fafa"), new CornerRadii(20),
-                new Insets(5));
-        super.setBackground(new Background(myBF));
     }
 
     public BranchNode(Node parent) {

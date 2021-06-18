@@ -40,10 +40,13 @@ public class Camera extends PerspectiveCamera {
 
         this.pos.x = mouseX;
         this.pos.y = mouseY;
-        super.setLayoutX(super.getLayoutX() + velX);
+
+       /* super.setLayoutX(super.getLayoutX() + velX);
         super.setLayoutY(super.getLayoutY() + velY);
         this.mindMap.setLayoutX(super.getLayoutX());
         this.mindMap.setLayoutY(super.getLayoutY());
+    
+        */
 
         List<Node> nodes = this.mindMap.getNodes();
 

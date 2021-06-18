@@ -17,7 +17,6 @@ public class AddBranch extends BaseMenuItem {
     public void setAction() {
 
         super.setOnAction(e -> {
-
             super.getMindMap().addNode(NodeFactory.createNode(GlobalVariables.BRANCH_CREATOR, NodeClicked.node, super.getMindMap()));
         });
 
