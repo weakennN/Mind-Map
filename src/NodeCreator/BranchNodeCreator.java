@@ -1,12 +1,12 @@
 package NodeCreator;
 
+import Common.Events;
 import Common.GlobalVariables;
 import Common.NodeClicked;
 import Core.MindMap;
 import Nodes.BranchNode;
 import Nodes.Connection;
 import Nodes.Node;
-import Nodes.Skin.DefaultNodeSkin;
 import UI.UI;
 
 public class BranchNodeCreator extends NodeCreator {
@@ -19,7 +19,6 @@ public class BranchNodeCreator extends NodeCreator {
     public Node createNode(Node parent, MindMap mindMap) {
 
         BranchNode branchNode = new BranchNode(parent);
-        branchNode.setSkin(new DefaultNodeSkin(branchNode));
 
         Connection connection = null;
 

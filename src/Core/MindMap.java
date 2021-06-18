@@ -52,7 +52,7 @@ public class MindMap extends Pane {
 
             if (e.getButton() == MouseButton.SECONDARY && NodeClicked.node == null) {
                 this.menus.get(GlobalVariables.MIND_MAP_MENU).show(this, e.getSceneX(), e.getSceneY());
-            } else if (e.getButton() == MouseButton.PRIMARY) {
+            }else if (e.getButton() == MouseButton.PRIMARY){
                 NodeClicked.node = null;
             }
         });
