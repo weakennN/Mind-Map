@@ -1,7 +1,11 @@
 package RightClickMenu;
 
+import Common.NodeClicked;
 import Core.MindMap;
+import CustomizeMenu.Menu.NodeBoundaryMenu;
+import CustomizeMenu.Window.CustomizeMenuWindow;
 import RightClickMenu.MenuItems.AddBranch;
+import RightClickMenu.MenuItems.Customize;
 import RightClickMenu.MenuItems.RemoveNode;
 
 public class NodeMenu extends BaseMenu {
@@ -11,5 +15,6 @@ public class NodeMenu extends BaseMenu {
 
         super.addItem(new AddBranch(super.getMindMap()));
         super.addItem(new RemoveNode(super.getMindMap()));
+        super.addItem(new Customize(super.getMindMap()));
     }
 }

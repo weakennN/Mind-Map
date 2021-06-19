@@ -3,6 +3,8 @@ package NodeCreator;
 import Common.GlobalVariables;
 import Common.NodeClicked;
 import Core.MindMap;
+import CustomizeMenu.BoundaryPreview;
+import NodeCreator.NodePreviewManager.NodePreviewManager;
 import Nodes.BranchNode;
 import Nodes.Connection;
 import Nodes.Node;
@@ -20,7 +22,7 @@ public class BranchNodeCreator extends NodeCreator {
 
         BranchNode branchNode = new BranchNode(parent);
         branchNode.setSkin(new DefaultNodeSkin(branchNode));
-
+        NodePreviewManager.addPreview(branchNode, new BoundaryPreview());
         Connection connection = null;
 
         if (parent != null) {

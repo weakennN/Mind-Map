@@ -3,6 +3,7 @@ package NodeCreator;
 import Common.Events;
 import Common.NodeClicked;
 import Core.MindMap;
+import NodeCreator.NodePreviewManager.NodePreviewManager;
 import Nodes.Node;
 import UI.UI;
 import javafx.scene.input.MouseButton;
@@ -28,7 +29,7 @@ public abstract class NodeCreator {
         return this.connector;
     }
 
-    public void initDefaultActions(Node node,MindMap mindMap,String menuType){
+    public void initDefaultActions(Node node, MindMap mindMap, String menuType) {
 
         Events.move(node);
 

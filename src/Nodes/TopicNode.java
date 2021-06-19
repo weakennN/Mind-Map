@@ -23,7 +23,6 @@ public class TopicNode extends Node {
         this.textArea.setLayoutY(posY + 25);
         getChildren().addAll(this.textArea);
         super.setViewOrder(0);
-
     }
 
     public TopicNode(Node parent) {

@@ -4,7 +4,6 @@ import Camera.Camera;
 import Common.NodeClicked;
 import Core.MindMap;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class UI {

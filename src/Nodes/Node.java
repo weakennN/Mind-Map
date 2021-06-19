@@ -11,7 +11,7 @@ public abstract class Node extends Region {
 
     private Node parent;
 
-    private List<Connection> connections;
+    private transient List<Connection> connections;
     private Skin skin;
     private Vector2 size;
     private Vector2 pos;
@@ -20,14 +20,12 @@ public abstract class Node extends Region {
 
         super();
         this.parent = parent;
-        this.skin = skin;
         this.connections = new ArrayList<>();
         this.size = new Vector2(width, height);
         this.pos = new Vector2(posX, posY);
         super.setLayoutX(posX);
         super.setLayoutY(posY);
         super.setMinSize(this.size.x, this.size.y);
-
     }
 
     public void addConnection(Connection connection) {

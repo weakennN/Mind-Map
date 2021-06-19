@@ -3,6 +3,7 @@ package Nodes.Skin;
 import Nodes.Node;
 import Nodes.Skin.SkinProperty.SkinProperty;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 

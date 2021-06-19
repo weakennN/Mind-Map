@@ -14,7 +14,6 @@ public class Main extends Application {
     public void start(Stage stage) {
 
         UI ui = new UI();
-
         App app = new App(ui);
         stage = ui.getStage();
         stage.setMaximized(true);

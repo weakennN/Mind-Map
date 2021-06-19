@@ -12,7 +12,6 @@ public class App {
     private List<MindMap> mindMaps;
 
     public App(UI ui) {
-
         this.ui = ui;
         NodeFactory.init(this.ui);
         this.mindMaps = new ArrayList<>();
