@@ -1,7 +1,7 @@
 package CustomizeMenu.Menu;
 
 import CustomizeMenu.Menu.CustomizeType.BackgroundChanger.BoundaryBackGroundChanger;
-import CustomizeMenu.Menu.CustomizeType.BorderChanger;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderChanger;
 import CustomizeMenu.Menu.CustomizeType.CustomizeType;
 import CustomizeMenu.Preview;
 import Nodes.Node;
@@ -46,7 +46,7 @@ public class NodeBoundaryMenu extends CustomizeMenu {
         titleLabel.setFont(Font.font("Arial", 32));
         this.confirmButton = new Button("Confirm");
         HBox hBox = new HBox(10);
-        hBox.getChildren().addAll(backGroundColorChanger,borderChanger);
+        hBox.getChildren().addAll(backGroundColorChanger, borderChanger);
         vBox = new VBox(10);
         vBox.getChildren().addAll(titleLabel, hBox, preview, this.confirmButton);
         super.getChildren().addAll(vBox);

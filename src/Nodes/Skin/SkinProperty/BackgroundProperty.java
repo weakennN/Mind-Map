@@ -22,26 +22,28 @@ public class BackgroundProperty extends SkinProperty {
     public void init() {
         this.cornerRadii = new CornerRadii(0);
         this.insets = new Insets(0);
-        this.color = Color.AQUA;
+        this.color = Color.WHITE;
         this.backgroundFill = new BackgroundFill(Color.valueOf(this.color.toString()), this.cornerRadii,
                 this.insets);
         this.background = new Background(this.backgroundFill);
         super.getNode().setBackground(this.background);
-    /*    super.getNode().setBorder(new Border(new BorderStroke(Color.BLACK,
-                BorderStrokeStyle.SOLID, new CornerRadii(20), BorderWidths.DEFAULT)));
-
-     */
-
     }
 
     public void changeColor(Color color) {
         this.color = color;
 
-        this.backgroundFill = new BackgroundFill(Color.valueOf(this.color.toString()), new CornerRadii(0),
+        this.backgroundFill = new BackgroundFill(Color.valueOf(this.color.toString()), this.cornerRadii,
                 new Insets(0));
         this.background = new Background(this.backgroundFill);
         super.getNode().setBackground(this.background);
 
+    }
+
+    public void changeBackgroundRadii(CornerRadii cornerRadii) {
+
+        this.cornerRadii = cornerRadii;
+        super.getNode().setBackground(new Background(new BackgroundFill(Color.valueOf(this.color.toString()), this.cornerRadii,
+                new Insets(0))));
     }
 
     public CornerRadii getCornerRadii() {
