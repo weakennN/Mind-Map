@@ -1,9 +1,6 @@
 package RightClickMenu;
 
-import Common.NodeClicked;
 import Core.MindMap;
-import CustomizeMenu.Menu.NodeBoundaryMenu;
-import CustomizeMenu.Window.CustomizeMenuWindow;
 import RightClickMenu.MenuItems.AddBranch;
 import RightClickMenu.MenuItems.Customize;
 import RightClickMenu.MenuItems.RemoveNode;

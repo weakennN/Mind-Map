@@ -2,6 +2,7 @@ package CustomizeMenu.Menu;
 
 import CustomizeMenu.Menu.CustomizeType.CustomizeType;
 import CustomizeMenu.Preview;
+import CustomizeMenu.Window.CustomizeMenuWindow;
 import Nodes.Node;
 import javafx.scene.layout.Pane;
 
@@ -13,6 +14,7 @@ public abstract class CustomizeMenu extends Pane {
     private List<CustomizeType> customizeTypes;
     private Preview preview;
     private Node node;
+    private CustomizeMenuWindow window;
 
     public CustomizeMenu(Preview preview, Node node) {
 
@@ -31,5 +33,13 @@ public abstract class CustomizeMenu extends Pane {
 
     public Node getNode() {
         return this.node;
+    }
+
+    public void setWindow(CustomizeMenuWindow window) {
+        this.window = window;
+    }
+
+    public CustomizeMenuWindow getWindow() {
+        return this.window;
     }
 }

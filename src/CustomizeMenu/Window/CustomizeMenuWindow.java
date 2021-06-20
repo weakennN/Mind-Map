@@ -14,6 +14,7 @@ public class CustomizeMenuWindow {
     public CustomizeMenuWindow(CustomizeMenu menu) {
 
         this.menu = menu;
+        this.menu.setWindow(this);
         this.init();
     }
 
@@ -33,5 +34,9 @@ public class CustomizeMenuWindow {
 
     public CustomizeMenu getMenu() {
         return this.menu;
+    }
+
+    public Stage getStage() {
+        return this.stage;
     }
 }

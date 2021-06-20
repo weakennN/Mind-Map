@@ -1,15 +1,8 @@
 package UIControls;
 
-import javafx.geometry.Orientation;
-import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 public class Slider extends Region {
 
@@ -18,7 +11,7 @@ public class Slider extends Region {
     public Slider() {
         this.menuButton = new MenuButton();
         this.menuButton.setMinSize(80, 30);
-        super.getStylesheets().add("Style/Style.css");
+        super.getStylesheets().add("Style/Slider.css");
         super.getChildren().add(this.menuButton);
 
     }
