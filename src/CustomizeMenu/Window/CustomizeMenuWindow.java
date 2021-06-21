@@ -4,7 +4,9 @@ import CustomizeMenu.Menu.CustomizeMenu;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class CustomizeMenuWindow {
 
@@ -28,6 +30,9 @@ public class CustomizeMenuWindow {
         this.stage.setScene(this.scene);
         this.scene.setFill(Color.RED);
         this.stage.initModality(Modality.APPLICATION_MODAL);
+        this.stage.initStyle(StageStyle.UNDECORATED);
+        this.stage.setX((Screen.getPrimary().getVisualBounds().getWidth() - this.stage.getMinWidth()) / 2);
+        this.stage.setY((Screen.getPrimary().getVisualBounds().getHeight() - this.stage.getMinHeight()) / 2);
     }
 
     public void show() {

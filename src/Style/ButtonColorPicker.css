@@ -6,8 +6,3 @@
     -fx-background-color: white;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 0, 0, 0, 0.5);
 }
-
-.color-picker.split-pane{
-
-    -fx-background-color: red;
-}

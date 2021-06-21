@@ -21,8 +21,9 @@ public class DottedLine extends BorderLine {
         super.setDashLine(List.of(2.0));
 
         Line line = new Line(0, 0, 64, 0);
+        line.setStrokeWidth(2);
         line.setStroke(Color.BLACK);
-        line.getStrokeDashArray().addAll(super.getStrokeStyle().getDashArray());
+        line.getStrokeDashArray().addAll(4.0);
 
         super.setGraphic(line);
     }

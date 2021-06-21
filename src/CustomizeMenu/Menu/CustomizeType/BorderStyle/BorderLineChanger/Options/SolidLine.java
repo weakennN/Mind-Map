@@ -20,6 +20,7 @@ public class SolidLine extends BorderLine {
         super.setDashLine(super.getStrokeStyle().getDashArray());
 
         Line line = new Line(0, 0, 65, 0);
+        line.setStrokeWidth(2);
         line.setStroke(Color.BLACK);
         line.getStrokeDashArray().addAll(super.getStrokeStyle().getDashArray());
 

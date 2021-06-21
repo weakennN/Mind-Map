@@ -2,6 +2,7 @@ package CustomizeMenu.Menu;
 
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.BorderStyleChanger;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.BorderLineChanger;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.BorderWidthChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.BoundaryChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.BoundaryBorderChanger;
 import CustomizeMenu.Preview.Preview;
@@ -9,10 +10,7 @@ import Nodes.Node;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -21,11 +19,16 @@ import java.util.List;
 public class NodeBoundaryMenu extends CustomizeMenu {
 
     private VBox vBox;
+    private Pane root;
     private Button confirmButton;
     private Label titleLabel;
     private Label shapeLabel;
     private Label styleLabel;
     private Label colorLabel;
+    private Label label;
+    private Label lineLabel;
+    private Label borderLabel;
+    private Label widthLabel;
 
     public NodeBoundaryMenu(Preview preview, Node node) {
         super(preview, node);
@@ -55,6 +58,9 @@ public class NodeBoundaryMenu extends CustomizeMenu {
         BorderLineChanger borderLineChanger = new BorderLineChanger(preview);
         super.addCustomizeType(borderLineChanger);
 
+        BorderWidthChanger borderWidthChanger = new BorderWidthChanger(preview);
+        super.addCustomizeType(borderWidthChanger);
+
         this.initLabels();
 
         this.confirmButton = new Button("Confirm");
@@ -65,16 +71,34 @@ public class NodeBoundaryMenu extends CustomizeMenu {
 
         VBox backgroundColorChangerVbox = new VBox(10);
         backgroundColorChangerVbox.setPadding(new Insets(20, 0, 0, 0));
-        backgroundColorChangerVbox.getChildren().addAll(backGroundColorChanger, this.colorLabel);
+        backgroundColorChangerVbox.getChildren().addAll(backGroundColorChanger, this.label);
 
-        HBox hBox = new HBox(35);
-        hBox.getChildren().addAll(borderChangerVBox, backgroundColorChangerVbox,borderLineChanger);
+        VBox borderLineChangerVbox = new VBox(10);
+        borderLineChangerVbox.setPadding(new Insets(0, 0, 0, 20));
+        borderLineChangerVbox.getChildren().addAll(borderLineChanger, this.lineLabel);
 
+        VBox borderWidthChangerVbox = new VBox(10);
+        borderWidthChangerVbox.setPadding(new Insets(28, 0, 0, 0));
+        borderWidthChangerVbox.getChildren().addAll(borderWidthChanger, this.widthLabel);
 
-        vBox = new VBox(20);
-        vBox.getChildren().addAll(titleLabel, hBox, preview, this.confirmButton,boundaryBorderChanger);
+        VBox borderColorChangerVBox = new VBox(10);
+        borderColorChangerVBox.getChildren().addAll(boundaryBorderChanger, this.colorLabel);
 
-        super.getChildren().addAll(vBox);
+        HBox firstRowHBox = new HBox(35);
+        firstRowHBox.getChildren().addAll(borderChangerVBox, backgroundColorChangerVbox, borderWidthChangerVbox);
+
+        HBox secondRowHBox = new HBox(35);
+        secondRowHBox.getChildren().addAll(borderLineChangerVbox, borderColorChangerVBox);
+
+        this.vBox = new VBox(20);
+        this.vBox.getChildren().addAll(titleLabel, firstRowHBox, this.borderLabel, secondRowHBox, this.confirmButton);
+
+        this.root = new Pane();
+        preview.setLayoutX(400);
+        preview.setLayoutY(150);
+        this.root.getChildren().addAll(this.vBox,preview);
+
+        super.getChildren().addAll(this.root);
     }
 
     private void initLabels() {
@@ -83,8 +107,12 @@ public class NodeBoundaryMenu extends CustomizeMenu {
         this.shapeLabel = new Label("Shape");
         this.styleLabel = new Label("Style");
         this.colorLabel = new Label("Color");
+        this.lineLabel = new Label("Line");
+        this.borderLabel = new Label("Border");
+        this.widthLabel = new Label("Width");
+        this.label = new Label("Color");
 
-        List<Label> labels = List.of(this.colorLabel, this.styleLabel, this.shapeLabel);
+        List<Label> labels = List.of(this.colorLabel, this.styleLabel, this.shapeLabel, this.lineLabel, this.borderLabel, this.widthLabel, this.label);
 
         for (Label label : labels) {
 
@@ -98,5 +126,13 @@ public class NodeBoundaryMenu extends CustomizeMenu {
         this.titleLabel.setFont(Font.font("Tahoma", 25));
 
         this.styleLabel.setPadding(new Insets(0, 0, 0, 25));
+
+        this.borderLabel.setPadding(new Insets(0, 0, 0, 25));
+
+        this.widthLabel.setPadding(new Insets(0, 0, 0, 23));
+
+        this.lineLabel.setPadding(new Insets(0, 0, 0, 25));
+
+        this.label.setPadding(new Insets(0, 0, 0, 5));
     }
 }

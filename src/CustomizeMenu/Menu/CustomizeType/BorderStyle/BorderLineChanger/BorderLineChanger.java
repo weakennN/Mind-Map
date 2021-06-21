@@ -25,6 +25,6 @@ public class BorderLineChanger extends BorderChanger {
     @Override
     public void customizeNode(Node node) {
 
-        node.getSkin().getSkinProperty(BorderProperty.class).changeBorderStile(((BorderLine) super.getClicked()).getStrokeStyle());
+        node.getSkin().getSkinProperty(BorderProperty.class).changeBorderStyle(((BorderLine) super.getClicked()).getStrokeStyle());
     }
 }

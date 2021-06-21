@@ -25,27 +25,34 @@ public class BorderProperty extends SkinProperty {
         this.cornerRadii = new CornerRadii(0);
         this.borderWidths = BorderWidths.DEFAULT;
         this.strokeStyle = BorderStrokeStyle.SOLID;
-        this.border = new Border(new BorderStroke(this.color, this.strokeStyle, this.cornerRadii, this.borderWidths));
-        super.getNode().setBorder(this.border);
+        this.setNodeBorder();
     }
 
     public void changeBorderStyle(CornerRadii cornerRadii) {
 
         this.cornerRadii = cornerRadii;
-        this.border = new Border(new BorderStroke(this.color, this.strokeStyle, this.cornerRadii, this.borderWidths));
-        super.getNode().setBorder(this.border);
+        this.setNodeBorder();
         super.getNode().getSkin().getSkinProperty(BackgroundProperty.class).changeBackgroundRadii(cornerRadii);
     }
 
     public void changeBorderStyle(Color color) {
 
         this.color = color;
-        this.border = new Border(new BorderStroke(this.color, this.strokeStyle, this.cornerRadii, this.borderWidths));
-        super.getNode().setBorder(this.border);
+        this.setNodeBorder();
     }
 
-    public void changeBorderStile(BorderStrokeStyle strokeStyle) {
+    public void changeBorderStyle(BorderStrokeStyle strokeStyle) {
         this.strokeStyle = strokeStyle;
+        this.setNodeBorder();
+    }
+
+    public void changeBorderStyle(BorderWidths borderWidths) {
+
+        this.borderWidths = borderWidths;
+        this.setNodeBorder();
+    }
+
+    private void setNodeBorder() {
         this.border = new Border(new BorderStroke(this.color, this.strokeStyle, this.cornerRadii, this.borderWidths));
         super.getNode().setBorder(this.border);
     }
