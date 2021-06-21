@@ -1,21 +1,21 @@
-package CustomizeMenu.Menu.CustomizeType.BackgroundChanger;
+package CustomizeMenu.Menu.CustomizeType.ColorChanger;
 
 import CustomizeMenu.Menu.CustomizeType.CustomizeType;
-import CustomizeMenu.Preview;
-import Nodes.Node;
-import Nodes.Skin.SkinProperty.BackgroundProperty;
+import CustomizeMenu.Preview.Preview;
 import UIControls.ButtonColorPicker;
 import javafx.scene.control.ColorPicker;
 
-public class BackGroundColorChanger extends CustomizeType {
+public abstract class ColorChanger extends CustomizeType {
 
     private ButtonColorPicker buttonColorPicker;
 
-    public BackGroundColorChanger(Preview preview) {
+    public ColorChanger(Preview preview) {
 
         super(preview);
 
     }
+
+    protected abstract void initActions();
 
     @Override
     protected void init() {
@@ -23,12 +23,6 @@ public class BackGroundColorChanger extends CustomizeType {
         this.buttonColorPicker = new ButtonColorPicker();
 
         super.getChildren().add(this.buttonColorPicker);
-    }
-
-    @Override
-    public void customizeNode(Node node) {
-
-        node.getSkin().getSkinProperty(BackgroundProperty.class).changeColor(this.buttonColorPicker.getColorPicker().getValue());
     }
 
     protected ColorPicker getColorPicker() {

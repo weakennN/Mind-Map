@@ -1,6 +1,8 @@
-package CustomizeMenu.Menu.CustomizeType.BorderStyle;
+package CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.Options;
 
-import CustomizeMenu.Preview;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.BorderStyleChanger;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.Options.BorderType;
+import CustomizeMenu.Preview.Preview;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -8,7 +10,7 @@ import javafx.scene.shape.Rectangle;
 
 public class RoundBorder extends BorderType {
 
-    public RoundBorder(Preview preview, BorderChanger borderChanger) {
+    public RoundBorder(Preview preview, BorderStyleChanger borderChanger) {
 
         super(preview, borderChanger);
     }

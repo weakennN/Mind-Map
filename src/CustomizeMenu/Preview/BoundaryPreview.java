@@ -1,5 +1,6 @@
-package CustomizeMenu;
+package CustomizeMenu.Preview;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class BoundaryPreview extends Preview {
@@ -14,12 +15,13 @@ public class BoundaryPreview extends Preview {
     @Override
     public void init() {
 
-        this.shape = new Rectangle(200,100,200,100);
-
+        this.shape = new Rectangle(200, 100, 200, 100);
+        this.shape.setFill(Color.TRANSPARENT);
+        this.shape.setStroke(Color.BLACK);
         super.getChildren().addAll(shape);
     }
 
-    public Rectangle getPolygon() {
+    public Rectangle getPreview() {
         return this.shape;
     }
 

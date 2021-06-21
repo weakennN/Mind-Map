@@ -1,13 +1,14 @@
-package CustomizeMenu.Menu.CustomizeType.BorderStyle;
+package CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.Options;
 
-import CustomizeMenu.Preview;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.BorderStyleChanger;
+import CustomizeMenu.Preview.Preview;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class DefaultBorder extends BorderType {
 
-    public DefaultBorder(Preview preview, BorderChanger borderChanger) {
+    public DefaultBorder(Preview preview, BorderStyleChanger borderChanger) {
         super(preview, borderChanger);
     }
 

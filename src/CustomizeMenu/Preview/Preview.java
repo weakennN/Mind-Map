@@ -1,4 +1,4 @@
-package CustomizeMenu;
+package CustomizeMenu.Preview;
 
 import javafx.geometry.Orientation;
 import javafx.scene.layout.Region;

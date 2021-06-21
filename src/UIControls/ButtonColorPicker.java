@@ -3,6 +3,8 @@ package UIControls;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -24,13 +26,15 @@ public class ButtonColorPicker extends Region {
         this.button = new Button();
         this.circle = new Circle(12);
         this.circle.setStroke(Color.valueOf("dbd3d3"));
+        this.circle.setFill(Color.TRANSPARENT);
         this.button.setMinSize(35, 40);
         this.button.setGraphic(this.circle);
         this.colorPicker = new ColorPicker();
+        this.colorPicker.setTranslateX(this.button.getLayoutX() - 85);
         this.colorPicker.setVisible(false);
         this.setActions();
 
-        this.button.getStylesheets().add("Style/ButtonColorPicker.css");
+        super.getStylesheets().add("Style/ButtonColorPicker.css");
 
         super.getChildren().add(new VBox(this.button, this.colorPicker));
     }
@@ -60,7 +64,7 @@ public class ButtonColorPicker extends Region {
 
     @Override
     protected double computePrefWidth(double height) {
-        return 40;
+        return 45;
     }
 
     @Override

@@ -3,7 +3,7 @@ package NodeCreator;
 import Common.GlobalVariables;
 import Common.NodeClicked;
 import Core.MindMap;
-import CustomizeMenu.BoundaryPreview;
+import CustomizeMenu.Preview.BoundaryPreview;
 import NodeCreator.NodePreviewManager.NodePreviewManager;
 import Nodes.Node;
 import Nodes.Skin.DefaultNodeSkin;

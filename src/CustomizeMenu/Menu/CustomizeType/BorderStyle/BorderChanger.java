@@ -1,17 +1,16 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle;
 
 import CustomizeMenu.Menu.CustomizeType.CustomizeType;
-import CustomizeMenu.Preview;
-import Nodes.Node;
-import Nodes.Skin.SkinProperty.BorderProperty;
+import CustomizeMenu.Preview.Preview;
 import UIControls.Slider;
 
-public class BorderChanger extends CustomizeType {
+public abstract class BorderChanger extends CustomizeType {
 
     private Slider slider;
-    private BorderType clicked;
+    private BorderStyleOption clicked;
 
     public BorderChanger(Preview preview) {
+
         super(preview);
     }
 
@@ -19,18 +18,18 @@ public class BorderChanger extends CustomizeType {
     protected void init() {
 
         this.slider = new Slider();
-        this.slider.addItem(new DefaultBorder(super.getPreview(),this));
-        this.slider.addItem(new RoundBorder(super.getPreview(), this));
         super.getChildren().add(this.slider);
     }
 
-    @Override
-    public void customizeNode(Node node) {
-
-        node.getSkin().getSkinProperty(BorderProperty.class).changeBorderStyle(this.clicked.getCornerRadii());
+    protected Slider getSlider() {
+        return this.slider;
     }
 
-    public void setClicked(BorderType clicked) {
+    public void setClicked(BorderStyleOption clicked) {
         this.clicked = clicked;
+    }
+
+    protected BorderStyleOption getClicked() {
+        return this.clicked;
     }
 }

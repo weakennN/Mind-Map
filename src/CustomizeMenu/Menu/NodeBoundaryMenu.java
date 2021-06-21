@@ -1,13 +1,16 @@
 package CustomizeMenu.Menu;
 
-import CustomizeMenu.Menu.CustomizeType.BackgroundChanger.BoundaryBackGroundChanger;
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderChanger;
-import CustomizeMenu.Menu.CustomizeType.CustomizeType;
-import CustomizeMenu.Preview;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.BorderStyleChanger;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.BorderLineChanger;
+import CustomizeMenu.Menu.CustomizeType.ColorChanger.BoundaryChanger;
+import CustomizeMenu.Menu.CustomizeType.ColorChanger.BoundaryBorderChanger;
+import CustomizeMenu.Preview.Preview;
 import Nodes.Node;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -30,26 +33,27 @@ public class NodeBoundaryMenu extends CustomizeMenu {
         this.initStyle(preview);
         this.confirmButton.setOnAction(e -> {
 
-            List<CustomizeType> customizeTypes = super.getCustomizeTypes();
-
-            for (CustomizeType customizeType : customizeTypes) {
-
-                if (customizeType.isChanged()) {
-                    customizeType.setChanged(false);
-                    customizeType.customizeNode(super.getNode());
-                }
-            }
-
+            super.customizeNode();
             super.getWindow().getStage().close();
         });
+
     }
 
     private void initStyle(Preview preview) {
 
-        BoundaryBackGroundChanger backGroundColorChanger = new BoundaryBackGroundChanger(preview);
+        super.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
+
+        BoundaryChanger backGroundColorChanger = new BoundaryChanger(preview);
         super.addCustomizeType(backGroundColorChanger);
-        BorderChanger borderChanger = new BorderChanger(preview);
+
+        BorderStyleChanger borderChanger = new BorderStyleChanger(preview);
         super.addCustomizeType(borderChanger);
+
+        BoundaryBorderChanger boundaryBorderChanger = new BoundaryBorderChanger(preview);
+        super.addCustomizeType(boundaryBorderChanger);
+
+        BorderLineChanger borderLineChanger = new BorderLineChanger(preview);
+        super.addCustomizeType(borderLineChanger);
 
         this.initLabels();
 
@@ -64,11 +68,11 @@ public class NodeBoundaryMenu extends CustomizeMenu {
         backgroundColorChangerVbox.getChildren().addAll(backGroundColorChanger, this.colorLabel);
 
         HBox hBox = new HBox(35);
-        hBox.getChildren().addAll(borderChangerVBox, backgroundColorChangerVbox);
+        hBox.getChildren().addAll(borderChangerVBox, backgroundColorChangerVbox,borderLineChanger);
 
 
         vBox = new VBox(20);
-        vBox.getChildren().addAll(titleLabel, hBox, preview, this.confirmButton);
+        vBox.getChildren().addAll(titleLabel, hBox, preview, this.confirmButton,boundaryBorderChanger);
 
         super.getChildren().addAll(vBox);
     }

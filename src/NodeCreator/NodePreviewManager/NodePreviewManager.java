@@ -1,6 +1,6 @@
 package NodeCreator.NodePreviewManager;
 
-import CustomizeMenu.Preview;
+import CustomizeMenu.Preview.Preview;
 import Nodes.Node;
 
 import java.util.HashMap;

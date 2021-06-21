@@ -15,8 +15,15 @@ public class TopicNode extends Node {
         this.title = GlobalVariables.DEFAULT_TOPIC_TEXT;
         this.textArea = new TextArea();
         this.textArea.setPromptText(this.title);
+        /*this.textArea.setOnMouseClicked(e -> {
+
+            this.textArea.setPrefWidth(this.textArea.getPrefWidth() + 1);
+            super.setMinWidth(super.getWidth() + 1);
+        });
+
+         */
         this.textArea.setWrapText(true);
-        this.textArea.setPrefHeight(75);
+        this.textArea.setPrefHeight(25);
         this.textArea.setPrefWidth(125);
         this.textArea.setStyle("-fx-background-color: transparent");
         this.textArea.setLayoutX(posX + 25);

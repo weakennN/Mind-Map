@@ -38,6 +38,7 @@ public class Camera extends PerspectiveCamera {
             velY = -2;
         }
 
+
         this.pos.x = mouseX;
         this.pos.y = mouseY;
 

@@ -30,9 +30,23 @@ public class BorderProperty extends SkinProperty {
     }
 
     public void changeBorderStyle(CornerRadii cornerRadii) {
+
         this.cornerRadii = cornerRadii;
         this.border = new Border(new BorderStroke(this.color, this.strokeStyle, this.cornerRadii, this.borderWidths));
         super.getNode().setBorder(this.border);
         super.getNode().getSkin().getSkinProperty(BackgroundProperty.class).changeBackgroundRadii(cornerRadii);
+    }
+
+    public void changeBorderStyle(Color color) {
+
+        this.color = color;
+        this.border = new Border(new BorderStroke(this.color, this.strokeStyle, this.cornerRadii, this.borderWidths));
+        super.getNode().setBorder(this.border);
+    }
+
+    public void changeBorderStile(BorderStrokeStyle strokeStyle) {
+        this.strokeStyle = strokeStyle;
+        this.border = new Border(new BorderStroke(this.color, this.strokeStyle, this.cornerRadii, this.borderWidths));
+        super.getNode().setBorder(this.border);
     }
 }

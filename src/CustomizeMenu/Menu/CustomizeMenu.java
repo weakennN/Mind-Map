@@ -1,7 +1,7 @@
 package CustomizeMenu.Menu;
 
 import CustomizeMenu.Menu.CustomizeType.CustomizeType;
-import CustomizeMenu.Preview;
+import CustomizeMenu.Preview.Preview;
 import CustomizeMenu.Window.CustomizeMenuWindow;
 import Nodes.Node;
 import javafx.scene.layout.Pane;
@@ -21,6 +21,17 @@ public abstract class CustomizeMenu extends Pane {
         this.customizeTypes = new ArrayList<>();
         this.preview = preview;
         this.node = node;
+    }
+
+    protected void customizeNode() {
+
+        for (CustomizeType customizeType : this.customizeTypes) {
+
+            if (customizeType.isChanged()) {
+                customizeType.setChanged(false);
+                customizeType.customizeNode(this.node);
+            }
+        }
     }
 
     public void addCustomizeType(CustomizeType customizeType) {

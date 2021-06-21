@@ -31,6 +31,7 @@ public class UI {
                 camera.translate(e.getSceneX(), e.getSceneY());
             }
         });
+
         this.stage = new Stage();
         this.stage.setScene(this.scene);
     }

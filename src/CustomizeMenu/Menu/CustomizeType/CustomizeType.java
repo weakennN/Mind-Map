@@ -1,6 +1,6 @@
 package CustomizeMenu.Menu.CustomizeType;
 
-import CustomizeMenu.Preview;
+import CustomizeMenu.Preview.Preview;
 import Nodes.Node;
 import javafx.scene.layout.Region;
 
