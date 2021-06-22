@@ -3,7 +3,7 @@ package CustomizeMenu.Preview;
 import javafx.geometry.Orientation;
 import javafx.scene.layout.Region;
 
-public abstract class Preview extends Region implements Cloneable{
+public abstract class Preview extends Region {
 
     public Preview() {
 
@@ -25,4 +25,8 @@ public abstract class Preview extends Region implements Cloneable{
     public Orientation getContentBias() {
         return Orientation.HORIZONTAL;
     }
+
+
+    public abstract Preview copy();
+
 }

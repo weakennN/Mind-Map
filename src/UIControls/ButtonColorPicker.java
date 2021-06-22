@@ -71,4 +71,8 @@ public class ButtonColorPicker extends Region {
     public Orientation getContentBias() {
         return Orientation.HORIZONTAL;
     }
+
+    public Circle getCircle() {
+        return this.circle;
+    }
 }

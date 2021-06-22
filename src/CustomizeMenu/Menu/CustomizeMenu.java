@@ -3,6 +3,7 @@ package CustomizeMenu.Menu;
 import CustomizeMenu.Menu.CustomizeType.CustomizeType;
 import CustomizeMenu.Preview.Preview;
 import CustomizeMenu.Window.CustomizeMenuWindow;
+import NodeCreator.NodePreviewManager.NodePreviewManager;
 import Nodes.Node;
 import javafx.scene.layout.Pane;
 
@@ -12,14 +13,16 @@ import java.util.List;
 public abstract class CustomizeMenu extends Pane {
 
     private List<CustomizeType> customizeTypes;
-    private Preview preview;
+    private Preview copy;
+    private Preview original;
     private Node node;
     private CustomizeMenuWindow window;
 
-    public CustomizeMenu(Preview preview, Node node) {
+    public CustomizeMenu(Preview copy, Preview original, Node node) {
 
         this.customizeTypes = new ArrayList<>();
-        this.preview = preview;
+        this.copy = copy;
+        this.original = original;
         this.node = node;
     }
 
@@ -54,11 +57,11 @@ public abstract class CustomizeMenu extends Pane {
         return this.window;
     }
 
-    public void setPreview(Preview preview) {
-        this.preview = preview;
+    public void setCopy(Preview copy) {
+        this.copy = copy;
 
         for (CustomizeType customizeType : customizeTypes) {
-            customizeType.setPreview(preview);
+            customizeType.setPreview(copy);
         }
     }
 
@@ -66,7 +69,15 @@ public abstract class CustomizeMenu extends Pane {
         this.node = node;
     }
 
-    public Preview getPreview() {
-        return this.preview;
+    public Preview getCopy() {
+        return this.copy;
+    }
+
+    public void setOriginal(Preview original) {
+        this.original = original;
+    }
+
+    public Preview getOriginal() {
+        return this.original;
     }
 }

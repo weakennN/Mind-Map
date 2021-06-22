@@ -16,7 +16,7 @@ public class Customize extends BaseMenuItem {
 
         super(mindMap);
         super.setText("Customize");
-        this.window = new CustomizeMenuWindow(new NodeBoundaryMenu(new BoundaryPreview(), null));
+        this.window = new CustomizeMenuWindow(new NodeBoundaryMenu(new BoundaryPreview(), null, null));
     }
 
     @Override
@@ -25,8 +25,9 @@ public class Customize extends BaseMenuItem {
         super.setOnAction(e -> {
 
             Node node = NodeClicked.node;
-            this.window.getMenu().setPreview(NodePreviewManager.previews.get(node));
+            this.window.getMenu().setCopy(NodePreviewManager.previews.get(node).copy());
             this.window.getMenu().setNode(node);
+            this.window.getMenu().setOriginal(NodePreviewManager.previews.get(node));
             this.window.show();
         });
     }

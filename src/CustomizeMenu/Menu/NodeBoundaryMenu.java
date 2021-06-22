@@ -6,6 +6,7 @@ import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.BorderWidt
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.BoundaryChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.BoundaryBorderChanger;
 import CustomizeMenu.Preview.Preview;
+import NodeCreator.NodePreviewManager.NodePreviewManager;
 import Nodes.Node;
 import UIControls.MenuButton;
 import javafx.geometry.Insets;
@@ -32,12 +33,10 @@ public class NodeBoundaryMenu extends CustomizeMenu {
     private Label borderLabel;
     private Label widthLabel;
 
-    public NodeBoundaryMenu(Preview preview, Node node) {
-        super(preview, node);
+    public NodeBoundaryMenu(Preview preview, Preview original, Node node) {
+        super(preview, original, node);
 
         this.initStyle(preview);
-
-
     }
 
     private void initStyle(Preview preview) {
@@ -116,6 +115,8 @@ public class NodeBoundaryMenu extends CustomizeMenu {
 
             super.customizeNode();
             super.getWindow().getStage().close();
+            super.setOriginal(super.getCopy());
+            NodePreviewManager.previews.put(super.getNode(), super.getOriginal());
         });
 
         this.cancelButton.setOnAction(e -> {
@@ -171,13 +172,13 @@ public class NodeBoundaryMenu extends CustomizeMenu {
     }
 
     @Override
-    public void setPreview(Preview preview) {
+    public void setCopy(Preview copy) {
 
-        this.root.getChildren().remove(super.getPreview());
-        this.root.getChildren().add(preview);
-        preview.setLayoutX(400);
-        preview.setLayoutY(150);
-        super.setPreview(preview);
+        this.root.getChildren().remove(super.getCopy());
+        this.root.getChildren().add(copy);
+        copy.setLayoutX(400);
+        copy.setLayoutY(150);
+        super.setCopy(copy);
 
     }
 }

@@ -4,6 +4,7 @@ import CustomizeMenu.Menu.CustomizeType.CustomizeType;
 import CustomizeMenu.Preview.Preview;
 import UIControls.ButtonColorPicker;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.paint.Color;
 
 public abstract class ColorChanger extends CustomizeType {
 
@@ -27,5 +28,12 @@ public abstract class ColorChanger extends CustomizeType {
 
     protected ColorPicker getColorPicker() {
         return this.buttonColorPicker.getColorPicker();
+    }
+
+    @Override
+    public void setPreview(Preview preview) {
+
+        super.setPreview(preview);
+        this.buttonColorPicker.getCircle().setFill(Color.TRANSPARENT);
     }
 }

@@ -32,18 +32,22 @@ public class BoundaryPreview extends Preview {
         super.getChildren().addAll(shape, rectangle);
     }
 
-    public Rectangle getPreview() {
-        return this.shape;
+    @Override
+    public Preview copy() {
+
+        BoundaryPreview preview = new BoundaryPreview();
+
+        preview.getPreview().setFill(this.shape.getFill());
+        preview.shape.setArcWidth(this.shape.getArcWidth());
+        preview.shape.setArcHeight(this.shape.getArcHeight());
+        preview.shape.setStroke(this.shape.getStroke());
+        preview.shape.getStrokeDashArray().addAll(this.shape.getStrokeDashArray());
+        preview.shape.setStrokeWidth(this.shape.getStrokeWidth());
+
+        return preview;
     }
 
-    @Override
-    public BoundaryPreview clone() {
-        try {
-            return (BoundaryPreview) super.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
-
-        return null;
+    public Rectangle getPreview() {
+        return this.shape;
     }
 }
