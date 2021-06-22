@@ -7,8 +7,8 @@ import CustomizeMenu.Menu.CustomizeType.ColorChanger.BoundaryChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.BoundaryBorderChanger;
 import CustomizeMenu.Preview.Preview;
 import Nodes.Node;
+import UIControls.MenuButton;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -20,7 +20,9 @@ public class NodeBoundaryMenu extends CustomizeMenu {
 
     private VBox vBox;
     private Pane root;
-    private Button confirmButton;
+    private MenuButton confirmButton;
+    private MenuButton cancelButton;
+    private HBox buttonHBox;
     private Label titleLabel;
     private Label shapeLabel;
     private Label styleLabel;
@@ -34,11 +36,7 @@ public class NodeBoundaryMenu extends CustomizeMenu {
         super(preview, node);
 
         this.initStyle(preview);
-        this.confirmButton.setOnAction(e -> {
 
-            super.customizeNode();
-            super.getWindow().getStage().close();
-        });
 
     }
 
@@ -61,9 +59,8 @@ public class NodeBoundaryMenu extends CustomizeMenu {
         BorderWidthChanger borderWidthChanger = new BorderWidthChanger(preview);
         super.addCustomizeType(borderWidthChanger);
 
+        this.initButtons();
         this.initLabels();
-
-        this.confirmButton = new Button("Confirm");
 
         VBox borderChangerVBox = new VBox(10);
         borderChangerVBox.setPadding(new Insets(0, 0, 0, 25));
@@ -91,14 +88,51 @@ public class NodeBoundaryMenu extends CustomizeMenu {
         secondRowHBox.getChildren().addAll(borderLineChangerVbox, borderColorChangerVBox);
 
         this.vBox = new VBox(20);
-        this.vBox.getChildren().addAll(titleLabel, firstRowHBox, this.borderLabel, secondRowHBox, this.confirmButton);
+        this.vBox.getChildren().addAll(titleLabel, firstRowHBox, this.borderLabel, secondRowHBox);
 
         this.root = new Pane();
         preview.setLayoutX(400);
         preview.setLayoutY(150);
-        this.root.getChildren().addAll(this.vBox,preview);
+        this.root.getChildren().addAll(this.vBox, preview, this.buttonHBox);
 
         super.getChildren().addAll(this.root);
+    }
+
+    private void initButtons() {
+
+        this.confirmButton = new MenuButton();
+        this.cancelButton = new MenuButton();
+
+        List<MenuButton> buttons = List.of(this.cancelButton, this.confirmButton);
+
+        this.buttonHBox = new HBox(10, this.cancelButton, this.confirmButton);
+
+        for (MenuButton button : buttons) {
+
+            button.setFont(Font.font("Arial", 16));
+        }
+
+        this.confirmButton.setOnAction(e -> {
+
+            super.customizeNode();
+            super.getWindow().getStage().close();
+        });
+
+        this.cancelButton.setOnAction(e -> {
+            super.getWindow().getStage().close();
+        });
+
+        this.confirmButton.setMinWidth(70);
+        this.confirmButton.setTextFill(Color.WHITE);
+        this.confirmButton.setFill(Color.valueOf("0795ed"));
+        this.confirmButton.setText("Confirm");
+
+        this.cancelButton.setText("Cancel");
+        this.cancelButton.setTextFill(Color.valueOf("0795ed"));
+        this.cancelButton.setMinWidth(85);
+
+        this.buttonHBox.setLayoutX(500);
+        this.buttonHBox.setLayoutY(335);
     }
 
     private void initLabels() {
@@ -134,5 +168,16 @@ public class NodeBoundaryMenu extends CustomizeMenu {
         this.lineLabel.setPadding(new Insets(0, 0, 0, 25));
 
         this.label.setPadding(new Insets(0, 0, 0, 5));
+    }
+
+    @Override
+    public void setPreview(Preview preview) {
+
+        this.root.getChildren().remove(super.getPreview());
+        this.root.getChildren().add(preview);
+        preview.setLayoutX(400);
+        preview.setLayoutY(150);
+        super.setPreview(preview);
+
     }
 }

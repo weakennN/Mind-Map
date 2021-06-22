@@ -13,16 +13,16 @@ public abstract class BorderWidth extends BorderStyleOption {
     private BorderWidths borderWidths;
 
     public BorderWidth(Preview preview, BorderWidthChanger borderWidthChanger) {
+        super(preview);
 
-        this.setOnActions(preview, borderWidthChanger);
+        this.setOnActions(borderWidthChanger);
     }
 
-    private void setOnActions(Preview preview, BorderWidthChanger borderWidthChanger) {
+    private void setOnActions(BorderWidthChanger borderWidthChanger) {
 
         super.setOnAction(e -> {
 
-            BoundaryPreview boundaryPreview = (BoundaryPreview) preview;
-
+            BoundaryPreview boundaryPreview = (BoundaryPreview) super.getPreview();
             boundaryPreview.getPreview().setStrokeWidth(this.borderWidths.getBottom());
             List<Double> dashLines = boundaryPreview.getPreview().getStrokeDashArray();
 

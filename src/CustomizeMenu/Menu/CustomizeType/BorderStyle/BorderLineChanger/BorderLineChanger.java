@@ -18,8 +18,12 @@ public class BorderLineChanger extends BorderChanger {
     protected void init() {
 
         super.init();
-        super.getSlider().addItem(new SolidLine(super.getPreview(), this));
-        super.getSlider().addItem(new DottedLine(super.getPreview(), this));
+        SolidLine solidLine = new SolidLine(super.getPreview(), this);
+        DottedLine dottedLine = new DottedLine(super.getPreview(), this);
+        super.getSlider().addItem(solidLine);
+        super.getSlider().addItem(dottedLine);
+
+        super.addStyleOptions(solidLine, dottedLine);
     }
 
     @Override

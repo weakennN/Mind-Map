@@ -19,8 +19,12 @@ public class BorderStyleChanger extends BorderChanger {
     protected void init() {
 
         super.init();
-        super.getSlider().addItem(new DefaultBorder(super.getPreview(), this));
-        super.getSlider().addItem(new RoundBorder(super.getPreview(), this));
+        DefaultBorder defaultBorder = new DefaultBorder(super.getPreview(), this);
+        RoundBorder roundBorder = new RoundBorder(super.getPreview(), this);
+        super.getSlider().addItem(defaultBorder);
+        super.getSlider().addItem(roundBorder);
+
+        super.addStyleOptions(defaultBorder, roundBorder);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.Options;
 
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.BorderStyleChanger;
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.Options.BorderType;
 import CustomizeMenu.Preview.Preview;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;

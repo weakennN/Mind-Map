@@ -15,14 +15,16 @@ public abstract class BorderLine extends BorderStyleOption {
 
     public BorderLine(Preview preview, BorderLineChanger borderLineChanger) {
 
-        this.setOnAction(preview, borderLineChanger);
+        super(preview);
+
+        this.setOnAction(borderLineChanger);
     }
 
-    protected void setOnAction(Preview preview, BorderLineChanger borderLineChanger) {
+    public void setOnAction(BorderLineChanger borderLineChanger) {
 
         super.setOnAction(e -> {
 
-            BoundaryPreview boundaryPreview = (BoundaryPreview) preview;
+            BoundaryPreview boundaryPreview = (BoundaryPreview) super.getPreview();
             if (boundaryPreview.getPreview().getStrokeDashArray().size() == 0) {
                 boundaryPreview.getPreview().getStrokeDashArray().addAll(this.dashLine);
             } else {
@@ -41,7 +43,7 @@ public abstract class BorderLine extends BorderStyleOption {
         return this.strokeStyle;
     }
 
-    protected void setDashLine(List<Double> dashLine){
+    protected void setDashLine(List<Double> dashLine) {
         this.dashLine = dashLine;
     }
 }

@@ -53,4 +53,20 @@ public abstract class CustomizeMenu extends Pane {
     public CustomizeMenuWindow getWindow() {
         return this.window;
     }
+
+    public void setPreview(Preview preview) {
+        this.preview = preview;
+
+        for (CustomizeType customizeType : customizeTypes) {
+            customizeType.setPreview(preview);
+        }
+    }
+
+    public void setNode(Node node) {
+        this.node = node;
+    }
+
+    public Preview getPreview() {
+        return this.preview;
+    }
 }

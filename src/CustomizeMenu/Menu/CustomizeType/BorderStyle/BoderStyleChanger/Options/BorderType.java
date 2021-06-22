@@ -11,15 +11,16 @@ public abstract class BorderType extends BorderStyleOption {
     private CornerRadii cornerRadii;
 
     public BorderType(Preview preview, BorderStyleChanger borderChanger) {
+        super(preview);
 
-        this.setAction(preview, borderChanger);
+        this.setAction(borderChanger);
     }
 
-    protected void setAction(Preview preview, BorderStyleChanger borderChanger) {
+    protected void setAction(BorderStyleChanger borderChanger) {
 
         super.setOnAction(e -> {
 
-            BoundaryPreview boundaryPreview = (BoundaryPreview) preview;
+            BoundaryPreview boundaryPreview = (BoundaryPreview) super.getPreview();
             boundaryPreview.getPreview().setArcWidth(this.getCornerRadii().getBottomLeftHorizontalRadius());
             boundaryPreview.getPreview().setArcHeight(this.getCornerRadii().getBottomLeftHorizontalRadius());
             borderChanger.setClicked(this);

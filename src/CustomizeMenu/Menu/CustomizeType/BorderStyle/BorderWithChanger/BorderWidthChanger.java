@@ -6,6 +6,7 @@ import CustomizeMenu.Preview.Preview;
 import Nodes.Node;
 import Nodes.Skin.SkinProperty.BorderProperty;
 
+
 public class BorderWidthChanger extends BorderChanger {
 
     public BorderWidthChanger(Preview preview) {
@@ -16,10 +17,17 @@ public class BorderWidthChanger extends BorderChanger {
     protected void init() {
         super.init();
 
-        super.getSlider().addItem(new None(super.getPreview(), this));
-        super.getSlider().addItem(new Small(super.getPreview(), this));
-        super.getSlider().addItem(new Medium(super.getPreview(), this));
-        super.getSlider().addItem(new Large(super.getPreview(), this));
+        None none = new None(super.getPreview(), this);
+        Small small = new Small(super.getPreview(), this);
+        Medium medium = new Medium(super.getPreview(), this);
+        Large large = new Large(super.getPreview(), this);
+
+        super.getSlider().addItem(none);
+        super.getSlider().addItem(small);
+        super.getSlider().addItem(medium);
+        super.getSlider().addItem(large);
+
+        super.addStyleOptions(none, small, medium, large);
     }
 
     @Override
