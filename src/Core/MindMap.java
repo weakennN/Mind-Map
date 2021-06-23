@@ -22,7 +22,6 @@ public class MindMap extends Pane {
 
     private List<Node> nodes;
     private Map<String, BaseMenu> menus;
-    private Camera camera;
 
     public MindMap() {
 
@@ -33,6 +32,7 @@ public class MindMap extends Pane {
         BackgroundFill myBF = new BackgroundFill(Color.valueOf("fffff0"), null,
                 null);
         super.setBackground(new Background(myBF));
+        super.getStylesheets().add("Style/RightClickMenu.css");
     }
 
     public void addNode(Node node) {
@@ -53,7 +53,9 @@ public class MindMap extends Pane {
             if (e.getButton() == MouseButton.SECONDARY && NodeClicked.node == null) {
                 this.menus.get(GlobalVariables.MIND_MAP_MENU).show(this, e.getSceneX(), e.getSceneY());
             } else if (e.getButton() == MouseButton.PRIMARY) {
+
                 NodeClicked.node = null;
+                super.requestFocus();
             }
         });
     }
@@ -65,21 +67,6 @@ public class MindMap extends Pane {
     public void removeNode(Node node) {
         this.nodes.remove(node);
         super.getChildren().remove(node);
-    }
-
-    public void createSubScene() {
-
-        this.camera = new Camera(this);
-        SubScene subScene = new SubScene(this, 1600, 900);
-        subScene.setViewOrder(5);
-        subScene.setFill(Color.AQUA);
-        subScene.setCamera(this.camera);
-        super.getChildren().add(subScene);
-
-        super.setOnMouseDragged(e -> {
-
-            this.camera.translate(e.getSceneX(), e.getSceneY());
-        });
     }
 
     public List<Node> getNodes() {

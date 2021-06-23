@@ -10,6 +10,7 @@ public abstract class BaseMenuItem extends MenuItem {
     public BaseMenuItem(MindMap mindMap) {
 
         this.mindMap = mindMap;
+        super.setId("base-menu-item");
         this.setAction();
     }
 
@@ -18,5 +19,4 @@ public abstract class BaseMenuItem extends MenuItem {
     protected MindMap getMindMap() {
         return this.mindMap;
     }
-
 }

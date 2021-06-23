@@ -15,6 +15,7 @@ public class Main extends Application {
 
         UI ui = new UI();
         App app = new App(ui);
+        app.start();
         stage = ui.getStage();
         stage.setMaximized(true);
         stage.setTitle("Mind Map");

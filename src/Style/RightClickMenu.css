@@ -1,0 +1,22 @@
+.context-menu {
+
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(three-pass-box, grey, 2.5,0, 0, 2.5);
+}
+
+#base-menu-item {
+
+    -fx-font-family: sans-serif, Verdana;
+    -fx-font-size: 15px;
+
+}
+
+#base-menu-item:hover {
+
+    -fx-background-color: #3fa3ef;
+}
+
+#base-menu-item:focused {
+
+    -fx-background-color: #3fa3ef;
+}

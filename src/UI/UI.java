@@ -21,17 +21,6 @@ public class UI {
 
         this.root = new MindMap();
         this.scene = new Scene(this.root, 1920, 1080);
-        Camera camera = new Camera(this.root);
-        camera.setNearClip(0.1);
-        camera.setFarClip(100);
-        scene.setCamera(camera);
-        this.scene.setOnMouseDragged(e -> {
-
-            if (NodeClicked.node == null) {
-                camera.translate(e.getSceneX(), e.getSceneY());
-            }
-        });
-
         this.stage = new Stage();
         this.stage.setScene(this.scene);
     }

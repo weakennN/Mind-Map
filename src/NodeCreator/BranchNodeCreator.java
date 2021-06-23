@@ -8,7 +8,8 @@ import NodeCreator.NodePreviewManager.NodePreviewManager;
 import Nodes.BranchNode;
 import Nodes.Connection;
 import Nodes.Node;
-import Nodes.Skin.DefaultNodeSkin;
+import Nodes.Skin.BranchNodeSkin;
+import Nodes.Skin.TopicNodeSkin;
 import UI.UI;
 
 public class BranchNodeCreator extends NodeCreator {
@@ -21,7 +22,7 @@ public class BranchNodeCreator extends NodeCreator {
     public Node createNode(Node parent, MindMap mindMap) {
 
         BranchNode branchNode = new BranchNode(parent);
-        branchNode.setSkin(new DefaultNodeSkin(branchNode));
+        branchNode.setSkin(new BranchNodeSkin(branchNode));
         NodePreviewManager.addPreview(branchNode, new BoundaryPreview());
         Connection connection = null;
 

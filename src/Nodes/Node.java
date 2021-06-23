@@ -15,6 +15,7 @@ public abstract class Node extends Region {
     private Skin skin;
     private Vector2 size;
     private Vector2 pos;
+    private double defaultWidth;
 
     public Node(Node parent, double width, double height, double posX, double posY) {
 
@@ -22,6 +23,7 @@ public abstract class Node extends Region {
         this.parent = parent;
         this.connections = new ArrayList<>();
         this.size = new Vector2(width, height);
+        this.defaultWidth = width;
         this.pos = new Vector2(posX, posY);
         super.setLayoutX(posX);
         super.setLayoutY(posY);
@@ -62,5 +64,13 @@ public abstract class Node extends Region {
 
     public Skin getSkin() {
         return this.skin;
+    }
+
+    public void add(Region region) {
+        super.getChildren().add(region);
+    }
+
+    public double getDefaultWidth() {
+        return this.defaultWidth;
     }
 }

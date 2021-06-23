@@ -5,6 +5,7 @@ import Common.NodeClicked;
 import Core.MindMap;
 import NodeCreator.NodePreviewManager.NodePreviewManager;
 import Nodes.Node;
+import Nodes.Skin.SkinProperty.TopicNodeContentProperty;
 import UI.UI;
 import javafx.scene.input.MouseButton;
 
@@ -39,6 +40,7 @@ public abstract class NodeCreator {
                 NodeClicked.node = node;
                 mindMap.getMenu(menuType).show(node, e.getSceneX(), e.getSceneY());
             }
+
         });
     }
 }

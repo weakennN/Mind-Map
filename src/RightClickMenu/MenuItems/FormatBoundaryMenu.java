@@ -8,14 +8,14 @@ import CustomizeMenu.Window.CustomizeMenuWindow;
 import NodeCreator.NodePreviewManager.NodePreviewManager;
 import Nodes.Node;
 
-public class Customize extends BaseMenuItem {
+public class FormatBoundaryMenu extends BaseMenuItem {
 
     private CustomizeMenuWindow window;
 
-    public Customize(MindMap mindMap) {
+    public FormatBoundaryMenu(MindMap mindMap) {
 
         super(mindMap);
-        super.setText("Customize");
+        super.setText("Boundary menu");
         this.window = new CustomizeMenuWindow(new NodeBoundaryMenu(new BoundaryPreview(), null, null));
     }
 

@@ -19,5 +19,4 @@ public class AddTopic extends BaseMenuItem {
             super.getMindMap().addNode(NodeFactory.createNode(GlobalVariables.TOPIC_CREATOR, null, super.getMindMap()));
         });
     }
-
 }

@@ -28,7 +28,7 @@ public class Camera extends PerspectiveCamera {
         double velX = 0;
         double velY = 0;
 
-        if (mouseX < this.pos.x) {
+     /*   if (mouseX < this.pos.x) {
             velX = 2;
         } else if (mouseX > this.pos.x) {
             velX = -2;
@@ -38,9 +38,12 @@ public class Camera extends PerspectiveCamera {
             velY = -2;
         }
 
+      */
+        if (this.pos.x != 0 && this.pos.y != 0) {
 
-        this.pos.x = mouseX;
-        this.pos.y = mouseY;
+            velX = this.pos.x - mouseX;
+            velY = this.pos.y - mouseY;
+        }
 
         List<Node> nodes = this.mindMap.getNodes();
 
@@ -54,5 +57,14 @@ public class Camera extends PerspectiveCamera {
 
             GlobalMethods.moveConnections(connections, node);
         }
+
+        this.pos.x = mouseX;
+        this.pos.y = mouseY;
+    }
+
+    public void reset() {
+
+        this.pos.x = 0;
+        this.pos.y = 0;
     }
 }

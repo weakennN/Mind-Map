@@ -10,7 +10,9 @@ public class Slider extends Region {
 
     public Slider() {
         this.menuButton = new MenuButton();
+
         this.menuButton.setMinSize(80, 30);
+        this.menuButton.setMaxSize(80, 30);
         super.getStylesheets().add("Style/Slider.css");
         super.getChildren().add(this.menuButton);
     }
