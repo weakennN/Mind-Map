@@ -1,7 +1,7 @@
-package Nodes.Skin;
+package NodeSkin.Skin;
 
 import Nodes.Node;
-import Nodes.Skin.SkinProperty.SkinProperty;
+import NodeSkin.SkinProperty.SkinProperty;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,13 +1,13 @@
-package Nodes.Skin.SkinProperty;
+package NodeSkin.SkinProperty;
 
 import Nodes.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 
-public class TopicNodeContentProperty extends DefaultNodeContentProperty {
+public class BranchNodeContentProperty extends DefaultNodeContentProperty {
 
-    public TopicNodeContentProperty(Node node) {
+    public BranchNodeContentProperty(Node node) {
         super(node);
     }
 
@@ -17,10 +17,10 @@ public class TopicNodeContentProperty extends DefaultNodeContentProperty {
 
         TextField textField = super.getTextField();
 
-        textField.setPrefHeight(45);
-        textField.setPrefWidth(30);
+        textField.setPrefHeight(40);
+        textField.setPrefWidth(25);
         textField.setLayoutX(super.getNode().getSize().x / 2  - textField.getPrefWidth() / 2);
         textField.setLayoutY(super.getNode().getSize().y / 2  - textField.getPrefHeight() / 2);
-        textField.setFont(Font.font("Verdana", FontPosture.REGULAR, 18));
+        textField.setFont(Font.font("Verdana", FontPosture.REGULAR, 16));
     }
 }

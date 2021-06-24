@@ -1,6 +1,5 @@
 package Core;
 
-import Camera.Camera;
 import Common.GlobalVariables;
 import Common.NodeClicked;
 import Nodes.Node;
@@ -8,7 +7,6 @@ import RightClickMenu.BaseMenu;
 import RightClickMenu.MindMapMenu;
 import RightClickMenu.NodeMenu;
 import javafx.scene.Cursor;
-import javafx.scene.SubScene;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -29,7 +27,7 @@ public class MindMap extends Pane {
         this.initMenus();
         super.setCursor(Cursor.CROSSHAIR);
         super.setMinSize(1920, 1080);
-        BackgroundFill myBF = new BackgroundFill(Color.valueOf("fffff0"), null,
+        BackgroundFill myBF = new BackgroundFill(Color.valueOf("fffffa"), null,
                 null);
         super.setBackground(new Background(myBF));
         super.getStylesheets().add("Style/RightClickMenu.css");

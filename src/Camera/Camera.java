@@ -28,17 +28,6 @@ public class Camera extends PerspectiveCamera {
         double velX = 0;
         double velY = 0;
 
-     /*   if (mouseX < this.pos.x) {
-            velX = 2;
-        } else if (mouseX > this.pos.x) {
-            velX = -2;
-        } else if (mouseY < this.pos.y) {
-            velY = 2;
-        } else if (mouseY > this.pos.y) {
-            velY = -2;
-        }
-
-      */
         if (this.pos.x != 0 && this.pos.y != 0) {
 
             velX = this.pos.x - mouseX;

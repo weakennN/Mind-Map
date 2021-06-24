@@ -1,6 +1,6 @@
 package Nodes;
 
-import Nodes.Skin.Skin;
+import NodeSkin.Skin.Skin;
 import javafx.scene.layout.Region;
 import mikera.vectorz.Vector2;
 

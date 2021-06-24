@@ -6,7 +6,7 @@ import Core.MindMap;
 import CustomizeMenu.Preview.BoundaryPreview;
 import NodeCreator.NodePreviewManager.NodePreviewManager;
 import Nodes.Node;
-import Nodes.Skin.TopicNodeSkin;
+import NodeSkin.Skin.TopicNodeSkin;
 import Nodes.TopicNode;
 import UI.UI;
 

@@ -1,4 +1,4 @@
-package Nodes.Skin.SkinProperty;
+package NodeSkin.SkinProperty;
 
 import Nodes.Node;
 import javafx.scene.control.TextField;
@@ -46,6 +46,7 @@ public abstract class DefaultNodeContentProperty extends SkinProperty {
 
             this.textField.setPrefWidth(width);
             super.getNode().setMinSize(super.getNode().getDefaultWidth() + (width - 30), super.getNode().getSize().y);
+            super.getNode().setSize(super.getNode().getMinWidth(), super.getNode().getMinHeight());
         });
     }
 

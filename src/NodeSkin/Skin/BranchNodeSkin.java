@@ -1,9 +1,9 @@
-package Nodes.Skin;
+package NodeSkin.Skin;
 
 import Nodes.Node;
-import Nodes.Skin.SkinProperty.BackgroundProperty;
-import Nodes.Skin.SkinProperty.BorderProperty;
-import Nodes.Skin.SkinProperty.BranchNodeContentProperty;
+import NodeSkin.SkinProperty.BackgroundProperty;
+import NodeSkin.SkinProperty.BorderProperty;
+import NodeSkin.SkinProperty.BranchNodeContentProperty;
 
 public class BranchNodeSkin extends Skin {
 

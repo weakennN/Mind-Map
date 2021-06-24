@@ -1,4 +1,4 @@
-package Nodes.Skin.SkinProperty;
+package NodeSkin.SkinProperty;
 
 
 import Nodes.Node;

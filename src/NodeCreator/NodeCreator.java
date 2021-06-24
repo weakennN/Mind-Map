@@ -3,9 +3,7 @@ package NodeCreator;
 import Common.Events;
 import Common.NodeClicked;
 import Core.MindMap;
-import NodeCreator.NodePreviewManager.NodePreviewManager;
 import Nodes.Node;
-import Nodes.Skin.SkinProperty.TopicNodeContentProperty;
 import UI.UI;
 import javafx.scene.input.MouseButton;
 

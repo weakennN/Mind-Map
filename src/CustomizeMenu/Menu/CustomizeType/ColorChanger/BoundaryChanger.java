@@ -3,7 +3,7 @@ package CustomizeMenu.Menu.CustomizeType.ColorChanger;
 import CustomizeMenu.Preview.BoundaryPreview;
 import CustomizeMenu.Preview.Preview;
 import Nodes.Node;
-import Nodes.Skin.SkinProperty.BackgroundProperty;
+import NodeSkin.SkinProperty.BackgroundProperty;
 
 public class BoundaryChanger extends ColorChanger {
 
@@ -11,12 +11,6 @@ public class BoundaryChanger extends ColorChanger {
 
         super(preview);
         this.initActions();
-    }
-
-    @Override
-    public void customizeNode(Node node) {
-
-        node.getSkin().getSkinProperty(BackgroundProperty.class).changeColor(super.getColorPicker().getValue());
     }
 
     @Override
@@ -28,5 +22,11 @@ public class BoundaryChanger extends ColorChanger {
             preview.getPreview().setFill(super.getColorPicker().getValue());
             super.setChanged(true);
         });
+    }
+
+    @Override
+    public void customizeNode(Node node) {
+
+        node.getSkin().getSkinProperty(BackgroundProperty.class).changeColor(super.getColorPicker().getValue());
     }
 }

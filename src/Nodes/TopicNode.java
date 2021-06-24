@@ -1,7 +1,6 @@
 package Nodes;
 
 import Common.GlobalVariables;
-import Nodes.Skin.SkinProperty.TopicNodeContentProperty;
 import javafx.geometry.Orientation;
 
 public class TopicNode extends Node {

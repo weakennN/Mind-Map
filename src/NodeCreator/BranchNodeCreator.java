@@ -5,11 +5,10 @@ import Common.NodeClicked;
 import Core.MindMap;
 import CustomizeMenu.Preview.BoundaryPreview;
 import NodeCreator.NodePreviewManager.NodePreviewManager;
+import NodeSkin.Skin.BranchNodeSkin;
 import Nodes.BranchNode;
 import Nodes.Connection;
 import Nodes.Node;
-import Nodes.Skin.BranchNodeSkin;
-import Nodes.Skin.TopicNodeSkin;
 import UI.UI;
 
 public class BranchNodeCreator extends NodeCreator {

@@ -41,6 +41,5 @@ public class App {
 
             this.camera.reset();
         });
-
     }
 }

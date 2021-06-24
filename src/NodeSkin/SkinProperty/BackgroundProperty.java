@@ -1,4 +1,4 @@
-package Nodes.Skin.SkinProperty;
+package NodeSkin.SkinProperty;
 
 import Nodes.Node;
 import javafx.geometry.Insets;
@@ -26,6 +26,7 @@ public class BackgroundProperty extends SkinProperty {
         this.backgroundFill = new BackgroundFill(Color.valueOf(this.color.toString()), this.cornerRadii,
                 this.insets);
         this.background = new Background(this.backgroundFill);
+
         super.getNode().setBackground(this.background);
     }
 

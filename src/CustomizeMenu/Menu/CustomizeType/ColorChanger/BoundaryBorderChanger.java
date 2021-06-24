@@ -3,7 +3,7 @@ package CustomizeMenu.Menu.CustomizeType.ColorChanger;
 import CustomizeMenu.Preview.BoundaryPreview;
 import CustomizeMenu.Preview.Preview;
 import Nodes.Node;
-import Nodes.Skin.SkinProperty.BorderProperty;
+import NodeSkin.SkinProperty.BorderProperty;
 
 public class BoundaryBorderChanger extends ColorChanger {
 

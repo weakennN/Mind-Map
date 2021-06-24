@@ -1,5 +1,6 @@
 package UIControls;
 
+import Nodes.Node;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Region;
