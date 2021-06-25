@@ -10,7 +10,6 @@ public class BoundaryChanger extends ColorChanger {
     public BoundaryChanger(Preview preview) {
 
         super(preview);
-        this.initActions();
     }
 
     @Override

@@ -1,6 +1,8 @@
 package CustomizeMenu.Menu;
 
 import Common.GlobalVariables;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.FormatBorderStyleChanger;
+import CustomizeMenu.Menu.CustomizeType.ColorChanger.FormatBorderColorChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.FormatContentColorChanger;
 import CustomizeMenu.Preview.Preview;
 import Nodes.Node;
@@ -32,6 +34,12 @@ public class NodeContentMenu extends CustomizeMenu {
         FormatContentColorChanger formatContentColorChanger = new FormatContentColorChanger(preview);
         super.addCustomizeType(formatContentColorChanger);
 
+        FormatBorderColorChanger formatBorderColorChanger = new FormatBorderColorChanger(preview);
+        super.addCustomizeType(formatBorderColorChanger);
+
+        FormatBorderStyleChanger formatBorderStyleChanger = new FormatBorderStyleChanger(preview);
+        super.addCustomizeType(formatBorderStyleChanger);
+
         this.initButtons();
         this.initLabels();
 
@@ -40,7 +48,7 @@ public class NodeContentMenu extends CustomizeMenu {
 
         HBox backgroundHBox = new HBox(10);
 
-        backgroundHBox.getChildren().addAll(formatContentColorChangerVBox);
+        backgroundHBox.getChildren().addAll(formatContentColorChangerVBox, formatBorderColorChanger,formatBorderStyleChanger);
 
         VBox vBox = new VBox(10);
         vBox.getChildren().addAll(this.backgroundLabel, backgroundHBox, this.confirmButton);
@@ -85,7 +93,7 @@ public class NodeContentMenu extends CustomizeMenu {
             super.customizeNode();
             super.getWindow().getStage().close();
             super.setOriginal(super.getCopy());
-            super.getNode().getSkin().replacePreview(GlobalVariables.FORMAT_PREVIEW_TAG,super.getCopy());
+            super.getNode().getSkin().replacePreview(GlobalVariables.FORMAT_PREVIEW_TAG, super.getCopy());
         });
     }
 
@@ -97,6 +105,5 @@ public class NodeContentMenu extends CustomizeMenu {
         copy.setLayoutX(100);
         copy.setLayoutY(150);
         super.setCopy(copy);
-
     }
 }

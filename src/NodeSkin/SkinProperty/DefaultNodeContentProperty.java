@@ -55,6 +55,18 @@ public abstract class DefaultNodeContentProperty extends SkinProperty {
         this.textField.setBackground(new Background(new BackgroundFill(color, backgroundFill.getRadii(), backgroundFill.getInsets())));
     }
 
+    public void changeBorder(Color color) {
+        BorderStroke borderStroke = this.textField.getBorder().getStrokes().get(0);
+        this.textField.setBorder(new Border(new BorderStroke(color, borderStroke.getLeftStyle(), borderStroke.getRadii(), borderStroke.getWidths())));
+    }
+
+    public void changeBorder(CornerRadii cornerRadii) {
+        BorderStroke borderStroke = this.textField.getBorder().getStrokes().get(0);
+        this.textField.setBorder(new Border(new BorderStroke(borderStroke.getBottomStroke(), borderStroke.getLeftStyle(), cornerRadii, borderStroke.getWidths())));
+        BackgroundFill backgroundFill = this.textField.getBackground().getFills().get(0);
+        this.textField.setBackground(new Background(new BackgroundFill(backgroundFill.getFill(),cornerRadii,backgroundFill.getInsets())));
+    }
+
     protected TextField getTextField() {
         return this.textField;
     }

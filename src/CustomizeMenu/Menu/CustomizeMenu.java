@@ -3,7 +3,6 @@ package CustomizeMenu.Menu;
 import CustomizeMenu.Menu.CustomizeType.CustomizeType;
 import CustomizeMenu.Preview.Preview;
 import CustomizeMenu.Window.CustomizeMenuWindow;
-import NodeCreator.NodePreviewManager.NodePreviewManager;
 import Nodes.Node;
 import javafx.scene.layout.Pane;
 

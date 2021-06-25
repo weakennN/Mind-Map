@@ -5,12 +5,12 @@ import CustomizeMenu.Preview.Preview;
 import NodeSkin.SkinProperty.DefaultNodeContentProperty;
 import Nodes.Node;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
 
-public class FormatContentColorChanger extends ColorChanger {
+public class FormatBorderColorChanger extends ColorChanger {
 
-    public FormatContentColorChanger(Preview preview) {
+    public FormatBorderColorChanger(Preview preview) {
         super(preview);
     }
 
@@ -21,14 +21,14 @@ public class FormatContentColorChanger extends ColorChanger {
 
             ContentPreview contentPreview = (ContentPreview) super.getPreview();
             TextField textField = contentPreview.getTextField();
-            textField.setBackground(new Background(new BackgroundFill(super.getColorPicker().getValue(), textField.getBackground().getFills().get(0).getRadii(),
-                    textField.getBackground().getFills().get(0).getInsets())));
+            textField.setBorder(new Border(new BorderStroke(super.getColorPicker().getValue(), textField.getBorder().getStrokes().get(0).getLeftStyle(),
+                    textField.getBorder().getStrokes().get(0).getRadii(), textField.getBorder().getStrokes().get(0).getWidths())));
             super.setChanged(true);
         });
     }
 
     @Override
     public void customizeNode(Node node) {
-        node.getSkin().getSkinProperty(DefaultNodeContentProperty.class).changeBackground(super.getColorPicker().getValue());
+        node.getSkin().getSkinProperty(DefaultNodeContentProperty.class).changeBorder(super.getColorPicker().getValue());
     }
 }

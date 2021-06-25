@@ -1,16 +1,16 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger;
 
-import CustomizeMenu.Menu.Action.BoundaryBorderTypeAction;
+import CustomizeMenu.Menu.Action.FormatBorderTypeAction;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.Options.BorderType;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.Options.DefaultBorder;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.Options.RoundBorder;
 import CustomizeMenu.Preview.Preview;
-import NodeSkin.SkinProperty.BorderProperty;
+import NodeSkin.SkinProperty.DefaultNodeContentProperty;
 import Nodes.Node;
 
-public class BoundaryBorderStyleChanger extends BorderStyleChanger {
+public class FormatBorderStyleChanger extends BorderStyleChanger {
 
-    public BoundaryBorderStyleChanger(Preview preview) {
+    public FormatBorderStyleChanger(Preview preview) {
         super(preview);
     }
 
@@ -18,8 +18,8 @@ public class BoundaryBorderStyleChanger extends BorderStyleChanger {
     protected void init() {
         super.init();
 
-        DefaultBorder defaultBorder = new DefaultBorder(super.getPreview(), this, new BoundaryBorderTypeAction(this));
-        RoundBorder roundBorder = new RoundBorder(super.getPreview(), this, new BoundaryBorderTypeAction(this));
+        DefaultBorder defaultBorder = new DefaultBorder(super.getPreview(), this, new FormatBorderTypeAction(this));
+        RoundBorder roundBorder = new RoundBorder(super.getPreview(), this, new FormatBorderTypeAction(this));
         super.getSlider().addItem(defaultBorder);
         super.getSlider().addItem(roundBorder);
 
@@ -28,6 +28,6 @@ public class BoundaryBorderStyleChanger extends BorderStyleChanger {
 
     @Override
     public void customizeNode(Node node) {
-        node.getSkin().getSkinProperty(BorderProperty.class).changeBorderStyle(((BorderType) super.getClicked()).getCornerRadii());
+        node.getSkin().getSkinProperty(DefaultNodeContentProperty.class).changeBorder(((BorderType) super.getClicked()).getCornerRadii());
     }
 }

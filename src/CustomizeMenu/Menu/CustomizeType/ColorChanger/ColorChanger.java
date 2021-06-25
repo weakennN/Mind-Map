@@ -13,7 +13,7 @@ public abstract class ColorChanger extends CustomizeType {
     public ColorChanger(Preview preview) {
 
         super(preview);
-
+        this.initActions();
     }
 
     protected abstract void initActions();

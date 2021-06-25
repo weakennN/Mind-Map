@@ -34,6 +34,8 @@ public class ContentPreview extends Preview {
         ContentPreview contentPreview = new ContentPreview();
         BackgroundFill backgroundFill = this.textField.getBackground().getFills().get(0);
         contentPreview.textField.setBackground(new Background(new BackgroundFill(backgroundFill.getFill(), backgroundFill.getRadii(), backgroundFill.getInsets())));
+        BorderStroke borderStroke = this.textField.getBorder().getStrokes().get(0);
+        contentPreview.textField.setBorder(new Border(new BorderStroke(borderStroke.getBottomStroke(), borderStroke.getLeftStyle(), borderStroke.getRadii(), borderStroke.getWidths())));
 
         return contentPreview;
     }

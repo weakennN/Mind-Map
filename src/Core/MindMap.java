@@ -49,7 +49,8 @@ public class MindMap extends Pane {
         super.setOnMouseClicked(e -> {
 
             if (e.getButton() == MouseButton.SECONDARY && NodeClicked.node == null) {
-                this.menus.get(GlobalVariables.MIND_MAP_MENU).show(this, e.getSceneX(), e.getSceneY());
+                this.menus.get(GlobalVariables.MIND_MAP_MENU).show(this, e.getSceneX() - (this.menus.get(GlobalVariables.MIND_MAP_MENU).getWidth() / 2)
+                        , e.getSceneY() + (this.menus.get(GlobalVariables.MIND_MAP_MENU).getHeight() / 2) + 10);
             } else if (e.getButton() == MouseButton.PRIMARY) {
 
                 NodeClicked.node = null;
