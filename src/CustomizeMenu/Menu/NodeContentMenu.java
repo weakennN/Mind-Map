@@ -1,18 +1,23 @@
 package CustomizeMenu.Menu;
 
+import Common.GlobalVariables;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.FormatContentColorChanger;
 import CustomizeMenu.Preview.Preview;
 import Nodes.Node;
 import UIControls.MenuButton;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.Label;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+
+import java.util.List;
 
 public class NodeContentMenu extends CustomizeMenu {
 
     private Pane root;
     private MenuButton confirmButton;
+    private Label backgroundLabel;
+    private Label contentColorLabel;
 
     public NodeContentMenu(Preview copy, Preview original, Node node) {
         super(copy, original, node);
@@ -24,19 +29,44 @@ public class NodeContentMenu extends CustomizeMenu {
 
         super.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
 
+        FormatContentColorChanger formatContentColorChanger = new FormatContentColorChanger(preview);
+        super.addCustomizeType(formatContentColorChanger);
+
         this.initButtons();
+        this.initLabels();
+
+        VBox formatContentColorChangerVBox = new VBox(10);
+        formatContentColorChangerVBox.getChildren().addAll(formatContentColorChanger, this.contentColorLabel);
+
+        HBox backgroundHBox = new HBox(10);
+
+        backgroundHBox.getChildren().addAll(formatContentColorChangerVBox);
+
+        VBox vBox = new VBox(10);
+        vBox.getChildren().addAll(this.backgroundLabel, backgroundHBox, this.confirmButton);
 
         preview.setLayoutY(100);
         preview.setLayoutX(150);
         this.root = new Pane();
         this.root.getChildren().add(preview);
 
-        FormatContentColorChanger formatContentColorChanger = new FormatContentColorChanger(preview);
-        super.addCustomizeType(formatContentColorChanger);
-
-        this.root.getChildren().addAll(formatContentColorChanger,this.confirmButton);
+        this.root.getChildren().addAll(vBox);
 
         super.getChildren().add(this.root);
+    }
+
+    private void initLabels() {
+
+        this.backgroundLabel = new Label("Background");
+        this.contentColorLabel = new Label("Color");
+
+        List<Label> labels = List.of(this.backgroundLabel, this.contentColorLabel);
+
+        for (Label label : labels) {
+
+            label.setFont(Font.font("Tahoma", 15));
+            label.setTextFill(Color.GRAY);
+        }
     }
 
     private void initButtons() {
@@ -48,12 +78,14 @@ public class NodeContentMenu extends CustomizeMenu {
         this.confirmButton.setText("Confirm");
 
         this.confirmButton.setLayoutX(200);
-        this.confirmButton.setLayoutY(150);
+        this.confirmButton.setLayoutY(250);
 
         this.confirmButton.setOnAction(e -> {
 
             super.customizeNode();
             super.getWindow().getStage().close();
+            super.setOriginal(super.getCopy());
+            super.getNode().getSkin().replacePreview(GlobalVariables.FORMAT_PREVIEW_TAG,super.getCopy());
         });
     }
 

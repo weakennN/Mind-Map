@@ -22,8 +22,8 @@ public class BranchNodeCreator extends NodeCreator {
 
         BranchNode branchNode = new BranchNode(parent);
         branchNode.setSkin(new BranchNodeSkin(branchNode));
-        branchNode.getSkin().addPreview(new BoundaryPreview());
-        branchNode.getSkin().addPreview(new ContentPreview());
+        branchNode.getSkin().addPreview(GlobalVariables.BOUNDARY_PREVIEW_TAG, new BoundaryPreview());
+        branchNode.getSkin().addPreview(GlobalVariables.FORMAT_PREVIEW_TAG, new ContentPreview());
 
         Connection connection = null;
 

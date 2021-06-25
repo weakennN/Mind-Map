@@ -30,7 +30,12 @@ public class ContentPreview extends Preview {
 
     @Override
     public Preview copy() {
-        return this;
+
+        ContentPreview contentPreview = new ContentPreview();
+        BackgroundFill backgroundFill = this.textField.getBackground().getFills().get(0);
+        contentPreview.textField.setBackground(new Background(new BackgroundFill(backgroundFill.getFill(), backgroundFill.getRadii(), backgroundFill.getInsets())));
+
+        return contentPreview;
     }
 
     public TextField getTextField() {

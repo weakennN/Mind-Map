@@ -1,5 +1,6 @@
 package CustomizeMenu.Menu;
 
+import Common.GlobalVariables;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.BoundaryBorderStyleChanger;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.BoundaryBorderLineChanger;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.BoundaryBorderWidthChanger;
@@ -41,6 +42,7 @@ public class NodeBoundaryMenu extends CustomizeMenu {
     private void initStyle(Preview preview) {
 
         super.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
+        super.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, BorderWidths.DEFAULT)));
 
         BoundaryChanger backGroundColorChanger = new BoundaryChanger(preview);
         super.addCustomizeType(backGroundColorChanger);
@@ -115,7 +117,7 @@ public class NodeBoundaryMenu extends CustomizeMenu {
             super.customizeNode();
             super.getWindow().getStage().close();
             super.setOriginal(super.getCopy());
-            super.getNode().getSkin().getPreviews().set(0, super.getCopy());
+            super.getNode().getSkin().replacePreview(GlobalVariables.BOUNDARY_PREVIEW_TAG,super.getCopy());
             //  NodePreviewManager.previews.put(super.getNode(), super.getOriginal());
         });
 

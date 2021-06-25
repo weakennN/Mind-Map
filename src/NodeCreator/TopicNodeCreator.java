@@ -5,7 +5,6 @@ import Common.NodeClicked;
 import Core.MindMap;
 import CustomizeMenu.Preview.BoundaryPreview;
 import CustomizeMenu.Preview.ContentPreview;
-import NodeCreator.NodePreviewManager.NodePreviewManager;
 import Nodes.Node;
 import NodeSkin.Skin.TopicNodeSkin;
 import Nodes.TopicNode;
@@ -22,9 +21,8 @@ public class TopicNodeCreator extends NodeCreator {
 
         TopicNode topicNode = new TopicNode(parent);
         topicNode.setSkin(new TopicNodeSkin(topicNode));
-        topicNode.getSkin().addPreview(new BoundaryPreview());
-        topicNode.getSkin().addPreview(new ContentPreview());
-        //   NodePreviewManager.addPreview(topicNode, new BoundaryPreview());
+        topicNode.getSkin().addPreview(GlobalVariables.BOUNDARY_PREVIEW_TAG, new BoundaryPreview());
+        topicNode.getSkin().addPreview(GlobalVariables.FORMAT_PREVIEW_TAG, new ContentPreview());
 
         super.initDefaultActions(topicNode, mindMap, GlobalVariables.NODE_MENU);
 

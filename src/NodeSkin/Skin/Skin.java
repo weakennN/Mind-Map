@@ -5,19 +5,21 @@ import Nodes.Node;
 import NodeSkin.SkinProperty.SkinProperty;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public abstract class Skin {
 
     private Node node;
     private List<SkinProperty> skinProperties;
-    private List<Preview> previews;
+    private Map<String, Preview> previews;
 
     public Skin(Node node) {
 
         this.node = node;
         this.skinProperties = new ArrayList<>();
-        this.previews = new ArrayList<>();
+        this.previews = new HashMap<>();
     }
 
     public <T extends SkinProperty> T getSkinProperty(Class<T> skinProperty) {
@@ -33,27 +35,21 @@ public abstract class Skin {
         return null;
     }
 
+    public Preview getPreview(String preview) {
+
+        return this.previews.get(preview);
+    }
+
+    public void addPreview(String key, Preview preview) {
+
+        this.previews.put(key, preview);
+    }
+
+    public void replacePreview(String key, Preview preview) {
+        this.addPreview(key, preview);
+    }
+
     public void addSkinProperty(SkinProperty skinProperty) {
         this.skinProperties.add(skinProperty);
-    }
-
-    public void addPreview(Preview preview) {
-        this.previews.add(preview);
-    }
-
-    public <T extends Preview> T getPreview(Class<T> preview) {
-
-        for (Preview p : this.previews) {
-
-            if (preview.isAssignableFrom(p.getClass())) {
-                return preview.cast(p);
-            }
-        }
-
-        return null;
-    }
-
-    public List<Preview> getPreviews() {
-        return this.previews;
     }
 }

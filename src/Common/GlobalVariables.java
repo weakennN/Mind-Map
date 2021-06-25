@@ -10,4 +10,6 @@ public class GlobalVariables {
     public final static String BRANCH_CREATOR = "Add branch";
     public final static String MIND_MAP_MENU = "MindMapMenu";
     public final static String TOPIC_CREATOR = "Add topic";
+    public final static String BOUNDARY_PREVIEW_TAG = "BoundaryPreview";
+    public final static String FORMAT_PREVIEW_TAG = "FormatPreview";
 }
