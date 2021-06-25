@@ -4,7 +4,7 @@ import Common.GlobalVariables;
 import Common.NodeClicked;
 import Core.MindMap;
 import CustomizeMenu.Preview.BoundaryPreview;
-import NodeCreator.NodePreviewManager.NodePreviewManager;
+import CustomizeMenu.Preview.ContentPreview;
 import NodeSkin.Skin.BranchNodeSkin;
 import Nodes.BranchNode;
 import Nodes.Connection;
@@ -22,7 +22,9 @@ public class BranchNodeCreator extends NodeCreator {
 
         BranchNode branchNode = new BranchNode(parent);
         branchNode.setSkin(new BranchNodeSkin(branchNode));
-        NodePreviewManager.addPreview(branchNode, new BoundaryPreview());
+        branchNode.getSkin().addPreview(new BoundaryPreview());
+        branchNode.getSkin().addPreview(new ContentPreview());
+
         Connection connection = null;
 
         if (parent != null) {

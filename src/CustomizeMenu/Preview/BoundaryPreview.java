@@ -43,6 +43,7 @@ public class BoundaryPreview extends Preview {
         preview.shape.setStroke(this.shape.getStroke());
         preview.shape.getStrokeDashArray().addAll(this.shape.getStrokeDashArray());
         preview.shape.setStrokeWidth(this.shape.getStrokeWidth());
+        preview.shape.setStrokeLineCap(this.shape.getStrokeLineCap());
 
         return preview;
     }

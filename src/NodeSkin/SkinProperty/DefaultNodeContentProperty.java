@@ -50,6 +50,11 @@ public abstract class DefaultNodeContentProperty extends SkinProperty {
         });
     }
 
+    public void changeBackground(Color color) {
+        BackgroundFill backgroundFill = this.textField.getBackground().getFills().get(0);
+        this.textField.setBackground(new Background(new BackgroundFill(color, backgroundFill.getRadii(), backgroundFill.getInsets())));
+    }
+
     protected TextField getTextField() {
         return this.textField;
     }
@@ -57,4 +62,5 @@ public abstract class DefaultNodeContentProperty extends SkinProperty {
     public TextField getTextFiled() {
         return this.textField;
     }
+
 }

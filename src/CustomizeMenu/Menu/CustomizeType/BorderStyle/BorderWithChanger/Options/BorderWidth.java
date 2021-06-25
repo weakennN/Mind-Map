@@ -26,12 +26,14 @@ public abstract class BorderWidth extends BorderStyleOption {
             boundaryPreview.getPreview().setStrokeWidth(this.borderWidths.getBottom());
             List<Double> dashLines = boundaryPreview.getPreview().getStrokeDashArray();
 
-            for (int i = 0; i < dashLines.size(); i++) {
+        /*    for (int i = 0; i < dashLines.size(); i++) {
 
                 if (dashLines.get(i) / 2 < this.borderWidths.getBottom()) {
                     dashLines.set(i, dashLines.get(i) * 2);
                 }
             }
+
+         */
 
             borderWidthChanger.setChanged(true);
             borderWidthChanger.setClicked(this);

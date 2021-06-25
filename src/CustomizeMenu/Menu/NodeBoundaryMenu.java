@@ -2,12 +2,10 @@ package CustomizeMenu.Menu;
 
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.BoundaryBorderStyleChanger;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.BoundaryBorderLineChanger;
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.BorderWidthChanger;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.BoundaryBorderWidthChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.BoundaryChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.BoundaryBorderChanger;
 import CustomizeMenu.Preview.Preview;
-import NodeCreator.NodePreviewManager.NodePreviewManager;
 import Nodes.Node;
 import UIControls.MenuButton;
 import javafx.geometry.Insets;
@@ -117,7 +115,8 @@ public class NodeBoundaryMenu extends CustomizeMenu {
             super.customizeNode();
             super.getWindow().getStage().close();
             super.setOriginal(super.getCopy());
-            NodePreviewManager.previews.put(super.getNode(), super.getOriginal());
+            super.getNode().getSkin().getPreviews().set(0, super.getCopy());
+            //  NodePreviewManager.previews.put(super.getNode(), super.getOriginal());
         });
 
         this.cancelButton.setOnAction(e -> {

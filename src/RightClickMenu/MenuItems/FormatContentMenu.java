@@ -2,18 +2,16 @@ package RightClickMenu.MenuItems;
 
 import Common.NodeClicked;
 import Core.MindMap;
-import CustomizeMenu.Preview.BoundaryPreview;
+import CustomizeMenu.Preview.ContentPreview;
 import CustomizeMenu.Window.CustomizeMenuWindow;
 import Nodes.Node;
 
-public class FormatBoundaryMenu extends BaseFormatMenu {
+public class FormatContentMenu extends BaseFormatMenu {
 
-    public FormatBoundaryMenu(MindMap mindMap, CustomizeMenuWindow window) {
-
+    public FormatContentMenu(MindMap mindMap, CustomizeMenuWindow window) {
         super(mindMap, window);
-        super.setText("Boundary menu");
+        super.setText("Format menu");
     }
-
 
     @Override
     public void setAction() {
@@ -21,9 +19,9 @@ public class FormatBoundaryMenu extends BaseFormatMenu {
         super.setOnAction(e -> {
 
             Node node = NodeClicked.node;
-            super.getWindow().getMenu().setCopy(node.getSkin().getPreview(BoundaryPreview.class).copy());
+            super.getWindow().getMenu().setCopy(node.getSkin().getPreview(ContentPreview.class).copy());
             super.getWindow().getMenu().setNode(node);
-            super.getWindow().getMenu().setOriginal(node.getSkin().getPreview(BoundaryPreview.class));
+            super.getWindow().getMenu().setOriginal(node.getSkin().getPreview(ContentPreview.class));
             super.getWindow().show();
         });
     }

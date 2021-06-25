@@ -5,6 +5,7 @@ import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderStyleOption;
 import CustomizeMenu.Preview.BoundaryPreview;
 import CustomizeMenu.Preview.Preview;
 import javafx.scene.layout.BorderStrokeStyle;
+import javafx.scene.shape.StrokeLineCap;
 
 import java.util.List;
 
@@ -25,11 +26,9 @@ public abstract class BorderLine extends BorderStyleOption {
         super.setOnAction(e -> {
 
             BoundaryPreview boundaryPreview = (BoundaryPreview) super.getPreview();
-            if (boundaryPreview.getPreview().getStrokeDashArray().size() == 0) {
-                boundaryPreview.getPreview().getStrokeDashArray().addAll(this.dashLine);
-            } else {
-                boundaryPreview.getPreview().getStrokeDashArray().setAll(this.dashLine);
-            }
+
+            boundaryPreview.getPreview().getStrokeDashArray().addAll(this.dashLine);
+            boundaryPreview.getPreview().setStrokeLineCap(StrokeLineCap.BUTT);
             borderLineChanger.setChanged(true);
             borderLineChanger.setClicked(this);
         });
