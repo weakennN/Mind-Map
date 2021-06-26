@@ -1,6 +1,6 @@
 package CustomizeMenu;
 
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderStyleOption;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.Option;
 import CustomizeMenu.Menu.CustomizeType.CustomizeType;
 import CustomizeMenu.Preview.Preview;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 public abstract class BorderCustomizeType extends CustomizeType {
 
-    private List<BorderStyleOption> styleOptions;
+    private List<Option> styleOptions;
 
     public BorderCustomizeType(Preview preview) {
         super(preview);
@@ -19,18 +19,18 @@ public abstract class BorderCustomizeType extends CustomizeType {
 
     protected void setPreviewToOptions(Preview preview) {
 
-        for (BorderStyleOption borderStyleOption : this.styleOptions) {
-            borderStyleOption.setPreview(preview);
+        for (Option option : this.styleOptions) {
+            option.setPreview(preview);
         }
     }
 
-    protected void addStyleOptions(BorderStyleOption... borderStyleOptions) {
+    protected void addStyleOptions(Option... options) {
 
         if (this.styleOptions == null) {
             this.styleOptions = new ArrayList<>();
         }
 
-        this.styleOptions.addAll(Arrays.asList(borderStyleOptions));
+        this.styleOptions.addAll(Arrays.asList(options));
     }
 
     @Override

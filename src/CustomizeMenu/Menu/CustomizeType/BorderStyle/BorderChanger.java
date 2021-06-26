@@ -7,7 +7,7 @@ import UIControls.Slider;
 public abstract class BorderChanger extends BorderCustomizeType {
 
     private Slider slider;
-    private BorderStyleOption clicked;
+    private Option clicked;
 
     public BorderChanger(Preview preview) {
 
@@ -25,11 +25,11 @@ public abstract class BorderChanger extends BorderCustomizeType {
         return this.slider;
     }
 
-    public void setClicked(BorderStyleOption clicked) {
+    public void setClicked(Option clicked) {
         this.clicked = clicked;
     }
 
-    protected BorderStyleOption getClicked() {
+    protected Option getClicked() {
         return this.clicked;
     }
 }

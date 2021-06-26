@@ -4,6 +4,8 @@ import Common.GlobalVariables;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.FormatBorderStyleChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.FormatBorderColorChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.FormatContentColorChanger;
+import CustomizeMenu.Menu.CustomizeType.ColorChanger.FormatTextColorChanger;
+import CustomizeMenu.Menu.CustomizeType.FontChanger.FormatFontChanger;
 import CustomizeMenu.Preview.Preview;
 import Nodes.Node;
 import UIControls.MenuButton;
@@ -40,6 +42,9 @@ public class NodeContentMenu extends CustomizeMenu {
         FormatBorderStyleChanger formatBorderStyleChanger = new FormatBorderStyleChanger(preview);
         super.addCustomizeType(formatBorderStyleChanger);
 
+        FormatFontChanger formatFontChanger = new FormatFontChanger(preview);
+        super.addCustomizeType(formatFontChanger);
+
         this.initButtons();
         this.initLabels();
 
@@ -48,7 +53,7 @@ public class NodeContentMenu extends CustomizeMenu {
 
         HBox backgroundHBox = new HBox(10);
 
-        backgroundHBox.getChildren().addAll(formatContentColorChangerVBox, formatBorderColorChanger,formatBorderStyleChanger);
+        backgroundHBox.getChildren().addAll(formatContentColorChangerVBox, formatBorderColorChanger, formatBorderStyleChanger, formatFontChanger);
 
         VBox vBox = new VBox(10);
         vBox.getChildren().addAll(this.backgroundLabel, backgroundHBox, this.confirmButton);

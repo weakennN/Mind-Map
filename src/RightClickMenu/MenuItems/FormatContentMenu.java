@@ -4,7 +4,9 @@ import Common.GlobalVariables;
 import Common.NodeClicked;
 import Core.MindMap;
 import CustomizeMenu.Window.CustomizeMenuWindow;
+import NodeSkin.SkinProperty.DefaultNodeContentProperty;
 import Nodes.Node;
+import javafx.scene.text.Font;
 
 public class FormatContentMenu extends BaseFormatMenu {
 

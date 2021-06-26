@@ -13,14 +13,17 @@ public class Events {
 
         EventHandler<MouseEvent> event = mouseEvent -> {
 
-            node.setLayoutX(mouseEvent.getSceneX());
-            node.setLayoutY(mouseEvent.getSceneY());
+            if (mouseEvent.isPrimaryButtonDown()) {
+                node.setLayoutX(mouseEvent.getSceneX());
+                node.setLayoutY(mouseEvent.getSceneY());
 
-            List<Connection> connections = node.getConnections();
+                List<Connection> connections = node.getConnections();
 
-            GlobalMethods.moveConnections(connections, node);
+                GlobalMethods.moveConnections(connections, node);
 
-            node.setPos(mouseEvent.getSceneX(), mouseEvent.getSceneY());
+                node.setPos(mouseEvent.getSceneX(), mouseEvent.getSceneY());
+
+            }
             NodeClicked.node = node;
         };
 

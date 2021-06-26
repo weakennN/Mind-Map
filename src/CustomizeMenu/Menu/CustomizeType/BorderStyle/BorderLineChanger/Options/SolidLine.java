@@ -6,7 +6,7 @@ import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
-public class SolidLine extends BorderLine {
+public class  SolidLine extends BorderLine {
 
     public SolidLine(Preview preview, BorderLineChanger borderLineChanger) {
 

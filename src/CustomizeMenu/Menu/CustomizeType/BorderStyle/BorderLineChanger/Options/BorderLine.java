@@ -1,7 +1,7 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.Options;
 
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.BorderLineChanger;
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderStyleOption;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.Option;
 import CustomizeMenu.Preview.BoundaryPreview;
 import CustomizeMenu.Preview.Preview;
 import javafx.scene.layout.BorderStrokeStyle;
@@ -9,7 +9,7 @@ import javafx.scene.shape.StrokeLineCap;
 
 import java.util.List;
 
-public abstract class BorderLine extends BorderStyleOption {
+public abstract class BorderLine extends Option {
 
     private BorderStrokeStyle strokeStyle;
     private List<Double> dashLine;
