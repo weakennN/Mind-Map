@@ -1,7 +1,6 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.Options;
 
 import CustomizeMenu.Menu.Action.Action;
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.BorderStyleChanger;
 import CustomizeMenu.Preview.Preview;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
@@ -9,8 +8,8 @@ import javafx.scene.shape.Rectangle;
 
 public class DefaultBorder extends BorderType {
 
-    public DefaultBorder(Preview preview, BorderStyleChanger borderChanger, Action action) {
-        super(preview, borderChanger,action);
+    public DefaultBorder(Preview preview, Action action) {
+        super(preview,action);
     }
 
     @Override

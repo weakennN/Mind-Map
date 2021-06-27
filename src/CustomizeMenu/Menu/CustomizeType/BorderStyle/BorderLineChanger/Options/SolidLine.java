@@ -1,23 +1,25 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.Options;
 
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.BorderLineChanger;
+import CustomizeMenu.Menu.Action.Action;
 import CustomizeMenu.Preview.Preview;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
-public class  SolidLine extends BorderLine {
+import java.util.List;
 
-    public SolidLine(Preview preview, BorderLineChanger borderLineChanger) {
+public class SolidLine extends BorderLine {
 
-        super(preview, borderLineChanger);
+    public SolidLine(Preview preview,  Action action) {
+
+        super(preview, action);
     }
 
     @Override
     protected void init() {
 
         super.setStrokeStyle(BorderStrokeStyle.SOLID);
-        super.setDashLine(super.getStrokeStyle().getDashArray());
+        super.setDashLine(List.of(2.0));
 
         Line line = new Line(0, 0, 65, 0);
         line.setStrokeWidth(2);

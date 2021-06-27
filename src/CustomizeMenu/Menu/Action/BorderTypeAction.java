@@ -1,13 +1,13 @@
 package CustomizeMenu.Menu.Action;
 
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.BorderStyleChanger;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.Options.BorderType;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.SliderChanger;
 
-public abstract class BorderTypeAction extends BorderAction {
+public abstract class  BorderTypeAction extends BorderAction {
 
     private BorderType borderType;
 
-    public BorderTypeAction(BorderStyleChanger borderStyleChanger) {
+    public BorderTypeAction(SliderChanger borderStyleChanger) {
         super(borderStyleChanger);
 
     }

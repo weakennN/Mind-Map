@@ -1,10 +1,10 @@
 package CustomizeMenu.Menu;
 
 import Common.GlobalVariables;
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.FormatBorderStyleChanger;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.FormatSliderStyleChanger;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.FormatBorderWidthChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.FormatBorderColorChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.FormatContentColorChanger;
-import CustomizeMenu.Menu.CustomizeType.ColorChanger.FormatTextColorChanger;
 import CustomizeMenu.Menu.CustomizeType.FontChanger.FormatFontChanger;
 import CustomizeMenu.Preview.Preview;
 import Nodes.Node;
@@ -39,11 +39,14 @@ public class NodeContentMenu extends CustomizeMenu {
         FormatBorderColorChanger formatBorderColorChanger = new FormatBorderColorChanger(preview);
         super.addCustomizeType(formatBorderColorChanger);
 
-        FormatBorderStyleChanger formatBorderStyleChanger = new FormatBorderStyleChanger(preview);
+        FormatSliderStyleChanger formatBorderStyleChanger = new FormatSliderStyleChanger(preview);
         super.addCustomizeType(formatBorderStyleChanger);
 
         FormatFontChanger formatFontChanger = new FormatFontChanger(preview);
         super.addCustomizeType(formatFontChanger);
+
+        FormatBorderWidthChanger formatBorderWidthChanger = new FormatBorderWidthChanger(preview);
+        super.addCustomizeType(formatBorderWidthChanger);
 
         this.initButtons();
         this.initLabels();
@@ -53,7 +56,7 @@ public class NodeContentMenu extends CustomizeMenu {
 
         HBox backgroundHBox = new HBox(10);
 
-        backgroundHBox.getChildren().addAll(formatContentColorChangerVBox, formatBorderColorChanger, formatBorderStyleChanger, formatFontChanger);
+        backgroundHBox.getChildren().addAll(formatContentColorChangerVBox, formatBorderColorChanger, formatBorderStyleChanger, formatFontChanger, formatBorderWidthChanger);
 
         VBox vBox = new VBox(10);
         vBox.getChildren().addAll(this.backgroundLabel, backgroundHBox, this.confirmButton);

@@ -1,6 +1,6 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.Options;
 
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.BorderWidthChanger;
+import CustomizeMenu.Menu.Action.Action;
 import CustomizeMenu.Preview.Preview;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderWidths;
@@ -8,10 +8,9 @@ import javafx.scene.text.TextAlignment;
 
 public class None extends BorderWidth{
 
-    public None(Preview preview, BorderWidthChanger borderWidthChanger) {
-        super(preview, borderWidthChanger);
+    public None(Preview preview, Action action) {
+        super(preview, action);
     }
-
     @Override
     protected void init() {
 

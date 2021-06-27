@@ -1,11 +1,10 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.Options;
 
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.BorderLineChanger;
+import CustomizeMenu.Menu.Action.Action;
+import CustomizeMenu.Menu.Action.BorderAction;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.Option;
-import CustomizeMenu.Preview.BoundaryPreview;
 import CustomizeMenu.Preview.Preview;
 import javafx.scene.layout.BorderStrokeStyle;
-import javafx.scene.shape.StrokeLineCap;
 
 import java.util.List;
 
@@ -13,25 +12,14 @@ public abstract class BorderLine extends Option {
 
     private BorderStrokeStyle strokeStyle;
     private List<Double> dashLine;
+    private Action action;
 
-    public BorderLine(Preview preview, BorderLineChanger borderLineChanger) {
+    public BorderLine(Preview preview, Action action) {
 
         super(preview);
-
-        this.setOnAction(borderLineChanger);
-    }
-
-    public void setOnAction(BorderLineChanger borderLineChanger) {
-
-        super.setOnAction(e -> {
-
-            BoundaryPreview boundaryPreview = (BoundaryPreview) super.getPreview();
-
-            boundaryPreview.getPreview().getStrokeDashArray().addAll(this.dashLine);
-            boundaryPreview.getPreview().setStrokeLineCap(StrokeLineCap.BUTT);
-            borderLineChanger.setChanged(true);
-            borderLineChanger.setClicked(this);
-        });
+        this.action = action;
+        ((BorderAction)this.action).setOption(this);
+        this.action.initAction();
     }
 
     public void setStrokeStyle(BorderStrokeStyle strokeStyle) {
@@ -42,7 +30,11 @@ public abstract class BorderLine extends Option {
         return this.strokeStyle;
     }
 
-    protected void setDashLine(List<Double> dashLine) {
+    public void setDashLine(List<Double> dashLine) {
         this.dashLine = dashLine;
+    }
+
+    public List<Double> getDashLine() {
+        return this.dashLine;
     }
 }

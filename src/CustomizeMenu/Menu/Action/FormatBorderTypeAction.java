@@ -1,6 +1,6 @@
 package CustomizeMenu.Menu.Action;
 
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.BorderStyleChanger;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.SliderChanger;
 import CustomizeMenu.Preview.ContentPreview;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
@@ -10,7 +10,7 @@ import javafx.scene.layout.BorderStroke;
 
 public class FormatBorderTypeAction extends BorderTypeAction {
 
-    public FormatBorderTypeAction(BorderStyleChanger borderStyleChanger) {
+    public FormatBorderTypeAction(SliderChanger borderStyleChanger) {
         super(borderStyleChanger);
     }
 
@@ -25,8 +25,8 @@ public class FormatBorderTypeAction extends BorderTypeAction {
             BackgroundFill backgroundFill = textField.getBackground().getFills().get(0);
             textField.setBorder(new Border(new BorderStroke(borderStroke.getBottomStroke(), borderStroke.getLeftStyle(), super.getBorderType().getCornerRadii(), borderStroke.getWidths())));
             textField.setBackground(new Background(new BackgroundFill(backgroundFill.getFill(), super.getBorderType().getCornerRadii(), backgroundFill.getInsets())));
-            super.getBorderStyleChanger().setClicked(super.getBorderType());
-            super.getBorderStyleChanger().setChanged(true);
+            super.getSliderChanger().setClicked(super.getBorderType());
+            super.getSliderChanger().setChanged(true);
         });
     }
 }

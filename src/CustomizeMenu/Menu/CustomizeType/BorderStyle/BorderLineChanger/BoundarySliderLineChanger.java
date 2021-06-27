@@ -1,5 +1,7 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger;
 
+import CustomizeMenu.Menu.Action.BoundaryBorderLineAction;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.SliderChanger;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.Options.BorderLine;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.Options.DottedLine;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.Options.SolidLine;
@@ -7,9 +9,9 @@ import CustomizeMenu.Preview.Preview;
 import NodeSkin.SkinProperty.BorderProperty;
 import Nodes.Node;
 
-public class BoundaryBorderLineChanger extends BorderLineChanger {
+public class BoundarySliderLineChanger extends SliderChanger {
 
-    public BoundaryBorderLineChanger(Preview preview) {
+    public BoundarySliderLineChanger(Preview preview) {
         super(preview);
     }
 
@@ -17,8 +19,8 @@ public class BoundaryBorderLineChanger extends BorderLineChanger {
     protected void init() {
         super.init();
 
-        SolidLine solidLine = new SolidLine(super.getPreview(), this);
-        DottedLine dottedLine = new DottedLine(super.getPreview(), this);
+        SolidLine solidLine = new SolidLine(super.getPreview(), new BoundaryBorderLineAction(this));
+        DottedLine dottedLine = new DottedLine(super.getPreview(), new BoundaryBorderLineAction(this));
         super.getSlider().addItem(solidLine);
         super.getSlider().addItem(dottedLine);
 

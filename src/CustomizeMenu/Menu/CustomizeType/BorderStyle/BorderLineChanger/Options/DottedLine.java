@@ -1,6 +1,6 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.Options;
 
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.BorderLineChanger;
+import CustomizeMenu.Menu.Action.Action;
 import CustomizeMenu.Preview.Preview;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.paint.Color;
@@ -10,8 +10,8 @@ import java.util.List;
 
 public class DottedLine extends BorderLine {
 
-    public DottedLine(Preview preview, BorderLineChanger borderLineChanger) {
-        super(preview, borderLineChanger);
+    public DottedLine(Preview preview, Action action) {
+        super(preview,action);
     }
 
     @Override

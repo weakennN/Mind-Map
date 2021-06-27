@@ -1,13 +1,15 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger;
 
+import CustomizeMenu.Menu.Action.BorderWidthAction;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.SliderChanger;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.Options.*;
 import CustomizeMenu.Preview.Preview;
 import NodeSkin.SkinProperty.BorderProperty;
 import Nodes.Node;
 
-public class BoundaryBorderWidthChanger extends BorderWidthChanger {
+public class BoundarySliderWidthChanger extends SliderChanger {
 
-    public BoundaryBorderWidthChanger(Preview preview) {
+    public BoundarySliderWidthChanger(Preview preview) {
         super(preview);
     }
 
@@ -15,10 +17,10 @@ public class BoundaryBorderWidthChanger extends BorderWidthChanger {
     protected void init() {
         super.init();
 
-        None none = new None(super.getPreview(), this);
-        Small small = new Small(super.getPreview(), this);
-        Medium medium = new Medium(super.getPreview(), this);
-        Large large = new Large(super.getPreview(), this);
+        None none = new None(super.getPreview(), new BorderWidthAction(this));
+        Small small = new Small(super.getPreview(), new BorderWidthAction(this));
+        Medium medium = new Medium(super.getPreview(), new BorderWidthAction(this));
+        Large large = new Large(super.getPreview(), new BorderWidthAction(this));
 
         super.getSlider().addItem(none);
         super.getSlider().addItem(small);

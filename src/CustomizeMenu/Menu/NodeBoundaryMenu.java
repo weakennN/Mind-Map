@@ -1,9 +1,9 @@
 package CustomizeMenu.Menu;
 
 import Common.GlobalVariables;
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.BoundaryBorderStyleChanger;
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.BoundaryBorderLineChanger;
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.BoundaryBorderWidthChanger;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.BoundarySliderStyleChanger;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.BoundarySliderLineChanger;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.BoundarySliderWidthChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.BoundaryChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.BoundaryBorderChanger;
 import CustomizeMenu.Preview.Preview;
@@ -47,16 +47,16 @@ public class NodeBoundaryMenu extends CustomizeMenu {
         BoundaryChanger backGroundColorChanger = new BoundaryChanger(preview);
         super.addCustomizeType(backGroundColorChanger);
 
-        BoundaryBorderStyleChanger borderChanger = new BoundaryBorderStyleChanger(preview);
+        BoundarySliderStyleChanger borderChanger = new BoundarySliderStyleChanger(preview);
         super.addCustomizeType(borderChanger);
 
         BoundaryBorderChanger boundaryBorderChanger = new BoundaryBorderChanger(preview);
         super.addCustomizeType(boundaryBorderChanger);
 
-        BoundaryBorderLineChanger borderLineChanger = new BoundaryBorderLineChanger(preview);
+        BoundarySliderLineChanger borderLineChanger = new BoundarySliderLineChanger(preview);
         super.addCustomizeType(borderLineChanger);
 
-        BoundaryBorderWidthChanger borderWidthChanger = new BoundaryBorderWidthChanger(preview);
+        BoundarySliderWidthChanger borderWidthChanger = new BoundarySliderWidthChanger(preview);
         super.addCustomizeType(borderWidthChanger);
 
         this.initButtons();

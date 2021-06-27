@@ -4,12 +4,12 @@ import CustomizeMenu.BorderCustomizeType;
 import CustomizeMenu.Preview.Preview;
 import UIControls.Slider;
 
-public abstract class BorderChanger extends BorderCustomizeType {
+public abstract class SliderChanger extends BorderCustomizeType {
 
     private Slider slider;
     private Option clicked;
 
-    public BorderChanger(Preview preview) {
+    public SliderChanger(Preview preview) {
 
         super(preview);
     }
@@ -21,7 +21,7 @@ public abstract class BorderChanger extends BorderCustomizeType {
         super.getChildren().add(this.slider);
     }
 
-    protected Slider getSlider() {
+    public Slider getSlider() {
         return this.slider;
     }
 
