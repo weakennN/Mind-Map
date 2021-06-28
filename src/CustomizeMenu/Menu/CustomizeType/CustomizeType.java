@@ -12,7 +12,6 @@ public abstract class CustomizeType extends Region {
     public CustomizeType(Preview preview) {
 
         this.preview = preview;
-        this.init();
     }
 
     protected abstract void init();

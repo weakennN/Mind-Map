@@ -1,6 +1,6 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger;
 
-import CustomizeMenu.Menu.Action.BorderWidthAction;
+import CustomizeMenu.Menu.Action.SliderWidthAction;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.SliderChanger;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.Options.*;
 import CustomizeMenu.Preview.Preview;
@@ -11,16 +11,17 @@ public class BoundarySliderWidthChanger extends SliderChanger {
 
     public BoundarySliderWidthChanger(Preview preview) {
         super(preview);
+        this.init();
     }
 
     @Override
     protected void init() {
         super.init();
 
-        None none = new None(super.getPreview(), new BorderWidthAction(this));
-        Small small = new Small(super.getPreview(), new BorderWidthAction(this));
-        Medium medium = new Medium(super.getPreview(), new BorderWidthAction(this));
-        Large large = new Large(super.getPreview(), new BorderWidthAction(this));
+        None none = new None(super.getPreview(), new SliderWidthAction(this));
+        Small small = new Small(super.getPreview(), new SliderWidthAction(this));
+        Medium medium = new Medium(super.getPreview(), new SliderWidthAction(this));
+        Large large = new Large(super.getPreview(), new SliderWidthAction(this));
 
         super.getSlider().addItem(none);
         super.getSlider().addItem(small);

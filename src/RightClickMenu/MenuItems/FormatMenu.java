@@ -8,9 +8,9 @@ import NodeSkin.SkinProperty.DefaultNodeContentProperty;
 import Nodes.Node;
 import javafx.scene.text.Font;
 
-public class FormatContentMenu extends BaseFormatMenu {
+public class FormatMenu extends BaseFormatMenu {
 
-    public FormatContentMenu(MindMap mindMap, CustomizeMenuWindow window) {
+    public FormatMenu(MindMap mindMap, CustomizeMenuWindow window) {
         super(mindMap, window);
         super.setText("Format menu");
     }

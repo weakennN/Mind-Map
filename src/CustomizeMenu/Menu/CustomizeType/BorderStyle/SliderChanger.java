@@ -12,12 +12,14 @@ public abstract class SliderChanger extends BorderCustomizeType {
     public SliderChanger(Preview preview) {
 
         super(preview);
+        this.init();
     }
 
     @Override
     protected void init() {
 
         this.slider = new Slider();
+        super.setMinSize(slider.getMinWidth(), slider.getMinHeight());
         super.getChildren().add(this.slider);
     }
 

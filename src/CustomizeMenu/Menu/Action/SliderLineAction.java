@@ -2,9 +2,9 @@ package CustomizeMenu.Menu.Action;
 
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.SliderChanger;
 
-public abstract class BorderLineAction extends BorderAction {
+public abstract class SliderLineAction extends SliderAction {
 
-    public BorderLineAction(SliderChanger borderStyleChanger) {
+    public SliderLineAction(SliderChanger borderStyleChanger) {
 
         super(borderStyleChanger);
     }

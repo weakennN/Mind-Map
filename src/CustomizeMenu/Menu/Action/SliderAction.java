@@ -3,12 +3,12 @@ package CustomizeMenu.Menu.Action;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.Option;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.SliderChanger;
 
-public abstract class BorderAction extends Action {
+public abstract class SliderAction extends Action {
 
     private SliderChanger sliderChanger;
     private Option option;
 
-    public BorderAction(SliderChanger sliderChanger) {
+    public SliderAction(SliderChanger sliderChanger) {
         this.sliderChanger = sliderChanger;
     }
 

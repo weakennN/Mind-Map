@@ -14,19 +14,19 @@ public class CustomizeMenuWindow {
     private Scene scene;
     private CustomizeMenu menu;
 
-    public CustomizeMenuWindow(CustomizeMenu menu) {
+    public CustomizeMenuWindow(CustomizeMenu menu, double width, double height) {
 
         this.menu = menu;
         this.menu.setWindow(this);
-        this.init();
+        this.init(width, height);
     }
 
-    private void init() {
+    private void init(double width, double height) {
 
-        this.scene = new Scene(menu, 700, 400);
+        this.scene = new Scene(menu, width, height);
         this.stage = new Stage();
-        this.stage.setMinWidth(600);
-        this.stage.setMinHeight(400);
+        this.stage.setMinWidth(width);
+        this.stage.setMinHeight(height);
         this.stage.setScene(this.scene);
         this.scene.setFill(Color.RED);
         this.stage.initModality(Modality.APPLICATION_MODAL);

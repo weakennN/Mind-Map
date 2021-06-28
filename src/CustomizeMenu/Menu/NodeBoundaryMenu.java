@@ -118,7 +118,6 @@ public class NodeBoundaryMenu extends CustomizeMenu {
             super.getWindow().getStage().close();
             super.setOriginal(super.getCopy());
             super.getNode().getSkin().replacePreview(GlobalVariables.BOUNDARY_PREVIEW_TAG,super.getCopy());
-            //  NodePreviewManager.previews.put(super.getNode(), super.getOriginal());
         });
 
         this.cancelButton.setOnAction(e -> {

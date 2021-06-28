@@ -12,4 +12,8 @@ public class GlobalVariables {
     public final static String TOPIC_CREATOR = "Add topic";
     public final static String BOUNDARY_PREVIEW_TAG = "BoundaryPreview";
     public final static String FORMAT_PREVIEW_TAG = "FormatPreview";
+    public final static double BOUNDARY_MENU_WIDTH = 700;
+    public final static double BOUNDARY_MENU_HEIGHT = 400;
+    public final static double FORMAT_MENU_WIDTH = 700;
+    public final static double FORMAT_MENU_HEIGHT = 750;
 }

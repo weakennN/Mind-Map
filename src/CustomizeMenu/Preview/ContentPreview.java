@@ -3,8 +3,9 @@ package CustomizeMenu.Preview;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
+import javafx.scene.text.FontPosture;
 
 public class ContentPreview extends Preview {
 
@@ -18,20 +19,22 @@ public class ContentPreview extends Preview {
     @Override
     public void init() {
 
-        this.textField = new TextField("Examp");
+        this.textField = new TextField("Example");
         this.textField.getStylesheets().add("Style/DefaultNodeContentProperty.css");
         this.textField.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, new CornerRadii(25), BorderWidths.DEFAULT)));
         this.textField.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(25), null)));
-        this.textField.setFont(Font.font("Arial", 10));
-        Text text = new Text(this.textField.getText());
-        // System.out.println(text.getBoundsInLocal().getWidth());
+        this.textField.setFont(Font.font("Verdana", FontPosture.REGULAR, 16));
         this.textField.setPrefSize(120, 40);
-      /*  this.textField.setEditable(false);
-        this.textField.setDisable(true);
-        
-       */
 
-        super.getChildren().addAll(this.textField);
+        Rectangle rectangle = new Rectangle(0, 0, 650, 200);
+        rectangle.setArcHeight(25);
+        rectangle.setArcWidth(25);
+        rectangle.setFill(Color.valueOf("e8ede9"));
+
+        this.textField.setLayoutX(rectangle.getLayoutX() + (rectangle.getWidth() / 2) - this.textField.getPrefWidth() / 2);
+        this.textField.setLayoutY(rectangle.getLayoutY() + (rectangle.getHeight() / 2) - this.textField.getPrefHeight() / 2);
+
+        super.getChildren().addAll(rectangle, this.textField);
     }
 
     @Override
@@ -47,6 +50,16 @@ public class ContentPreview extends Preview {
         contentPreview.textField.setFont(this.textField.getFont());
 
         return contentPreview;
+    }
+
+    @Override
+    protected double computePrefHeight(double width) {
+        return 200;
+    }
+
+    @Override
+    protected double computePrefWidth(double height) {
+        return 650;
     }
 
     public TextField getTextField() {

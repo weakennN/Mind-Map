@@ -6,7 +6,7 @@ import javafx.scene.layout.BorderWidths;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
-public class Large extends BorderWidth{
+public class Large extends BorderWidth {
 
     public Large(Preview preview, Action action) {
         super(preview, action);

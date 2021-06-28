@@ -1,7 +1,7 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.Options;
 
 import CustomizeMenu.Menu.Action.Action;
-import CustomizeMenu.Menu.Action.BorderAction;
+import CustomizeMenu.Menu.Action.SliderAction;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.Option;
 import CustomizeMenu.Preview.Preview;
 import javafx.scene.layout.BorderWidths;
@@ -9,14 +9,12 @@ import javafx.scene.layout.BorderWidths;
 public abstract class BorderWidth extends Option {
 
     private BorderWidths borderWidths;
-    private Action action;
 
     public BorderWidth(Preview preview, Action action) {
-        super(preview);
+        super(preview, action);
 
-        this.action = action;
-        ((BorderAction) this.action).setOption(this);
-        this.action.initAction();
+        ((SliderAction) super.getAction()).setOption(this);
+        super.getAction().initAction();
     }
 
     protected void setBorderWidths(BorderWidths borderWidths) {

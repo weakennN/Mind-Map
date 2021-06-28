@@ -21,6 +21,6 @@ public class TopicNodeContentProperty extends DefaultNodeContentProperty {
         textField.setPrefWidth(30);
         textField.setLayoutX(super.getNode().getSize().x / 2  - textField.getPrefWidth() / 2);
         textField.setLayoutY(super.getNode().getSize().y / 2  - textField.getPrefHeight() / 2);
-        textField.setFont(Font.font("Verdana", FontPosture.REGULAR, 18));
+        textField.setFont(Font.font("Verdana", FontPosture.REGULAR, 16));
     }
 }

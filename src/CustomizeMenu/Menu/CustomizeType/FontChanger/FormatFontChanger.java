@@ -1,5 +1,6 @@
 package CustomizeMenu.Menu.CustomizeType.FontChanger;
 
+import CustomizeMenu.Menu.Action.FormatFontAction;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.SliderChanger;
 import CustomizeMenu.Menu.CustomizeType.FontChanger.Option.DefaultFont;
 import CustomizeMenu.Menu.CustomizeType.FontChanger.Option.FontOption;
@@ -17,7 +18,7 @@ public class FormatFontChanger extends SliderChanger {
     protected void init() {
         super.init();
 
-        DefaultFont defaultFont = new DefaultFont(super.getPreview(), this);
+        DefaultFont defaultFont = new DefaultFont(super.getPreview(), new FormatFontAction(this));
         super.getSlider().addItem(defaultFont);
         super.addStyleOptions(defaultFont);
     }

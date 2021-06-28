@@ -1,7 +1,7 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.Options;
 
 import CustomizeMenu.Menu.Action.Action;
-import CustomizeMenu.Menu.Action.BorderAction;
+import CustomizeMenu.Menu.Action.SliderAction;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.Option;
 import CustomizeMenu.Preview.Preview;
 import javafx.scene.layout.BorderStrokeStyle;
@@ -12,14 +12,12 @@ public abstract class BorderLine extends Option {
 
     private BorderStrokeStyle strokeStyle;
     private List<Double> dashLine;
-    private Action action;
 
     public BorderLine(Preview preview, Action action) {
 
-        super(preview);
-        this.action = action;
-        ((BorderAction)this.action).setOption(this);
-        this.action.initAction();
+        super(preview, action);
+        ((SliderAction) super.getAction()).setOption(this);
+        super.getAction().initAction();
     }
 
     public void setStrokeStyle(BorderStrokeStyle strokeStyle) {

@@ -1,6 +1,6 @@
 package CustomizeMenu.Menu.CustomizeType.FontChanger.Option;
 
-import CustomizeMenu.Menu.CustomizeType.FontChanger.FormatFontChanger;
+import CustomizeMenu.Menu.Action.Action;
 import CustomizeMenu.Preview.Preview;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -8,8 +8,8 @@ import javafx.scene.text.Text;
 
 public class DefaultFont extends FontOption {
 
-    public DefaultFont(Preview preview, FormatFontChanger formatFontChanger) {
-        super(preview, formatFontChanger);
+    public DefaultFont(Preview preview, Action action) {
+        super(preview, action);
     }
 
     @Override

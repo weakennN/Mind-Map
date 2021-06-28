@@ -6,9 +6,9 @@ import Core.MindMap;
 import CustomizeMenu.Window.CustomizeMenuWindow;
 import Nodes.Node;
 
-public class FormatBoundaryMenu extends BaseFormatMenu {
+public class BoundaryMenu extends BaseFormatMenu {
 
-    public FormatBoundaryMenu(MindMap mindMap, CustomizeMenuWindow window) {
+    public BoundaryMenu(MindMap mindMap, CustomizeMenuWindow window) {
 
         super(mindMap, window);
         super.setText("Boundary menu");

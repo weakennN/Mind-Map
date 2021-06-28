@@ -1,6 +1,6 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger;
 
-import CustomizeMenu.Menu.Action.BoundaryBorderTypeAction;
+import CustomizeMenu.Menu.Action.BoundarySliderTypeAction;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.Options.BorderType;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.Options.DefaultBorder;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.Options.RoundBorder;
@@ -13,14 +13,15 @@ public class BoundarySliderStyleChanger extends SliderChanger {
 
     public BoundarySliderStyleChanger(Preview preview) {
         super(preview);
+        this.init();
     }
 
     @Override
     protected void init() {
         super.init();
 
-        DefaultBorder defaultBorder = new DefaultBorder(super.getPreview(),  new BoundaryBorderTypeAction(this));
-        RoundBorder roundBorder = new RoundBorder(super.getPreview(),  new BoundaryBorderTypeAction(this));
+        DefaultBorder defaultBorder = new DefaultBorder(super.getPreview(),  new BoundarySliderTypeAction(this));
+        RoundBorder roundBorder = new RoundBorder(super.getPreview(),  new BoundarySliderTypeAction(this));
         super.getSlider().addItem(defaultBorder);
         super.getSlider().addItem(roundBorder);
 

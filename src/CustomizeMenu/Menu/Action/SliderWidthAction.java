@@ -4,9 +4,9 @@ import CustomizeMenu.Menu.CustomizeType.BorderStyle.SliderChanger;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.Options.BorderWidth;
 import CustomizeMenu.Preview.BoundaryPreview;
 
-public class BorderWidthAction extends BorderAction {
+public class SliderWidthAction extends SliderAction {
 
-    public BorderWidthAction(SliderChanger borderStyleChanger) {
+    public SliderWidthAction(SliderChanger borderStyleChanger) {
         super(borderStyleChanger);
     }
 

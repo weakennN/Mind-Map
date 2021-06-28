@@ -45,7 +45,7 @@ public abstract class DefaultNodeContentProperty extends SkinProperty {
             text.setFont(this.textField.getFont());
 
             this.textField.setPrefWidth(width);
-            super.getNode().setMinSize(super.getNode().getDefaultWidth() + (width - 30), super.getNode().getSize().y);
+            super.getNode().setMinWidth(super.getNode().getDefaultWidth() + (width - 30));
             super.getNode().setSize(super.getNode().getMinWidth(), super.getNode().getMinHeight());
         });
     }
