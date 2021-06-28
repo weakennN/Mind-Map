@@ -9,11 +9,11 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public abstract class BorderCustomizeType extends CustomizeType {
+public abstract class SliderCustomizeType extends CustomizeType {
 
     private List<Option> styleOptions;
 
-    public BorderCustomizeType(Preview preview) {
+    public SliderCustomizeType(Preview preview) {
         super(preview);
     }
 

@@ -1,24 +1,24 @@
-package CustomizeMenu.Menu.CustomizeType.FontChanger.Option;
+package CustomizeMenu.Menu.CustomizeType.FomatTextSizeChanger.Options;
 
 import CustomizeMenu.Menu.Action.Action;
 import CustomizeMenu.Preview.Preview;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
 import javafx.scene.text.Text;
 
-public class DefaultFont extends FontOption {
+public class DefaultFontSize extends FontSize {
 
-    public DefaultFont(Preview preview, Action action) {
+    public DefaultFontSize(Preview preview, Action action) {
         super(preview, action);
     }
 
     @Override
     protected void init() {
 
-        super.setFont("Verdana");
+        super.setFontSize(16);
 
         Text text = new Text("Default");
-        text.setFont(Font.font("Verdana", FontPosture.REGULAR, 16));
+        text.setFont(Font.font("Arial", 16));
+
         super.setGraphic(text);
     }
 }

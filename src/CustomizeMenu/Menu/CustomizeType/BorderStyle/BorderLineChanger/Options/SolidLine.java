@@ -19,7 +19,7 @@ public class SolidLine extends BorderLine {
     protected void init() {
 
         super.setStrokeStyle(BorderStrokeStyle.SOLID);
-        super.setDashLine(List.of(2.0));
+        super.setDashLine(List.of(0.0));
 
         Line line = new Line(0, 0, 65, 0);
         line.setStrokeWidth(2);

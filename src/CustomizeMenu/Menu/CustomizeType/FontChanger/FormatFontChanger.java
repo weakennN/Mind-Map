@@ -4,9 +4,13 @@ import CustomizeMenu.Menu.Action.FormatFontAction;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.SliderChanger;
 import CustomizeMenu.Menu.CustomizeType.FontChanger.Option.DefaultFont;
 import CustomizeMenu.Menu.CustomizeType.FontChanger.Option.FontOption;
+import CustomizeMenu.Menu.CustomizeType.FontChanger.Option.HelveticaFont;
 import CustomizeMenu.Preview.Preview;
 import NodeSkin.SkinProperty.DefaultNodeContentProperty;
 import Nodes.Node;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 
 public class FormatFontChanger extends SliderChanger {
 
@@ -19,12 +23,18 @@ public class FormatFontChanger extends SliderChanger {
         super.init();
 
         DefaultFont defaultFont = new DefaultFont(super.getPreview(), new FormatFontAction(this));
+        HelveticaFont helveticaFont = new HelveticaFont(super.getPreview(), new FormatFontAction(this));
+
         super.getSlider().addItem(defaultFont);
-        super.addStyleOptions(defaultFont);
+        super.getSlider().addItem(helveticaFont);
+
+        super.addStyleOptions(defaultFont, helveticaFont);
     }
 
     @Override
     public void customizeNode(Node node) {
-        node.getSkin().getSkinProperty(DefaultNodeContentProperty.class).getTextFiled().setFont(((FontOption) super.getClicked()).getFont());
+        TextField textField = node.getSkin().getSkinProperty(DefaultNodeContentProperty.class).getTextFiled();
+        node.getSkin().getSkinProperty(DefaultNodeContentProperty.class).getTextFiled().setFont(Font.font(((FontOption) super.getClicked()).getFont()
+                , FontPosture.REGULAR, textField.getFont().getSize()));
     }
 }

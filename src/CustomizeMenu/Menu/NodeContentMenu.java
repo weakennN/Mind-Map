@@ -2,10 +2,12 @@ package CustomizeMenu.Menu;
 
 import Common.GlobalVariables;
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.BoderStyleChanger.FormatSliderStyleChanger;
-import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.FormatBorderWidthChanger;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderLineChanger.FormatLineChanger;
+import CustomizeMenu.Menu.CustomizeType.BorderStyle.BorderWithChanger.FormatSliderWidthChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.FormatBorderColorChanger;
 import CustomizeMenu.Menu.CustomizeType.ColorChanger.FormatContentColorChanger;
 import CustomizeMenu.Menu.CustomizeType.FontChanger.FormatFontChanger;
+import CustomizeMenu.Menu.CustomizeType.FomatTextSizeChanger.FormatTextSizeChanger;
 import CustomizeMenu.Preview.Preview;
 import Nodes.Node;
 import UIControls.MenuButton;
@@ -33,6 +35,8 @@ public class NodeContentMenu extends CustomizeMenu {
     private Label borderColorLabel;
     private Label styleLabel;
     private Label widthLabel;
+    private Label lineLabel;
+    private Label sizeLabel;
 
     public NodeContentMenu(Preview copy, Preview original, Node node) {
         super(copy, original, node);
@@ -57,8 +61,14 @@ public class NodeContentMenu extends CustomizeMenu {
         FormatFontChanger formatFontChanger = new FormatFontChanger(preview);
         super.addCustomizeType(formatFontChanger);
 
-        FormatBorderWidthChanger formatBorderWidthChanger = new FormatBorderWidthChanger(preview);
+        FormatSliderWidthChanger formatBorderWidthChanger = new FormatSliderWidthChanger(preview);
         super.addCustomizeType(formatBorderWidthChanger);
+
+        FormatTextSizeChanger formatTextSizeChanger = new FormatTextSizeChanger(preview);
+        super.addCustomizeType(formatTextSizeChanger);
+
+        FormatLineChanger formatLineChanger = new FormatLineChanger(preview);
+        super.addCustomizeType(formatLineChanger);
 
         this.initButtons();
         this.initLabels();
@@ -91,9 +101,15 @@ public class NodeContentMenu extends CustomizeMenu {
         VBox formatBorderWidthChangerVBox = new VBox(10);
         formatBorderWidthChangerVBox.getChildren().addAll(formatBorderWidthChanger, this.widthLabel);
 
-        firstRow.getChildren().addAll(formatFontChangerVBox);
+        VBox formatTextSizeChangerVBox = new VBox(10);
+        formatTextSizeChangerVBox.getChildren().addAll(formatTextSizeChanger, this.sizeLabel);
+
+        VBox formatLineChangerVBox = new VBox(10);
+        formatLineChangerVBox.getChildren().addAll(formatLineChanger, this.lineLabel);
+
+        firstRow.getChildren().addAll(formatFontChangerVBox, formatTextSizeChangerVBox);
         secondRow.getChildren().addAll(formatContentColorChangerVBox);
-        thirdRow.getChildren().addAll(formatBorderColorChangerVBox, formatBorderStyleChangerVBox, formatBorderWidthChangerVBox);
+        thirdRow.getChildren().addAll(formatBorderColorChangerVBox, formatBorderStyleChangerVBox, formatBorderWidthChangerVBox, formatLineChangerVBox);
 
         VBox vBox = new VBox(20);
         vBox.getChildren().addAll(this.title, this.previewVBox, this.textLabel, firstRow, this.backgroundLabel
@@ -117,9 +133,11 @@ public class NodeContentMenu extends CustomizeMenu {
         this.borderColorLabel = new Label("Color");
         this.styleLabel = new Label("Style");
         this.widthLabel = new Label("Width");
+        this.lineLabel = new Label("Line");
+        this.sizeLabel = new Label("Size");
 
         List<Label> labels = List.of(this.backgroundLabel, this.textLabel, this.fontLabel, this.borderLabel
-                , this.contentColorLabel, this.borderColorLabel, this.styleLabel, this.widthLabel);
+                , this.contentColorLabel, this.borderColorLabel, this.styleLabel, this.widthLabel, this.lineLabel, this.sizeLabel);
 
         for (Label label : labels) {
 

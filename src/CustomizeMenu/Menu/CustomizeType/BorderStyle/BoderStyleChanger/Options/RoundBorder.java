@@ -16,7 +16,7 @@ public class RoundBorder extends BorderType {
 
     @Override
     protected void init() {
-        super.setCornerRadii(new CornerRadii(20));
+        super.setCornerRadii(new CornerRadii(25));
 
         Rectangle rectangle = new Rectangle(0, 0, 68, 30);
         rectangle.setFill(Color.TRANSPARENT);

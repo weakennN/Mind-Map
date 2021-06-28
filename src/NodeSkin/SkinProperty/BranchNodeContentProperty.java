@@ -19,8 +19,10 @@ public class BranchNodeContentProperty extends DefaultNodeContentProperty {
 
         textField.setPrefHeight(40);
         textField.setPrefWidth(25);
-        textField.setLayoutX(super.getNode().getSize().x / 2  - textField.getPrefWidth() / 2);
-        textField.setLayoutY(super.getNode().getSize().y / 2  - textField.getPrefHeight() / 2);
+        textField.setMinWidth(25);
+        textField.setMinHeight(40);
+        textField.setLayoutX(super.getNode().getSize().x / 2 - textField.getPrefWidth() / 2);
+        textField.setLayoutY(super.getNode().getSize().y / 2 - textField.getPrefHeight() / 2);
         textField.setFont(Font.font("Verdana", FontPosture.REGULAR, 16));
     }
 }

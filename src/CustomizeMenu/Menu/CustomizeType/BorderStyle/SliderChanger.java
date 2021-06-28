@@ -1,10 +1,10 @@
 package CustomizeMenu.Menu.CustomizeType.BorderStyle;
 
-import CustomizeMenu.BorderCustomizeType;
+import CustomizeMenu.SliderCustomizeType;
 import CustomizeMenu.Preview.Preview;
 import UIControls.Slider;
 
-public abstract class SliderChanger extends BorderCustomizeType {
+public abstract class SliderChanger extends SliderCustomizeType {
 
     private Slider slider;
     private Option clicked;

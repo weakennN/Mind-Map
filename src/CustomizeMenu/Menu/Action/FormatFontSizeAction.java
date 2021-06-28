@@ -1,15 +1,15 @@
 package CustomizeMenu.Menu.Action;
 
 import CustomizeMenu.Menu.CustomizeType.BorderStyle.SliderChanger;
-import CustomizeMenu.Menu.CustomizeType.FontChanger.Option.FontOption;
+import CustomizeMenu.Menu.CustomizeType.FomatTextSizeChanger.Options.FontSize;
 import CustomizeMenu.Preview.ContentPreview;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 
-public class FormatFontAction extends SliderAction {
+public class FormatFontSizeAction extends SliderAction {
 
-    public FormatFontAction(SliderChanger sliderChanger) {
+    public FormatFontSizeAction(SliderChanger sliderChanger) {
         super(sliderChanger);
     }
 
@@ -20,10 +20,9 @@ public class FormatFontAction extends SliderAction {
 
             ContentPreview contentPreview = (ContentPreview) super.getOption().getPreview();
             TextField textField = contentPreview.getTextField();
-            textField.setFont(Font.font(((FontOption) super.getOption()).getFont(), FontPosture.REGULAR, textField.getFont().getSize()));
-
-            super.getSliderChanger().setClicked(super.getOption());
+            textField.setFont(Font.font(textField.getFont().getName(), FontPosture.REGULAR, ((FontSize) super.getOption()).getFontSize()));
             super.getSliderChanger().setChanged(true);
+            super.getSliderChanger().setClicked(super.getOption());
         });
     }
 }

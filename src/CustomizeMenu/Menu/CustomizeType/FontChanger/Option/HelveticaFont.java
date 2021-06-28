@@ -6,19 +6,20 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.Text;
 
-public class DefaultFont extends FontOption {
+public class HelveticaFont extends FontOption {
 
-    public DefaultFont(Preview preview, Action action) {
+    public HelveticaFont(Preview preview, Action action) {
         super(preview, action);
     }
 
     @Override
     protected void init() {
 
-        super.setFont("Verdana");
+        super.setFont("Helvetica");
 
         Text text = new Text("Default");
-        text.setFont(Font.font("Verdana", FontPosture.REGULAR, 16));
+        text.setFont(Font.font("Helvetica", FontPosture.REGULAR, 16));
+
         super.setGraphic(text);
     }
 }

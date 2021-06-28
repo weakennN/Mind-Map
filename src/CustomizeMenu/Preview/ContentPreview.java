@@ -1,6 +1,8 @@
 package CustomizeMenu.Preview;
 
+import javafx.event.Event;
 import javafx.scene.control.TextField;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -25,11 +27,14 @@ public class ContentPreview extends Preview {
         this.textField.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(25), null)));
         this.textField.setFont(Font.font("Verdana", FontPosture.REGULAR, 16));
         this.textField.setPrefSize(120, 40);
+        this.textField.setEditable(false);
+        this.textField.addEventFilter(ContextMenuEvent.CONTEXT_MENU_REQUESTED, Event::consume);
 
         Rectangle rectangle = new Rectangle(0, 0, 650, 200);
         rectangle.setArcHeight(25);
         rectangle.setArcWidth(25);
         rectangle.setFill(Color.valueOf("e8ede9"));
+        rectangle.setStroke(Color.valueOf("cfd4d0"));
 
         this.textField.setLayoutX(rectangle.getLayoutX() + (rectangle.getWidth() / 2) - this.textField.getPrefWidth() / 2);
         this.textField.setLayoutY(rectangle.getLayoutY() + (rectangle.getHeight() / 2) - this.textField.getPrefHeight() / 2);
@@ -45,8 +50,6 @@ public class ContentPreview extends Preview {
         contentPreview.textField.setBackground(new Background(new BackgroundFill(backgroundFill.getFill(), backgroundFill.getRadii(), backgroundFill.getInsets())));
         BorderStroke borderStroke = this.textField.getBorder().getStrokes().get(0);
         contentPreview.textField.setBorder(new Border(new BorderStroke(borderStroke.getBottomStroke(), borderStroke.getLeftStyle(), borderStroke.getRadii(), borderStroke.getWidths())));
-        //contentPreview.textField.setMinSize(this.textField.getMinWidth(),this.textField.getMinHeight());
-        //contentPreview.textField.setStyle(this.textField.getStyle());
         contentPreview.textField.setFont(this.textField.getFont());
 
         return contentPreview;

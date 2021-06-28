@@ -32,7 +32,7 @@ public abstract class DefaultNodeContentProperty extends SkinProperty {
 
         this.textField.setOnKeyTyped(e -> {
 
-            double width = 30;
+            double width = this.textField.getMinWidth();
 
             for (int i = 0; i < this.textField.getText().length(); i++) {
 
@@ -44,8 +44,15 @@ public abstract class DefaultNodeContentProperty extends SkinProperty {
             Text text = new Text(e.getCharacter().charAt(0) + "");
             text.setFont(this.textField.getFont());
 
-            this.textField.setPrefWidth(width);
-            super.getNode().setMinWidth(super.getNode().getDefaultWidth() + (width - 30));
+            double lastCharSize = 0;
+
+            if (Character.isAlphabetic(text.getText().charAt(0))
+                    || Character.isDigit(text.getText().charAt(0))) {
+                lastCharSize = text.getBoundsInLocal().getWidth();
+            }
+
+            this.textField.setPrefWidth(width + lastCharSize);
+            super.getNode().setMinWidth(super.getNode().getDefaultWidth() + (width - this.textField.getMinWidth()));
             super.getNode().setSize(super.getNode().getMinWidth(), super.getNode().getMinHeight());
         });
     }
@@ -70,6 +77,11 @@ public abstract class DefaultNodeContentProperty extends SkinProperty {
     public void changeBorder(BorderWidths borderWidths) {
         BorderStroke borderStroke = this.textField.getBorder().getStrokes().get(0);
         this.textField.setBorder(new Border(new BorderStroke(borderStroke.getBottomStroke(), borderStroke.getLeftStyle(), borderStroke.getRadii(), borderWidths)));
+    }
+
+    public void changeBorder(BorderStrokeStyle borderStrokeStyle) {
+        BorderStroke borderStroke = this.textField.getBorder().getStrokes().get(0);
+        this.textField.setBorder(new Border(new BorderStroke(borderStroke.getBottomStroke(), borderStrokeStyle, borderStroke.getRadii(), borderStroke.getWidths())));
     }
 
     protected TextField getTextField() {

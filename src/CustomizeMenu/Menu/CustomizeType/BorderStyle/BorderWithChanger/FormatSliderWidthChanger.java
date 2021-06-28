@@ -7,9 +7,9 @@ import CustomizeMenu.Preview.Preview;
 import NodeSkin.SkinProperty.DefaultNodeContentProperty;
 import Nodes.Node;
 
-public class FormatBorderWidthChanger extends SliderChanger {
+public class FormatSliderWidthChanger extends SliderChanger {
 
-    public FormatBorderWidthChanger(Preview preview) {
+    public FormatSliderWidthChanger(Preview preview) {
         super(preview);
         this.init();
     }
