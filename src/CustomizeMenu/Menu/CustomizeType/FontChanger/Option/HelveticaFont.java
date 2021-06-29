@@ -17,7 +17,7 @@ public class HelveticaFont extends FontOption {
 
         super.setFont("Helvetica");
 
-        Text text = new Text("Default");
+        Text text = new Text("Helvetica");
         text.setFont(Font.font("Helvetica", FontPosture.REGULAR, 16));
 
         super.setGraphic(text);

@@ -1,8 +1,6 @@
 package Camera;
 
-import Common.GlobalMethods;
 import Core.MindMap;
-import Nodes.Connection;
 import Nodes.Node;
 import javafx.scene.PerspectiveCamera;
 import mikera.vectorz.Vector2;
@@ -39,12 +37,13 @@ public class Camera extends PerspectiveCamera {
         for (int i = 0; i < nodes.size(); i++) {
 
             Node node = nodes.get(i);
+
             node.setLayoutX(node.getLayoutX() - velX);
             node.setLayoutY(node.getLayoutY() - velY);
 
-            List<Connection> connections = node.getConnections();
+            node.getManager().moveConnections();
 
-            GlobalMethods.moveConnections(connections, node);
+            node.setPos(node.getLayoutX(), node.getLayoutY());
         }
 
         this.pos.x = mouseX;

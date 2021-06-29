@@ -28,6 +28,7 @@ public class ContentPreview extends Preview {
         this.textField.setFont(Font.font("Verdana", FontPosture.REGULAR, 16));
         this.textField.setPrefSize(120, 40);
         this.textField.setEditable(false);
+        this.textField.setFocusTraversable(false);
         this.textField.addEventFilter(ContextMenuEvent.CONTEXT_MENU_REQUESTED, Event::consume);
 
         Rectangle rectangle = new Rectangle(0, 0, 650, 200);

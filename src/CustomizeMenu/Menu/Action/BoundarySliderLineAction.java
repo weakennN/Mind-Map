@@ -5,7 +5,7 @@ import CustomizeMenu.Menu.CustomizeType.BorderStyle.SliderChanger;
 import CustomizeMenu.Preview.BoundaryPreview;
 import javafx.scene.shape.StrokeLineCap;
 
-public class BoundarySliderLineAction extends SliderLineAction {
+public class BoundarySliderLineAction extends SliderAction {
 
     public BoundarySliderLineAction(SliderChanger borderStyleChanger) {
         super(borderStyleChanger);

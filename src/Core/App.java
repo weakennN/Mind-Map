@@ -4,6 +4,8 @@ import Camera.Camera;
 import Common.NodeClicked;
 import NodeCreator.NodeFactory;
 import UI.UI;
+import javafx.event.EventHandler;
+import javafx.scene.input.*;
 
 import java.util.ArrayList;
 import java.util.List;

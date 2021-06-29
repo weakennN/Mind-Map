@@ -16,6 +16,7 @@ public abstract class Node extends Region {
     private Vector2 size;
     private Vector2 pos;
     private double defaultWidth;
+    private NodeManager manager;
 
     public Node(Node parent, double width, double height, double posX, double posY) {
 
@@ -25,6 +26,7 @@ public abstract class Node extends Region {
         this.size = new Vector2(width, height);
         this.defaultWidth = width;
         this.pos = new Vector2(posX, posY);
+        this.manager = new NodeManager(this);
         super.setLayoutX(posX);
         super.setLayoutY(posY);
         super.setMinSize(this.size.x, this.size.y);
@@ -72,5 +74,9 @@ public abstract class Node extends Region {
 
     public double getDefaultWidth() {
         return this.defaultWidth;
+    }
+
+    public NodeManager getManager() {
+        return this.manager;
     }
 }

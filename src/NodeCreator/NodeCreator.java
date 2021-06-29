@@ -1,6 +1,5 @@
 package NodeCreator;
 
-import Common.Events;
 import Common.NodeClicked;
 import Core.MindMap;
 import Nodes.Node;
@@ -30,7 +29,7 @@ public abstract class NodeCreator {
 
     public void initDefaultActions(Node node, MindMap mindMap, String menuType) {
 
-        Events.move(node);
+        //Events.move(node);
 
         node.setOnMouseClicked(e -> {
 
