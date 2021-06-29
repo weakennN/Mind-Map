@@ -30,10 +30,9 @@ public class Camera extends PerspectiveCamera {
         this.pressedKeys = new HashSet<>();
         super.setLayoutX(0);
         super.setLayoutY(0);
-        this.init();
     }
 
-    private void init() {
+    public void init() {
 
         this.scene.setOnMouseDragged(e -> {
 
@@ -116,7 +115,6 @@ public class Camera extends PerspectiveCamera {
     }
 
     public void reset() {
-
         this.pos.x = 0;
         this.pos.y = 0;
     }

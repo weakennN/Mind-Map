@@ -21,12 +21,11 @@ public class App {
     public void start() {
 
         NodeFactory.init(this.ui);
+
         this.mindMaps = new ArrayList<>();
         this.mindMaps.add(this.ui.getRoot());
 
         this.camera = new Camera(this.ui.getRoot(), this.ui.getScene());
-        this.camera.setNearClip(0.1);
-        this.camera.setFarClip(100);
-        this.ui.getScene().setCamera(camera);
+        this.camera.init();
     }
 }

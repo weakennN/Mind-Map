@@ -1,6 +1,7 @@
 package UI;
 
 import Core.MindMap;
+import com.sun.glass.ui.Screen;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -18,7 +19,7 @@ public class UI {
     private void init() {
 
         this.root = new MindMap();
-        this.scene = new Scene(this.root, 1920, 1080);
+        this.scene = new Scene(this.root, Screen.getMainScreen().getWidth(), Screen.getMainScreen().getHeight());
         this.stage = new Stage();
         this.stage.setScene(this.scene);
     }
