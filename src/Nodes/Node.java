@@ -18,6 +18,8 @@ public abstract class Node extends Region {
     private double defaultWidth;
     private NodeManager manager;
 
+    private static double currentScale = 1;
+
     public Node(Node parent, double width, double height, double posX, double posY) {
 
         super();
@@ -30,6 +32,7 @@ public abstract class Node extends Region {
         super.setLayoutX(posX);
         super.setLayoutY(posY);
         super.setMinSize(this.size.x, this.size.y);
+        this.setScale(currentScale);
     }
 
     public void addConnection(Connection connection) {
@@ -78,5 +81,11 @@ public abstract class Node extends Region {
 
     public NodeManager getManager() {
         return this.manager;
+    }
+
+    public void setScale(double scale) {
+        super.setScaleX(scale);
+        super.setScaleY(scale);
+        currentScale = scale;
     }
 }

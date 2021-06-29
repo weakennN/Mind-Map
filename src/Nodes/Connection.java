@@ -7,10 +7,13 @@ public class Connection extends Line {
     private Node parent;
     private Node connected;
 
+    private static double currentScale = 1;
+
     public Connection(Node parent, Node connected) {
 
         this.parent = parent;
         this.connected = connected;
+        this.setScale(currentScale);
         super.setViewOrder(2);
     }
 
@@ -20,5 +23,10 @@ public class Connection extends Line {
 
     public Node getConnected() {
         return this.connected;
+    }
+
+    public void setScale(double scale) {
+        super.setStrokeWidth(scale);
+        currentScale = scale;
     }
 }

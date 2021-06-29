@@ -1,11 +1,8 @@
 package Core;
 
 import Camera.Camera;
-import Common.NodeClicked;
 import NodeCreator.NodeFactory;
 import UI.UI;
-import javafx.event.EventHandler;
-import javafx.scene.input.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,21 +24,9 @@ public class App {
         this.mindMaps = new ArrayList<>();
         this.mindMaps.add(this.ui.getRoot());
 
-        this.camera = new Camera(this.ui.getRoot());
+        this.camera = new Camera(this.ui.getRoot(), this.ui.getScene());
         this.camera.setNearClip(0.1);
         this.camera.setFarClip(100);
         this.ui.getScene().setCamera(camera);
-
-        this.ui.getScene().setOnMouseDragged(e -> {
-
-            if (NodeClicked.node == null) {
-                camera.translate(e.getSceneX(), e.getSceneY());
-            }
-        });
-
-        this.ui.getScene().setOnMouseReleased(e -> {
-
-            this.camera.reset();
-        });
     }
 }

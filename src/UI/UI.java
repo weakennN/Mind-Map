@@ -1,7 +1,5 @@
 package UI;
 
-import Camera.Camera;
-import Common.NodeClicked;
 import Core.MindMap;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
