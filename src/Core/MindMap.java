@@ -26,7 +26,6 @@ public class MindMap extends Pane {
 
         this.nodes = new ArrayList<>();
         this.initMenus();
-        super.setCursor(Cursor.CROSSHAIR);
         super.setMinSize(Screen.getMainScreen().getWidth(), Screen.getMainScreen().getHeight());
         BackgroundFill myBF = new BackgroundFill(Color.valueOf("fffffa"), null,
                 null);

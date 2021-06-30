@@ -2,19 +2,13 @@ package Nodes;
 
 import Common.GlobalVariables;
 import javafx.geometry.Orientation;
-import javafx.scene.control.TextArea;
 
 public class BranchNode extends Node {
 
-    public BranchNode(Node parent, double posX, double posY) {
-        super(parent, GlobalVariables.BRANCH_NODE_WIDTH, GlobalVariables.BRANCH_NODE_HEIGHT, posX, posY);
+    public BranchNode(Node parent) {
+        super(parent, GlobalVariables.BRANCH_NODE_WIDTH, GlobalVariables.BRANCH_NODE_HEIGHT);
 
         super.setViewOrder(1);
-    }
-
-    public BranchNode(Node parent) {
-
-        this(parent, 0, 0);
     }
 
     @Override

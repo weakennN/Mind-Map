@@ -29,8 +29,6 @@ public abstract class NodeCreator {
 
     public void initDefaultActions(Node node, MindMap mindMap, String menuType) {
 
-        //Events.move(node);
-
         node.setOnMouseClicked(e -> {
 
             if (e.getButton() == MouseButton.SECONDARY) {

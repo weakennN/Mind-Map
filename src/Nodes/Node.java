@@ -20,17 +20,15 @@ public abstract class Node extends Region {
 
     private static double currentScale = 1;
 
-    public Node(Node parent, double width, double height, double posX, double posY) {
+    public Node(Node parent, double width, double height) {
 
         super();
         this.parent = parent;
         this.connections = new ArrayList<>();
         this.size = new Vector2(width, height);
         this.defaultWidth = width;
-        this.pos = new Vector2(posX, posY);
+        this.pos = new Vector2();
         this.manager = new NodeManager(this);
-        super.setLayoutX(posX);
-        super.setLayoutY(posY);
         super.setMinSize(this.size.x, this.size.y);
         this.setScale(currentScale);
     }

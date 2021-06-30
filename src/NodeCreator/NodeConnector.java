@@ -41,6 +41,8 @@ public class NodeConnector {
         child.setLayoutX(connection.getEndX() - (child.getSize().x / 2));
         child.setLayoutY(connection.getEndY() - (child.getSize().y / 2));
 
+        child.setPos(child.getLayoutX(), child.getLayoutY());
+
         return connection;
     }
 
