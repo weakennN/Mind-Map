@@ -5,6 +5,10 @@ import javafx.geometry.Orientation;
 
 public class TopicNode extends Node {
 
+    public TopicNode(){
+
+    }
+
     public TopicNode(Node parent) {
 
         super(parent, GlobalVariables.DEFAULT_TOPIC_NODE_WIDTH, GlobalVariables.DEFAULT_TOPIC_NODE_HEIGHT);

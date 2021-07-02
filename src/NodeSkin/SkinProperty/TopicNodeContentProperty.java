@@ -7,6 +7,10 @@ import javafx.scene.text.FontPosture;
 
 public class TopicNodeContentProperty extends DefaultNodeContentProperty {
 
+    public TopicNodeContentProperty(){
+
+    }
+
     public TopicNodeContentProperty(Node node) {
         super(node);
     }

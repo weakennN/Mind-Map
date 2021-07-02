@@ -7,6 +7,10 @@ import NodeSkin.SkinProperty.TopicNodeContentProperty;
 
 public class TopicNodeSkin extends Skin {
 
+    public TopicNodeSkin() {
+
+    }
+
     public TopicNodeSkin(Node node) {
         super(node);
         super.addSkinProperty(new BackgroundProperty(node));

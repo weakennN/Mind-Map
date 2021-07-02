@@ -5,6 +5,10 @@ import javafx.geometry.Orientation;
 
 public class BranchNode extends Node {
 
+    public BranchNode() {
+
+    }
+
     public BranchNode(Node parent) {
         super(parent, GlobalVariables.BRANCH_NODE_WIDTH, GlobalVariables.BRANCH_NODE_HEIGHT);
 

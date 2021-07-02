@@ -10,6 +10,10 @@ public abstract class DefaultNodeContentProperty extends SkinProperty {
 
     private TextField textField;
 
+    public DefaultNodeContentProperty(){
+
+    }
+
     public DefaultNodeContentProperty(Node node) {
         super(node);
     }

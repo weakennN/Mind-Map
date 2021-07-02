@@ -2,6 +2,7 @@ package Core;
 
 import Camera.Camera;
 import NodeCreator.NodeFactory;
+import SaveSystem.Saver;
 import UI.UI;
 
 import java.util.ArrayList;
@@ -27,5 +28,7 @@ public class App {
 
         this.camera = new Camera(this.ui.getRoot(), this.ui.getScene());
         this.camera.init();
+
+        Saver.init();
     }
 }

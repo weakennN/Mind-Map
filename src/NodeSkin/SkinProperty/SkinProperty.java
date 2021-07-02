@@ -6,6 +6,10 @@ public abstract class SkinProperty {
 
     private Node node;
 
+    public SkinProperty() {
+
+    }
+
     public SkinProperty(Node node) {
 
         this.node = node;

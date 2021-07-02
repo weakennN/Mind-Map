@@ -3,6 +3,7 @@ package NodeSkin.Skin;
 import CustomizeMenu.Preview.Preview;
 import Nodes.Node;
 import NodeSkin.SkinProperty.SkinProperty;
+import SaveSystem.Annotaions.SkinPropertiesSerialize;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,8 +13,13 @@ import java.util.Map;
 public abstract class Skin {
 
     private Node node;
+    @SkinPropertiesSerialize
     private List<SkinProperty> skinProperties;
     private Map<String, Preview> previews;
+
+    public Skin(){
+
+    }
 
     public Skin(Node node) {
 
@@ -51,5 +57,9 @@ public abstract class Skin {
 
     public void addSkinProperty(SkinProperty skinProperty) {
         this.skinProperties.add(skinProperty);
+    }
+
+    public List<SkinProperty> getSkinProperties() {
+        return this.skinProperties;
     }
 }

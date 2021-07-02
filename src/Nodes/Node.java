@@ -1,24 +1,36 @@
 package Nodes;
 
 import NodeSkin.Skin.Skin;
+import SaveSystem.Annotaions.PrimitiveSerialize;
+import SaveSystem.Annotaions.SkinSerialize;
+import SaveSystem.Annotaions.Vector2Serialize;
 import javafx.scene.layout.Region;
 import mikera.vectorz.Vector2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Node extends Region {
+public abstract class Node extends Region implements Serializable {
 
     private Node parent;
-
-    private transient List<Connection> connections;
+    private List<Connection> connections;
+    @SkinSerialize
     private Skin skin;
+    @Vector2Serialize
     private Vector2 size;
+    @Vector2Serialize
     private Vector2 pos;
+    @PrimitiveSerialize
     private double defaultWidth;
     private NodeManager manager;
 
-    private static double currentScale = 1;
+    @PrimitiveSerialize
+    public static double currentScale = 1;
+
+    public Node() {
+
+    }
 
     public Node(Node parent, double width, double height) {
 
