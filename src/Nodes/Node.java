@@ -81,6 +81,10 @@ public abstract class Node extends Region implements Serializable {
         return this.skin;
     }
 
+    public void setConnections(List<Connection> connections) {
+        this.connections = connections;
+    }
+
     public void add(Region region) {
         super.getChildren().add(region);
     }
@@ -91,6 +95,10 @@ public abstract class Node extends Region implements Serializable {
 
     public NodeManager getManager() {
         return this.manager;
+    }
+
+    public void setNodeManager(NodeManager nodeManager) {
+        this.manager = nodeManager;
     }
 
     public void setScale(double scale) {

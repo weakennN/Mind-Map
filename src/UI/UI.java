@@ -2,8 +2,11 @@ package UI;
 
 import Core.MindMap;
 import com.sun.glass.ui.Screen;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class UI {
 

@@ -6,11 +6,11 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-public abstract class DefaultNodeContentProperty extends SkinProperty {
+public class DefaultNodeContentProperty extends SkinProperty {
 
     private TextField textField;
 
-    public DefaultNodeContentProperty(){
+    public DefaultNodeContentProperty() {
 
     }
 
@@ -32,7 +32,7 @@ public abstract class DefaultNodeContentProperty extends SkinProperty {
         super.getNode().add(this.textField);
     }
 
-    private void initActions() {
+    public void initActions() {
 
         this.textField.setOnKeyTyped(e -> {
 
@@ -96,4 +96,7 @@ public abstract class DefaultNodeContentProperty extends SkinProperty {
         return this.textField;
     }
 
+    public void setTextField(TextField textField) {
+        this.textField = textField;
+    }
 }

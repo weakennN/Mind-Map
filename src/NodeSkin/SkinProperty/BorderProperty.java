@@ -48,6 +48,14 @@ public class BorderProperty extends SkinProperty {
         this.setNodeBorder();
     }
 
+    public BorderStrokeStyle getStrokeStyle() {
+        return strokeStyle;
+    }
+
+    public void setStrokeStyle(BorderStrokeStyle strokeStyle) {
+        this.strokeStyle = strokeStyle;
+    }
+
     public void changeBorderStyle(BorderStrokeStyle strokeStyle) {
         this.strokeStyle = strokeStyle;
         this.setNodeBorder();
@@ -59,8 +67,32 @@ public class BorderProperty extends SkinProperty {
         this.setNodeBorder();
     }
 
-    private void setNodeBorder() {
+    public void setNodeBorder() {
         this.border = new Border(new BorderStroke(this.color, this.strokeStyle, this.cornerRadii, this.borderWidths));
         super.getNode().setBorder(this.border);
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public void setCornerRadii(CornerRadii cornerRadii) {
+        this.cornerRadii = cornerRadii;
+    }
+
+    public void setBorderWidths(BorderWidths borderWidths) {
+        this.borderWidths = borderWidths;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public CornerRadii getCornerRadii() {
+        return cornerRadii;
+    }
+
+    public BorderWidths getBorderWidths() {
+        return borderWidths;
     }
 }

@@ -10,14 +10,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class Skin {
+public class Skin {
 
     private Node node;
     @SkinPropertiesSerialize
     private List<SkinProperty> skinProperties;
     private Map<String, Preview> previews;
 
-    public Skin(){
+    public Skin() {
 
     }
 
@@ -51,6 +51,10 @@ public abstract class Skin {
         this.previews.put(key, preview);
     }
 
+    public void setSkinProperties(List<SkinProperty> skinProperties) {
+        this.skinProperties = skinProperties;
+    }
+
     public void replacePreview(String key, Preview preview) {
         this.addPreview(key, preview);
     }
@@ -61,5 +65,9 @@ public abstract class Skin {
 
     public List<SkinProperty> getSkinProperties() {
         return this.skinProperties;
+    }
+
+    public void setNode(Node node) {
+        this.node = node;
     }
 }

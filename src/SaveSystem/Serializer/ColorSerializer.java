@@ -25,7 +25,6 @@ public class ColorSerializer extends Serializer {
             e.printStackTrace();
         }
 
-
     }
 
     @Override

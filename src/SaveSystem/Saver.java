@@ -41,7 +41,7 @@ public class Saver {
         serializers.add(new Vector2Serializer());
         serializers.add(new ConnectionSerializer());
         serializers.add(new SkinSerializer());
-        serializers.add(new SkinPropertiesSerializer());
+        // serializers.add(new SkinPropertiesSerializer());
         serializers.add(new ColorSerializer());
         serializers.add(new CornerRadiiSerializer());
     }
@@ -72,10 +72,6 @@ public class Saver {
 
             out.writeObject(node.getClass());
             out.writeObject(items);
-          /*  out.close();
-            fileOut.close();
-
-           */
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,7 +90,6 @@ public class Saver {
 
             for (var item : items) {
 
-                //  Field field = clazz.getSuperclass().getDeclaredField(item.item1);
                 Field field = getField(clazz, item);
                 field.setAccessible(true);
 
@@ -107,11 +102,6 @@ public class Saver {
 
                 field.setAccessible(false);
             }
-
-           /* objectIn.close();
-            in.close();
-
-            */
 
             return result;
         } catch (Exception e) {
@@ -141,14 +131,18 @@ public class Saver {
         try {
 
             Class<?> current = clazz;
-            while (current.getSuperclass() != null) {
+            while (current != null) {
 
                 Tuple<String, Object> tuple = (Tuple<String, Object>) item;
 
-                Field field = current.getDeclaredField(tuple.item1);
+                Field[] fields = current.getDeclaredFields();
 
-                if (field != null) {
-                    return field;
+                for (Field field : fields) {
+
+                    if (field.getName().equals(tuple.item1)) {
+
+                        return field;
+                    }
                 }
 
                 current = current.getSuperclass();
@@ -162,5 +156,19 @@ public class Saver {
         }
 
         return null;
+    }
+
+    public static void close() {
+        try {
+            if (out != null && fileOut != null && objectIn != null && in != null) {
+                out.close();
+                fileOut.close();
+                objectIn.close();
+                in.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

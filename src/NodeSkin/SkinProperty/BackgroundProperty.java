@@ -4,7 +4,6 @@ import Nodes.Node;
 import SaveSystem.Annotaions.BackgroundPropertySerialize;
 import SaveSystem.Annotaions.ColorSerialize;
 import SaveSystem.Annotaions.CornerRadiiSerialize;
-import SaveSystem.Annotaions.PrimitiveSerialize;
 import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -43,17 +42,16 @@ public class BackgroundProperty extends SkinProperty {
 
     public void changeColor(Color color) {
         this.color = color;
-
-        this.backgroundFill = new BackgroundFill(Color.valueOf(this.color.toString()), this.cornerRadii,
-                new Insets(0));
-        this.background = new Background(this.backgroundFill);
-        super.getNode().setBackground(this.background);
-
+        this.changeNodeBackground();
     }
 
     public void changeBackgroundRadii(CornerRadii cornerRadii) {
 
         this.cornerRadii = cornerRadii;
+        this.changeNodeBackground();
+    }
+
+    public void changeNodeBackground(){
         super.getNode().setBackground(new Background(new BackgroundFill(Color.valueOf(this.color.toString()), this.cornerRadii,
                 new Insets(0))));
     }
@@ -72,5 +70,13 @@ public class BackgroundProperty extends SkinProperty {
 
     public void setInsets(Insets insets) {
         this.insets = insets;
+    }
+
+    public Color getColor() {
+        return this.color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 }

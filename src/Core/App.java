@@ -2,6 +2,7 @@ package Core;
 
 import Camera.Camera;
 import NodeCreator.NodeFactory;
+import SaveSystem.SaveSystem;
 import SaveSystem.Saver;
 import UI.UI;
 
@@ -13,10 +14,12 @@ public class App {
     private UI ui;
     private List<MindMap> mindMaps;
     private Camera camera;
+    private SaveSystem saveSystem;
 
     public App(UI ui) {
 
         this.ui = ui;
+        this.saveSystem = new SaveSystem(this);
     }
 
     public void start() {
@@ -30,5 +33,14 @@ public class App {
         this.camera.init();
 
         Saver.init();
+        this.saveSystem.load();
+    }
+
+    public List<MindMap> getMindMaps() {
+        return this.mindMaps;
+    }
+
+    public UI getUi() {
+        return this.ui;
     }
 }
