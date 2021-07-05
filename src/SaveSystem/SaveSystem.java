@@ -18,13 +18,15 @@ public class SaveSystem {
     }
 
     public void save() {
+
         List<Node> nodes = this.app.getMindMaps().get(0).getNodes();
+
+        Saver.createNewFile();
 
         for (Node node : nodes) {
             Saver.save(node);
         }
 
-        //   Saver.close();
     }
 
     public void load() {
@@ -46,7 +48,5 @@ public class SaveSystem {
 
             this.app.getMindMaps().get(0).addNode(node);
         }
-
-        // Saver.close();
     }
 }

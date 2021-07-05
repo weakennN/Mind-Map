@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SolidLine extends BorderLine {
 
-    public SolidLine(Preview preview,  Action action) {
+    public SolidLine(Preview preview, Action action) {
 
         super(preview, action);
     }

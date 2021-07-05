@@ -1,6 +1,7 @@
 package SaveSystem;
 
 import SaveSystem.Serializer.*;
+import SaveSystem.Serializer.SkinSerializer.SkinSerializer;
 import javafx.scene.layout.Region;
 
 import java.io.FileInputStream;
@@ -26,7 +27,7 @@ public class Saver {
 
         try {
 
-            fileOut = new FileOutputStream("User.txt", true);
+            fileOut = new FileOutputStream("User.txt",true);
             out = new ObjectOutputStream(fileOut);
 
             in = new FileInputStream("User.txt");
@@ -41,7 +42,7 @@ public class Saver {
         serializers.add(new Vector2Serializer());
         serializers.add(new ConnectionSerializer());
         serializers.add(new SkinSerializer());
-        // serializers.add(new SkinPropertiesSerializer());
+        //serializers.add(new SkinPropertiesSerializer());
         serializers.add(new ColorSerializer());
         serializers.add(new CornerRadiiSerializer());
     }
@@ -166,6 +167,16 @@ public class Saver {
                 objectIn.close();
                 in.close();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void createNewFile() {
+        try {
+            fileOut = new FileOutputStream("User.txt");
+            out = new ObjectOutputStream(fileOut);
         } catch (Exception e) {
             e.printStackTrace();
         }

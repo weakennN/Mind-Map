@@ -7,6 +7,10 @@ import NodeSkin.SkinProperty.BranchNodeContentProperty;
 
 public class BranchNodeSkin extends Skin {
 
+    public BranchNodeSkin(){
+
+    }
+
     public BranchNodeSkin(Node node) {
         super(node);
         super.addSkinProperty(new BackgroundProperty(node));

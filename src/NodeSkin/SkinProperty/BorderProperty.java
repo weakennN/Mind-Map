@@ -10,6 +10,7 @@ public class BorderProperty extends SkinProperty {
 
     private Border border;
     private BorderStrokeStyle strokeStyle;
+    private BorderStroke borderStroke;
     @ColorSerialize
     private Color color;
     @CornerRadiiSerialize
@@ -61,6 +62,10 @@ public class BorderProperty extends SkinProperty {
         this.setNodeBorder();
     }
 
+    public void setBorder(Border border) {
+        this.border = border;
+    }
+
     public void changeBorderStyle(BorderWidths borderWidths) {
 
         this.borderWidths = borderWidths;
@@ -68,7 +73,9 @@ public class BorderProperty extends SkinProperty {
     }
 
     public void setNodeBorder() {
-        this.border = new Border(new BorderStroke(this.color, this.strokeStyle, this.cornerRadii, this.borderWidths));
+
+        this.borderStroke = new BorderStroke(this.color, this.strokeStyle, this.cornerRadii, this.borderWidths);
+        this.border = new Border(this.borderStroke);
         super.getNode().setBorder(this.border);
     }
 
@@ -94,5 +101,13 @@ public class BorderProperty extends SkinProperty {
 
     public BorderWidths getBorderWidths() {
         return borderWidths;
+    }
+
+    public Border getBorder() {
+        return this.border;
+    }
+
+    public void setBorderStroke(BorderStroke borderStroke) {
+        this.borderStroke = borderStroke;
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 public class DottedLine extends BorderLine {
 
     public DottedLine(Preview preview, Action action) {
-        super(preview,action);
+        super(preview, action);
     }
 
     @Override
