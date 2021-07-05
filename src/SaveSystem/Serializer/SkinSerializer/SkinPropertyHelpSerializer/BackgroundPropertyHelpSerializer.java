@@ -1,4 +1,4 @@
-package SaveSystem.Serializer.SkinSerializer;
+package SaveSystem.Serializer.SkinSerializer.SkinPropertyHelpSerializer;
 
 import NodeSkin.SkinProperty.BackgroundProperty;
 import NodeSkin.SkinProperty.SkinProperty;
@@ -26,7 +26,6 @@ public class BackgroundPropertyHelpSerializer extends SkinPropertiesHelpSerializ
     public boolean isSuitable(String property) {
         return property.equals("background");
     }
-
 
     @Override
     public void save(SkinProperty skinProperty, Map<String, Map<String, Object>> fields) {

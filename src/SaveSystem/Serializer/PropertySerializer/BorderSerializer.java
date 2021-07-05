@@ -33,6 +33,7 @@ public class BorderSerializer extends PropertySerializer {
         properties.put("borderWidths", borderWidths);
 
         Map<String, Object> strokeProperties = new HashMap<>();
+
         strokeProperties.put("dashArray", borderStroke.getBottomStyle().getDashArray());
         strokeProperties.put("dashOffset", borderStroke.getBottomStyle().getDashOffset());
         strokeProperties.put("lineCap", borderStroke.getBottomStyle().getLineCap());

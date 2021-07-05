@@ -1,4 +1,4 @@
-package SaveSystem.Serializer.SkinSerializer;
+package SaveSystem.Serializer.SkinSerializer.SkinPropertyHelpSerializer;
 
 import NodeSkin.SkinProperty.BorderProperty;
 import NodeSkin.SkinProperty.SkinProperty;

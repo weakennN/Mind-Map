@@ -1,26 +1,39 @@
 package SaveSystem.Serializer.SkinSerializer;
 
+import CustomizeMenu.Preview.Preview;
 import NodeSkin.Skin.Skin;
 import NodeSkin.SkinProperty.SkinProperty;
 import Nodes.Node;
 import SaveSystem.*;
 import SaveSystem.Annotaions.SkinSerialize;
 import SaveSystem.Serializer.*;
+import SaveSystem.Serializer.SkinSerializer.PreviewHelpSerializer.BoundaryPreviewHelpSerializer;
+import SaveSystem.Serializer.SkinSerializer.PreviewHelpSerializer.FormatPreviewHelpSerializer;
+import SaveSystem.Serializer.SkinSerializer.PreviewHelpSerializer.PreviewHelpSerializer;
+import SaveSystem.Serializer.SkinSerializer.SkinPropertyHelpSerializer.BackgroundPropertyHelpSerializer;
+import SaveSystem.Serializer.SkinSerializer.SkinPropertyHelpSerializer.BorderPropertyHelpSerializer;
+import SaveSystem.Serializer.SkinSerializer.SkinPropertyHelpSerializer.DefaultNodeSkinPropertyHelpSerializer;
+import SaveSystem.Serializer.SkinSerializer.SkinPropertyHelpSerializer.SkinPropertiesHelpSerializer;
 
 import java.lang.reflect.Field;
 import java.util.*;
 
 public class SkinSerializer extends Serializer {
 
-    private List<SkinPropertiesHelpSerializer> helpSerializers;
+    private List<SkinPropertiesHelpSerializer> skinPropertyHelpSerializers;
+    private List<PreviewHelpSerializer> previewHelpSerializers;
 
     public SkinSerializer() {
         super();
 
-        this.helpSerializers = new ArrayList<>();
-        this.helpSerializers.add(new BackgroundPropertyHelpSerializer());
-        this.helpSerializers.add(new BorderPropertyHelpSerializer());
-        this.helpSerializers.add(new DefaultNodeSkinPropertyHelpSerializer());
+        this.skinPropertyHelpSerializers = new ArrayList<>();
+        this.skinPropertyHelpSerializers.add(new BackgroundPropertyHelpSerializer());
+        this.skinPropertyHelpSerializers.add(new BorderPropertyHelpSerializer());
+        this.skinPropertyHelpSerializers.add(new DefaultNodeSkinPropertyHelpSerializer());
+
+        this.previewHelpSerializers = new ArrayList<>();
+        this.previewHelpSerializers.add(new BoundaryPreviewHelpSerializer());
+        this.previewHelpSerializers.add(new FormatPreviewHelpSerializer());
     }
 
     @Override
@@ -37,10 +50,23 @@ public class SkinSerializer extends Serializer {
 
         for (SkinProperty skinProperty : skinProperties) {
 
-            for (SkinPropertiesHelpSerializer helpSerializer : this.helpSerializers) {
+            for (SkinPropertiesHelpSerializer helpSerializer : this.skinPropertyHelpSerializers) {
 
                 if (helpSerializer.isSuitable(skinProperty)) {
                     helpSerializer.save(skinProperty, fields);
+                    break;
+                }
+            }
+        }
+
+        Map<String, Preview> previews = ((Node) object).getSkin().getPreviews();
+
+        for (Map.Entry<String, Preview> entry : previews.entrySet()) {
+
+            for (PreviewHelpSerializer previewHelpSerializer : this.previewHelpSerializers) {
+                if (previewHelpSerializer.isSuitable(previews.get(entry.getKey()))) {
+                    previewHelpSerializer.save(previews.get(entry.getKey()), fields);
+                    break;
                 }
             }
         }
@@ -56,15 +82,29 @@ public class SkinSerializer extends Serializer {
 
             for (Map.Entry<String, Map<String, Object>> entry : fields.entrySet()) {
 
-                for (SkinPropertiesHelpSerializer serializer : this.helpSerializers) {
+                for (SkinPropertiesHelpSerializer serializer : this.skinPropertyHelpSerializers) {
                     if (serializer.isSuitable(entry.getKey())) {
                         skinProperties.add(serializer.load(fields, object));
+                        break;
+                    }
+                }
+            }
+
+            Map<String, Preview> previews = new HashMap<>();
+
+            for (Map.Entry<String, Map<String, Object>> entry : fields.entrySet()) {
+
+                for (PreviewHelpSerializer previewHelpSerializer : this.previewHelpSerializers) {
+                    if (previewHelpSerializer.isSuitable(entry.getKey())) {
+                        previews.put(previewHelpSerializer.getKey(), previewHelpSerializer.load(fields));
+                        break;
                     }
                 }
             }
 
             Skin result = new Skin();
             result.setSkinProperties(skinProperties);
+            result.setPreviews(previews);
 
             field.set(object, result);
 

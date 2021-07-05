@@ -24,4 +24,8 @@ public abstract class BorderWidth extends Option {
     public BorderWidths getBorderWidths() {
         return this.borderWidths;
     }
+
+    public void setBorderWidths(double width) {
+        this.borderWidths = new BorderWidths(width);
+    }
 }

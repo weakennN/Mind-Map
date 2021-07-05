@@ -27,7 +27,7 @@ public class Saver {
 
         try {
 
-            fileOut = new FileOutputStream("User.txt",true);
+            fileOut = new FileOutputStream("User.txt", true);
             out = new ObjectOutputStream(fileOut);
 
             in = new FileInputStream("User.txt");
@@ -141,7 +141,6 @@ public class Saver {
                 for (Field field : fields) {
 
                     if (field.getName().equals(tuple.item1)) {
-
                         return field;
                     }
                 }

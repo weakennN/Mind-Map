@@ -2,6 +2,8 @@ package SaveSystem.Serializer.PropertySerializer;
 
 import SaveSystem.Tuple;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +11,7 @@ import java.util.Map;
 public class DefaultNodeContentSerializer extends PropertySerializer {
 
     @Override
-    public void save(Object object, Map<String, Map<String, Object>> fields,String key) {
+    public void save(Object object, Map<String, Map<String, Object>> fields, String key) {
 
         TextField textField = (TextField) object;
 
@@ -27,10 +29,11 @@ public class DefaultNodeContentSerializer extends PropertySerializer {
                 , textField.getLayoutY()));
 
         properties.put("text", textField.getText());
+
     }
 
     @Override
-    public Object load(Map<String, Map<String, Object>> fields,String key) {
+    public Object load(Map<String, Map<String, Object>> fields, String key) {
 
         TextField textField = new TextField();
 

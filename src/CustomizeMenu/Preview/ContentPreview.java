@@ -69,4 +69,8 @@ public class ContentPreview extends Preview {
     public TextField getTextField() {
         return this.textField;
     }
+
+    public void setTextField(TextField textField) {
+        this.textField = textField;
+    }
 }

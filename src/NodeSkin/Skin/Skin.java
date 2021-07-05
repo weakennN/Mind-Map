@@ -71,5 +71,11 @@ public class Skin {
         this.node = node;
     }
 
+    public Map<String, Preview> getPreviews() {
+        return this.previews;
+    }
 
+    public void setPreviews(Map<String, Preview> previews) {
+        this.previews = previews;
+    }
 }
