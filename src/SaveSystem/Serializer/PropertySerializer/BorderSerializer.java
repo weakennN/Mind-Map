@@ -1,5 +1,6 @@
 package SaveSystem.Serializer.PropertySerializer;
 
+import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeLineCap;
@@ -36,7 +37,7 @@ public class BorderSerializer extends PropertySerializer {
 
         strokeProperties.put("dashArray", borderStroke.getBottomStyle().getDashArray());
         strokeProperties.put("dashOffset", borderStroke.getBottomStyle().getDashOffset());
-        strokeProperties.put("lineCap", borderStroke.getBottomStyle().getLineCap());
+        strokeProperties.put("lineGap", borderStroke.getBottomStyle().getLineCap());
         strokeProperties.put("lineJoin", borderStroke.getBottomStyle().getLineJoin());
         strokeProperties.put("miterLimit", borderStroke.getBottomStyle().getMiterLimit());
         strokeProperties.put("strokeType", borderStroke.getBottomStyle().getType());
@@ -57,11 +58,15 @@ public class BorderSerializer extends PropertySerializer {
 
         Map<String, Object> strokeProperties = (Map<String, Object>) borderFields.get("borderStroke");
 
+        StrokeType strokeType = (StrokeType) strokeProperties.get("strokeType");
+        StrokeLineJoin strokeLineJoin = (StrokeLineJoin) strokeProperties.get("lineJoin");
+        StrokeLineCap strokeLineCap = (StrokeLineCap) strokeProperties.get("lineGap");
+        double miterLimit = (double) strokeProperties.get("miterLimit");
+        double dashOffset = (double) strokeProperties.get("dashOffset");
         List<Double> dashArray = (List<Double>) strokeProperties.get("dashArray");
 
-        BorderStrokeStyle borderStrokeStyle = new BorderStrokeStyle((StrokeType) strokeProperties.get("strokeType")
-                , (StrokeLineJoin) strokeProperties.get("lineJoin"), (StrokeLineCap) strokeProperties.get("lineGap"), (double) strokeProperties.get("miterLimit"),
-                (double) strokeProperties.get("dashOffset"), dashArray);
+        BorderStrokeStyle borderStrokeStyle = new BorderStrokeStyle(strokeType, strokeLineJoin,
+                strokeLineCap, miterLimit, dashOffset, dashArray);
 
         return new Border(new BorderStroke(color, borderStrokeStyle, cornerRadii, borderWidths));
     }

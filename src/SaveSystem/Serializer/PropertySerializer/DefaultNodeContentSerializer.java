@@ -30,6 +30,15 @@ public class DefaultNodeContentSerializer extends PropertySerializer {
 
         properties.put("text", textField.getText());
 
+        Map<String, Object> fontMap = new HashMap<>();
+
+        Font font = textField.getFont();
+        fontMap.put("size", font.getSize());
+        fontMap.put("name", font.getName());
+        fontMap.put("style", font.getStyle());
+
+        properties.put("font", fontMap);
+
     }
 
     @Override
@@ -56,6 +65,12 @@ public class DefaultNodeContentSerializer extends PropertySerializer {
         textField.setLayoutY(layoutY);
 
         textField.setText((String) contentFields.get("text"));
+
+        Map<String, Object> fontProp = (Map<String, Object>) contentFields.get("font");
+
+        Font font = Font.font(((String) fontProp.get("name")), FontPosture.findByName((String) fontProp.get("style")), (double) fontProp.get("size"));
+
+        textField.setFont(font);
 
         return textField;
     }

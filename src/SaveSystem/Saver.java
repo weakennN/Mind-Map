@@ -27,10 +27,10 @@ public class Saver {
 
         try {
 
-            fileOut = new FileOutputStream("User.txt", true);
+            fileOut = new FileOutputStream("Save.txt", true);
             out = new ObjectOutputStream(fileOut);
 
-            in = new FileInputStream("User.txt");
+            in = new FileInputStream("Save.txt");
             objectIn = new ObjectInputStream(in);
 
         } catch (Exception e) {
@@ -40,11 +40,8 @@ public class Saver {
         serializers = new ArrayList<>();
         serializers.add(new PrimitiveTypeSerializer());
         serializers.add(new Vector2Serializer());
-        serializers.add(new ConnectionSerializer());
         serializers.add(new SkinSerializer());
-        //serializers.add(new SkinPropertiesSerializer());
-        serializers.add(new ColorSerializer());
-        serializers.add(new CornerRadiiSerializer());
+        serializers.add(new ConnectionsSerializer());
     }
 
 
@@ -83,7 +80,14 @@ public class Saver {
 
         try {
 
-            var clazz = (Class) objectIn.readObject();
+            Object object = objectIn.readObject();
+
+
+            if (object == null) {
+                return null;
+            }
+
+            var clazz = (Class) object;
 
             Object result = Arrays.stream(clazz.getConstructors()).filter(n -> n.getParameterCount() == 0).findFirst().get().newInstance();
 
@@ -174,11 +178,10 @@ public class Saver {
 
     public static void createNewFile() {
         try {
-            fileOut = new FileOutputStream("User.txt");
+            fileOut = new FileOutputStream("Save.txt");
             out = new ObjectOutputStream(fileOut);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

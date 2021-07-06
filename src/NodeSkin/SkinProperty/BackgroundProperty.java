@@ -1,8 +1,6 @@
 package NodeSkin.SkinProperty;
 
 import Nodes.Node;
-import SaveSystem.Annotaions.ColorSerialize;
-import SaveSystem.Annotaions.CornerRadiiSerialize;
 import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -11,9 +9,7 @@ public class BackgroundProperty extends SkinProperty {
 
     private BackgroundFill backgroundFill;
     private Background background;
-    @ColorSerialize
     private Color color;
-    @CornerRadiiSerialize
     private CornerRadii cornerRadii;
     private Insets insets;
 

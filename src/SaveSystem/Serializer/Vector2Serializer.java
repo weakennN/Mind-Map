@@ -8,6 +8,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 public class Vector2Serializer extends Serializer {
+
     @Override
     public boolean checkCondition(Field field) {
         return field.isAnnotationPresent(Vector2Serialize.class);

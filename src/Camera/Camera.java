@@ -93,6 +93,10 @@ public class Camera extends PerspectiveCamera {
 
     public void zoom(double deltaX, double deltaY) {
 
+        if (this.scale != Node.currentScale) {
+            this.scale = Node.currentScale;
+        }
+
         if (deltaY > 0 && this.scale < 3) {
             this.scale += 0.1;
         } else if (deltaY < 0 && this.scale > 0.3) {

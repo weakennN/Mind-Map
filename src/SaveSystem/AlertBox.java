@@ -87,6 +87,7 @@ public class AlertBox extends Region {
             this.saveSystem.save();
             this.ui.getStage().close();
             this.stage.close();
+            Saver.close();
         });
 
         noButton.setOnAction(e -> {

@@ -1,8 +1,6 @@
 package NodeSkin.SkinProperty;
 
 import Nodes.Node;
-import SaveSystem.Annotaions.ColorSerialize;
-import SaveSystem.Annotaions.CornerRadiiSerialize;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
@@ -11,9 +9,7 @@ public class BorderProperty extends SkinProperty {
     private Border border;
     private BorderStrokeStyle strokeStyle;
     private BorderStroke borderStroke;
-    @ColorSerialize
     private Color color;
-    @CornerRadiiSerialize
     private CornerRadii cornerRadii;
     private BorderWidths borderWidths;
 

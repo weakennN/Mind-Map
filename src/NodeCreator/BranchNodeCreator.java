@@ -24,6 +24,7 @@ public class BranchNodeCreator extends NodeCreator {
         branchNode.setSkin(new BranchNodeSkin(branchNode));
         branchNode.getSkin().addPreview(GlobalVariables.BOUNDARY_PREVIEW_TAG, new BoundaryPreview());
         branchNode.getSkin().addPreview(GlobalVariables.FORMAT_PREVIEW_TAG, new ContentPreview());
+        branchNode.setMenu(GlobalVariables.NODE_MENU);
 
         Connection connection = null;
 
@@ -32,7 +33,7 @@ public class BranchNodeCreator extends NodeCreator {
             mindMap.getChildren().add(connection);
         }
 
-        super.initDefaultActions(branchNode, mindMap, GlobalVariables.NODE_MENU);
+        super.initDefaultActions(branchNode, mindMap);
 
         NodeClicked.node = null;
         return branchNode;

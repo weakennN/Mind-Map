@@ -1,6 +1,7 @@
 package Nodes;
 
 import NodeSkin.Skin.Skin;
+import SaveSystem.Annotaions.ConnectionSerialize;
 import SaveSystem.Annotaions.PrimitiveSerialize;
 import SaveSystem.Annotaions.SkinSerialize;
 import SaveSystem.Annotaions.Vector2Serialize;
@@ -10,10 +11,12 @@ import mikera.vectorz.Vector2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public abstract class Node extends Region implements Serializable {
 
     private Node parent;
+    @ConnectionSerialize
     private List<Connection> connections;
     @SkinSerialize
     private Skin skin;
@@ -24,6 +27,11 @@ public abstract class Node extends Region implements Serializable {
     @PrimitiveSerialize
     private double defaultWidth;
     private NodeManager manager;
+    @PrimitiveSerialize
+    private String id;
+    @PrimitiveSerialize
+    private String menu;
+    private List<String[]> connectionIds;
 
     @PrimitiveSerialize
     public static double currentScale = 1;
@@ -43,6 +51,8 @@ public abstract class Node extends Region implements Serializable {
         this.manager = new NodeManager(this);
         super.setMinSize(this.size.x, this.size.y);
         this.setScale(currentScale);
+        this.connectionIds = new ArrayList<>();
+        this.id = UUID.randomUUID().toString();
     }
 
     public void addConnection(Connection connection) {
@@ -81,10 +91,6 @@ public abstract class Node extends Region implements Serializable {
         return this.skin;
     }
 
-    public void setConnections(List<Connection> connections) {
-        this.connections = connections;
-    }
-
     public void add(Region region) {
         super.getChildren().add(region);
     }
@@ -105,5 +111,25 @@ public abstract class Node extends Region implements Serializable {
         super.setScaleX(scale);
         super.setScaleY(scale);
         currentScale = scale;
+    }
+
+    public String getUniqueId() {
+        return this.id;
+    }
+
+    public void setConnectionIds(List<String[]> connectionIds) {
+        this.connectionIds = connectionIds;
+    }
+
+    public List<String[]> getConnectionIds() {
+        return this.connectionIds;
+    }
+
+    public void setMenu(String menu) {
+        this.menu = menu;
+    }
+
+    public String getMenu() {
+        return this.menu;
     }
 }

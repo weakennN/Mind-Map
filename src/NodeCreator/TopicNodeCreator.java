@@ -24,8 +24,9 @@ public class TopicNodeCreator extends NodeCreator {
         topicNode.setSkin(new TopicNodeSkin(topicNode));
         topicNode.getSkin().addPreview(GlobalVariables.BOUNDARY_PREVIEW_TAG, new BoundaryPreview());
         topicNode.getSkin().addPreview(GlobalVariables.FORMAT_PREVIEW_TAG, new ContentPreview());
+        topicNode.setMenu(GlobalVariables.NODE_MENU);
 
-        super.initDefaultActions(topicNode, mindMap, GlobalVariables.NODE_MENU);
+        super.initDefaultActions(topicNode, mindMap);
 
         NodeClicked.node = null;
         return topicNode;

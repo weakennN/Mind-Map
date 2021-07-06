@@ -27,13 +27,14 @@ public abstract class NodeCreator {
         return this.connector;
     }
 
-    public void initDefaultActions(Node node, MindMap mindMap, String menuType) {
+    public void initDefaultActions(Node node, MindMap mindMap) {
 
         node.setOnMouseClicked(e -> {
 
             if (e.getButton() == MouseButton.SECONDARY) {
                 NodeClicked.node = node;
-                mindMap.getMenu(menuType).show(node, e.getSceneX() - (mindMap.getMenu(menuType).getWidth() / 2), e.getSceneY() + (mindMap.getMenu(menuType).getHeight() / 2));
+                mindMap.getMenu(node.getMenu()).show(node, e.getSceneX() - (mindMap.getMenu(node.getMenu()).getWidth() / 2)
+                        , e.getSceneY() + (mindMap.getMenu(node.getMenu()).getHeight() / 2));
             }
 
         });
