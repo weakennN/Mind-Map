@@ -5,7 +5,9 @@ import CustomizeMenu.Preview.BoundaryPreview;
 import CustomizeMenu.Preview.Preview;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.StrokeLineCap;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,8 +43,10 @@ public class BoundaryPreviewHelpSerializer extends PreviewHelpSerializer {
         boundary.put("radii", List.of(previewRectangle.getArcWidth(), previewRectangle.getArcHeight()));
         boundary.put("borderColor", previewRectangle.getStroke().toString().substring(2));
         boundary.put("borderWidth", previewRectangle.getStrokeWidth());
-        //  boundary.put("dashArray", previewRectangle.getStrokeDashArray());
-        //   boundary.put("strokeLineGap", previewRectangle.getStrokeLineCap());
+        List<Double> dash = previewRectangle.getStrokeDashArray();
+        List<Double> dashArray = new ArrayList<>(dash);
+        boundary.put("dashArray", dashArray);
+        boundary.put("strokeLineGap", previewRectangle.getStrokeLineCap().toString());
     }
 
     @Override
@@ -57,8 +61,8 @@ public class BoundaryPreviewHelpSerializer extends PreviewHelpSerializer {
         boundaryPreview.getPreview().setArcWidth(((List<Double>) properties.get("radii")).get(0));
         boundaryPreview.getPreview().setArcHeight(((List<Double>) properties.get("radii")).get(1));
         boundaryPreview.getPreview().setStrokeWidth((double) properties.get("borderWidth"));
-        // boundaryPreview.getPreview().getStrokeDashArray().addAll((List<Double>) properties.get("dashArray"));
-        //boundaryPreview.getPreview().setStrokeLineCap((StrokeLineCap) properties.get("strokeLineGap"));
+        boundaryPreview.getPreview().getStrokeDashArray().addAll((List<Double>) properties.get("dashArray"));
+        boundaryPreview.getPreview().setStrokeLineCap(StrokeLineCap.valueOf((String) properties.get("strokeLineGap")));
 
         return boundaryPreview;
     }

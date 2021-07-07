@@ -40,13 +40,11 @@ public class ButtonColorPicker extends Region {
     private void setActions() {
 
         this.colorPicker.setOnHiding(e -> {
-
             this.circle.setFill(this.colorPicker.getValue());
             this.button.setGraphic(this.circle);
         });
 
         this.button.setOnAction(e -> {
-
             this.colorPicker.show();
         });
     }

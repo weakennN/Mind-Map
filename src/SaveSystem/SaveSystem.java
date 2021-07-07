@@ -26,16 +26,22 @@ public class SaveSystem {
 
     public void save() {
 
-        List<Node> nodes = this.app.getMindMaps().get(0).getNodes();
+        Saver.initOut();
+
+        List<Node> nodes = this.app.getMindMap().getNodes();
 
         Saver.createNewFile();
 
         for (Node node : nodes) {
             Saver.save(node);
         }
+
+        Saver.closeOut();
     }
 
     public void load() {
+
+        Saver.initIn();
 
         while (true) {
 
@@ -56,13 +62,15 @@ public class SaveSystem {
             node.setOnMouseClicked(e -> {
                 if (e.getButton() == MouseButton.SECONDARY) {
                     NodeClicked.node = node;
-                    this.app.getMindMaps().get(0).getMenu(node.getMenu()).show(node, e.getSceneX() - (this.app.getMindMaps().get(0).getMenu(node.getMenu()).getWidth() / 2)
-                            , e.getSceneY() + (this.app.getMindMaps().get(0).getMenu(node.getMenu()).getHeight() / 2));
+                    this.app.getMindMap().getMenu(node.getMenu()).show(node, e.getSceneX() - (this.app.getMindMap().getMenu(node.getMenu()).getWidth() / 2)
+                            , e.getSceneY() + (this.app.getMindMap().getMenu(node.getMenu()).getHeight() / 2));
                 }
             });
 
-            this.app.getMindMaps().get(0).addNode(node);
+            this.app.getMindMap().addNode(node);
         }
+
+        Saver.closeIn();
 
         this.deserializeConnections();
     }
@@ -71,7 +79,7 @@ public class SaveSystem {
 
         List<String[]> connectedNodes = new ArrayList<>();
 
-        List<Node> nodes = this.app.getMindMaps().get(0).getNodes();
+        List<Node> nodes = this.app.getMindMap().getNodes();
 
         for (Node node : nodes) {
 
@@ -94,7 +102,7 @@ public class SaveSystem {
                     connection.setEndX(second.getLayoutX() + second.getSize().x / 2);
                     connection.setEndY(second.getLayoutY() + second.getSize().y / 2);
 
-                    this.app.getMindMaps().get(0).getChildren().add(connection);
+                    this.app.getMindMap().getChildren().add(connection);
                 }
             }
         }

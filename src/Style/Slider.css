@@ -14,7 +14,6 @@
 }
 
 .menu-button {
-
     -fx-background-radius: 6;
     -fx-border-radius: 6;
     -fx-background-color: white;
@@ -22,13 +21,11 @@
 }
 
 .menu-button:focused {
-
     -fx-border-color: #2c9ee5;
     -fx-border-width: 1;
     -fx-border-radius: 6;
 }
 
 .context-menu .menu-item:focused {
-
     -fx-background-color: #f1f0f0;
 }

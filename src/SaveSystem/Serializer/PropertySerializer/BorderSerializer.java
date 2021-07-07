@@ -1,6 +1,5 @@
 package SaveSystem.Serializer.PropertySerializer;
 
-import javafx.geometry.Insets;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeLineCap;

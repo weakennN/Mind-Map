@@ -6,13 +6,10 @@ import SaveSystem.SaveSystem;
 import SaveSystem.Saver;
 import UI.UI;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class App {
 
     private UI ui;
-    private List<MindMap> mindMaps;
+    private MindMap mindMap;
     private Camera camera;
     private SaveSystem saveSystem;
 
@@ -26,8 +23,8 @@ public class App {
 
         NodeFactory.init(this.ui);
 
-        this.mindMaps = new ArrayList<>();
-        this.mindMaps.add(this.ui.getRoot());
+
+        this.mindMap = this.ui.getRoot();
 
         this.camera = new Camera(this.ui.getRoot(), this.ui.getScene());
         this.camera.init();
@@ -36,8 +33,8 @@ public class App {
         this.saveSystem.load();
     }
 
-    public List<MindMap> getMindMaps() {
-        return this.mindMaps;
+    public MindMap getMindMap() {
+        return this.mindMap;
     }
 
     public UI getUi() {

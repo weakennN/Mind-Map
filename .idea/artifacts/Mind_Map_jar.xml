@@ -3,6 +3,10 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Mind_Map_jar</output-path>
     <root id="archive" name="Mind Map.jar">
       <element id="module-output" name="Mind Map" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/mikera/vectorz/0.48.0/vectorz-0.48.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/us/bpsm/edn-java/0.4.5/edn-java-0.4.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/mikera/randomz/0.3.0/randomz-0.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/mikera/mathz/0.3.0/mathz-0.3.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="D:/JavaFx/javafx-sdk-15.0.1/lib/src.zip" path-in-jar="/" />
       <element id="extracted-dir" path="D:/JavaFx/javafx-sdk-15.0.1/lib/javafx-swt.jar" path-in-jar="/" />
       <element id="extracted-dir" path="D:/JavaFx/javafx-sdk-15.0.1/lib/javafx.web.jar" path-in-jar="/" />
@@ -12,10 +16,6 @@
       <element id="extracted-dir" path="D:/JavaFx/javafx-sdk-15.0.1/lib/javafx.swing.jar" path-in-jar="/" />
       <element id="extracted-dir" path="D:/JavaFx/javafx-sdk-15.0.1/lib/javafx.controls.jar" path-in-jar="/" />
       <element id="extracted-dir" path="D:/JavaFx/javafx-sdk-15.0.1/lib/javafx.graphics.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/mikera/vectorz/0.48.0/vectorz-0.48.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/us/bpsm/edn-java/0.4.5/edn-java-0.4.5.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/mikera/randomz/0.3.0/randomz-0.3.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/mikera/mathz/0.3.0/mathz-0.3.0.jar" path-in-jar="/" />
       <element id="library" level="project" name="lib" />
       <element id="library" level="project" name="net.mikera:vectorz:0.48.0" />
       <element id="file-copy" path="D:/JavaFx/javafx-sdk-15.0.1/bin/api-ms-win-core-console-l1-1-0.dll" />

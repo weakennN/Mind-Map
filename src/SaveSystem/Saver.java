@@ -25,25 +25,12 @@ public class Saver {
 
     public static void init() {
 
-        try {
-
-            fileOut = new FileOutputStream("Save.txt", true);
-            out = new ObjectOutputStream(fileOut);
-
-            in = new FileInputStream("Save.txt");
-            objectIn = new ObjectInputStream(in);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         serializers = new ArrayList<>();
         serializers.add(new PrimitiveTypeSerializer());
         serializers.add(new Vector2Serializer());
         serializers.add(new SkinSerializer());
         serializers.add(new ConnectionsSerializer());
     }
-
 
     public static void save(Object node) {
 
@@ -58,7 +45,6 @@ public class Saver {
                 declaredField.setAccessible(true);
 
                 for (Serializer serializer : serializers) {
-
                     if (serializer.checkCondition(declaredField)) {
                         serializer.save(items, declaredField, node);
                         break;
@@ -78,14 +64,17 @@ public class Saver {
 
     public static Object load() {
 
+        if (objectIn == null) {
+            return null;
+        }
+
         try {
 
-            Object object = objectIn.readObject();
-
-
-            if (object == null) {
+            if (in.available() == 0) {
                 return null;
             }
+
+            Object object = objectIn.readObject();
 
             var clazz = (Class) object;
 
@@ -162,23 +151,54 @@ public class Saver {
         return null;
     }
 
-    public static void close() {
+    public static void initIn() {
+
         try {
-            if (out != null && fileOut != null && objectIn != null && in != null) {
+            in = new FileInputStream(System.getProperty("user.dir") + "/save/Save.txt");
+            if (in.available() == 0) {
+                in.close();
+                return;
+            }
+            objectIn = new ObjectInputStream(in);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void initOut() {
+        try {
+            fileOut = new FileOutputStream(System.getProperty("user.dir") + "/save/Save.txt", true);
+            out = new ObjectOutputStream(fileOut);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void closeOut() {
+        try {
+            if (out != null && fileOut != null) {
                 out.close();
                 fileOut.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void closeIn() {
+        try {
+            if (objectIn != null && in != null) {
                 objectIn.close();
                 in.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public static void createNewFile() {
         try {
-            fileOut = new FileOutputStream("Save.txt");
+            fileOut = new FileOutputStream(System.getProperty("user.dir") + "/save/Save.txt");
             out = new ObjectOutputStream(fileOut);
         } catch (Exception e) {
             e.printStackTrace();
