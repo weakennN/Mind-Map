@@ -1,9 +1,8 @@
 # Mind Map
 
-Mind map application implemented with JavaFX
+Mind map application implemented with JavaFX for graphical representation of information that convey the relationship
+between individual ideas and concepts.
 
-## How to use
+## What was the biggest problem ?
 
-**right click on node for node menu**
-
-**right click on background for general menu**
+The biggest problem was implementing the save system, it still has a lot of room for improvement.
