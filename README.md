@@ -6,4 +6,4 @@ Mind map application implemented with JavaFX
 
 **right click on node for node menu**
 
-**right click on backgroundSerializer for general menu**
+**right click on background for general menu**
