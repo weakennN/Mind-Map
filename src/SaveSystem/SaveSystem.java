@@ -1,5 +1,6 @@
 package SaveSystem;
 
+import Common.IdGenerator;
 import Common.NodeClicked;
 import Core.App;
 import Nodes.Connection;
@@ -16,7 +17,7 @@ public class SaveSystem {
 
     private App app;
     private AlertBox alertBox;
-    private Map<String, Node> serializedNodes;
+    private Map<Integer, Node> serializedNodes;
 
     public SaveSystem(App app) {
         this.app = app;
@@ -70,6 +71,10 @@ public class SaveSystem {
             this.app.getMindMap().addNode(node);
         }
 
+        if (this.app.getMindMap().getNodes().size() >= 1) {
+            IdGenerator.setCurrentId(this.app.getMindMap().getNodes().get(this.app.getMindMap().getNodes().size() - 1).getUniqueId());
+        }
+
         Saver.closeIn();
 
         this.deserializeConnections();
@@ -77,23 +82,23 @@ public class SaveSystem {
 
     private void deserializeConnections() {
 
-        List<String[]> connectedNodes = new ArrayList<>();
+        List<Tuple<Integer, Integer>> connectedNodes = new ArrayList<>();
 
         List<Node> nodes = this.app.getMindMap().getNodes();
 
         for (Node node : nodes) {
 
-            List<String[]> connectionsIds = node.getConnectionIds();
+            List<Tuple<Integer, Integer>> connectionsIds = node.getConnectionIds();
 
             for (int i = 0; i < connectionsIds.size(); i++) {
-                String[] connectionId = connectionsIds.get(i);
+                Tuple<Integer, Integer> connectionId = connectionsIds.get(i);
 
                 if (!this.isConnected(connectedNodes, connectionId)) {
-                    Connection connection = new Connection(this.serializedNodes.get(connectionId[0]), this.serializedNodes.get(connectionId[1]));
+                    Connection connection = new Connection(this.serializedNodes.get(connectionId.item1), this.serializedNodes.get(connectionId.item2));
                     connection.setScale(Node.currentScale);
-                    Node first = this.serializedNodes.get(connectionId[0]);
-                    Node second = this.serializedNodes.get(connectionId[1]);
-                    connectedNodes.add(new String[]{connectionId[0], connectionId[1]});
+                    Node first = this.serializedNodes.get(connectionId.item1);
+                    Node second = this.serializedNodes.get(connectionId.item2);
+                    connectedNodes.add(new Tuple<>(connectionId.item1, connectionId.item2));
                     first.addConnection(connection);
                     second.addConnection(connection);
 
@@ -108,9 +113,9 @@ public class SaveSystem {
         }
     }
 
-    private boolean isConnected(List<String[]> connectedNodes, String[] newConnection) {
-        for (String[] connected : connectedNodes) {
-            if (connected[0].equals(newConnection[0]) && connected[1].equals(newConnection[1])) {
+    private boolean isConnected(List<Tuple<Integer, Integer>> connectedNodes, Tuple<Integer, Integer> newConnection) {
+        for (Tuple<Integer, Integer> connected : connectedNodes) {
+            if (connected.item1.equals(newConnection.item1) && connected.item2.equals(newConnection.item2)) {
                 return true;
             }
         }

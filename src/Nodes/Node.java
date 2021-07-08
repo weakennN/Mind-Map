@@ -1,17 +1,18 @@
 package Nodes;
 
+import Common.IdGenerator;
 import NodeSkin.Skin.Skin;
 import SaveSystem.Annotaions.ConnectionSerialize;
 import SaveSystem.Annotaions.PrimitiveSerialize;
 import SaveSystem.Annotaions.SkinSerialize;
 import SaveSystem.Annotaions.Vector2Serialize;
+import SaveSystem.Tuple;
 import javafx.scene.layout.Region;
 import mikera.vectorz.Vector2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public abstract class Node extends Region implements Serializable {
 
@@ -28,10 +29,10 @@ public abstract class Node extends Region implements Serializable {
     private double defaultWidth;
     private NodeManager manager;
     @PrimitiveSerialize
-    private String id;
+    private int id;
     @PrimitiveSerialize
     private String menu;
-    private List<String[]> connectionIds;
+    private List<Tuple<Integer, Integer>> connectionIds;
 
     @PrimitiveSerialize
     public static double currentScale = 1;
@@ -52,7 +53,7 @@ public abstract class Node extends Region implements Serializable {
         super.setMinSize(this.size.x, this.size.y);
         this.setScale(currentScale);
         this.connectionIds = new ArrayList<>();
-        this.id = UUID.randomUUID().toString();
+        this.id = IdGenerator.generateId();
     }
 
     public void addConnection(Connection connection) {
@@ -113,15 +114,15 @@ public abstract class Node extends Region implements Serializable {
         currentScale = scale;
     }
 
-    public String getUniqueId() {
+    public int getUniqueId() {
         return this.id;
     }
 
-    public void setConnectionIds(List<String[]> connectionIds) {
+    public void setConnectionIds(List<Tuple<Integer, Integer>> connectionIds) {
         this.connectionIds = connectionIds;
     }
 
-    public List<String[]> getConnectionIds() {
+    public List<Tuple<Integer, Integer>> getConnectionIds() {
         return this.connectionIds;
     }
 

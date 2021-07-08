@@ -154,7 +154,7 @@ public class Saver {
     public static void initIn() {
 
         try {
-            in = new FileInputStream(System.getProperty("user.dir") + "/save/Save.txt");
+            in = new FileInputStream(System.getProperty("user.dir") + "/src/save/Save.txt");
             if (in.available() == 0) {
                 in.close();
                 return;
@@ -167,7 +167,7 @@ public class Saver {
 
     public static void initOut() {
         try {
-            fileOut = new FileOutputStream(System.getProperty("user.dir") + "/save/Save.txt", true);
+            fileOut = new FileOutputStream(System.getProperty("user.dir") + "/src/save/Save.txt", true);
             out = new ObjectOutputStream(fileOut);
         } catch (Exception e) {
             e.printStackTrace();
@@ -198,7 +198,7 @@ public class Saver {
 
     public static void createNewFile() {
         try {
-            fileOut = new FileOutputStream(System.getProperty("user.dir") + "/save/Save.txt");
+            fileOut = new FileOutputStream(System.getProperty("user.dir") + "/src/save/Save.txt");
             out = new ObjectOutputStream(fileOut);
         } catch (Exception e) {
             e.printStackTrace();

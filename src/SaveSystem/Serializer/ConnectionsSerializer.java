@@ -22,10 +22,10 @@ public class ConnectionsSerializer extends Serializer {
         Node node = (Node) object;
 
         List<Connection> connections = node.getConnections();
-        List<String[]> connectionIds = new ArrayList<>();
+        List<Tuple<Integer, Integer>> connectionIds = new ArrayList<>();
 
         for (Connection connection : connections) {
-            connectionIds.add(new String[]{connection.parent().getUniqueId(), connection.getConnected().getUniqueId()});
+            connectionIds.add(new Tuple<>(connection.parent().getUniqueId(), connection.getConnected().getUniqueId()));
         }
 
         items.add(new Tuple<String, Object>(field.getName(), connectionIds));
@@ -35,7 +35,7 @@ public class ConnectionsSerializer extends Serializer {
     public void load(Tuple<String, Object> item, Field field, Object object) {
         try {
             Node node = (Node) object;
-            List<String[]> connectionIds = (List<String[]>) item.item2;
+            List<Tuple<Integer, Integer>> connectionIds = (List<Tuple<Integer, Integer>>) item.item2;
             node.setConnectionIds(connectionIds);
             field.set(object, new ArrayList<>());
         } catch (Exception e) {
