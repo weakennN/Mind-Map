@@ -80,6 +80,7 @@ public class AlertBox extends Region {
             button.setBorder(null);
             button.setFill(Color.valueOf("0795ed"));
             button.setTextFill(Color.WHITE);
+            button.setEffect();
             this.buttonHBox.getChildren().add(button);
         }
 

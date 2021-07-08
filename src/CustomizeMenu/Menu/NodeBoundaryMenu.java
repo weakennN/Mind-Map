@@ -128,6 +128,7 @@ public class NodeBoundaryMenu extends CustomizeMenu {
         this.confirmButton.setTextFill(Color.WHITE);
         this.confirmButton.setFill(Color.valueOf("0795ed"));
         this.confirmButton.setText("Confirm");
+        this.confirmButton.setEffect();
 
         this.cancelButton.setText("Cancel");
         this.cancelButton.setTextFill(Color.valueOf("0795ed"));
